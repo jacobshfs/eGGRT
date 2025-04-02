@@ -1,0 +1,2888 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartOO_v15.1.xsd
+		Current Version Available At : 
+		Description      : Subpart OO - Only for Facilities that Produce F-GHGs and/or N2O
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartOO" type="ghg:SubPartOODetails"/>
+	<xsd:complexType name="SubPartOODetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartOOReportingFormsDetails" type="ghg:SubPartOOReportingFormsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartOOReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProducerDetails" type="ghg:ProducerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ImporterExporterDetails" type="ghg:ImporterExporterDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProducerDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessesDetails" type="ghg:ProcessesDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ProductsDetails" type="ghg:ProductsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OnsiteTransformationDetails" type="ghg:OnsiteTransformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OnsiteDestructionDetails" type="ghg:OnsiteDestructionDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OffsiteTransformationDetails" type="ghg:OffsiteTransformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OffsiteDestructionDetails" type="ghg:OffsiteDestructionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImporterExporterDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImportsDetails" type="ghg:ImportsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ImportDestructionDetails" type="ghg:ImportDestructionDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ImportTransformationDetails" type="ghg:ImportTransformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ExportsDetails" type="ghg:ExportsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProcessesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionTransformationInformationDetails" type="ghg:ProductionTransformationInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionTransformationInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionTransformationInformationRowDetails" type="ghg:ProductionTransformationInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionProcessInformationDetails" type="ghg:ProductionProcessInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionProcessInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionProcessInformationRowDetails" type="ghg:ProductionProcessInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnsiteTransformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OnSiteTransformationProcessDetails" type="ghg:OnSiteTransformationProcessDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnSiteTransformationProcessDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OnSiteTransformationProcessRowDetails" type="ghg:OnSiteTransformationProcessRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnsiteDestructionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacDestroyFGHGInd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OnSiteDestructionInformationDetails" type="ghg:OnSiteDestructionInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnSiteDestructionInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OnSiteDestructionRowDetails" type="ghg:OnSiteDestructionRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffsiteTransformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteTransformationInformationDetails" type="ghg:OffSiteTransformationInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OffSiteTransformationShipmentDetails" type="ghg:OffSiteTransformationShipmentDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteTransformationInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteTransformationInformationRowDetails" type="ghg:OffSiteTransformationInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteTransformationShipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteTransformationShipmentRowDetails" type="ghg:OffSiteTransformationShipmentRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffsiteDestructionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteDestructionInformationDetails" type="ghg:OffSiteDestructionInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OffSiteDestructionShipmentDetails" type="ghg:OffSiteDestructionShipmentDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteDestructionInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteDestructionInformationRowDetails" type="ghg:OffSiteDestructionInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteDestructionShipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OffSiteDestructionShipmentRowDetails" type="ghg:OffSiteDestructionShipmentRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionTransformationInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsUniqueIdProductOrTransformation" type="xsd:string" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DoesProcessProduceFGHGorN2O" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DoesProcessTransform" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProductionProcessInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherGHGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassMeasuredComingOutofProductionProcess" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasMassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursMissingDataProcedure" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReasonMissingDataProcedureWasUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Secondary mass measurement"/>
+						<xsd:enumeration value="Estimate based on a related parameter"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingDataOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassAddedBackIntoProductionProcess" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnSiteTransformationProcessRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherGHGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassTransformedFacility" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassFedIntoTransformationProcess" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasMassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursMissingDataProcedure" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReasonMissingDataProcedureWasUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Secondary mass measurement"/>
+						<xsd:enumeration value="Estimate based on a related parameter"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingDataOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OnSiteDestructionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherGHGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassFGHGDestroyedAtFacility" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassFedIntoDestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasFGHGMassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursMissingDataProcedure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReasonMissingDataProcedureWasUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Secondary mass measurement"/>
+						<xsd:enumeration value="Estimate based on a related parameter"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingDataOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteTransformationInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsFacilityUSbased" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UsStreetAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsState" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ALASKA "/>
+						<xsd:enumeration value="ALABAMA "/>
+						<xsd:enumeration value="AMERICAN SAMOA"/>
+						<xsd:enumeration value="ARKANSAS "/>
+						<xsd:enumeration value="ARIZONA "/>
+						<xsd:enumeration value="CALIFORNIA "/>
+						<xsd:enumeration value="COLORADO "/>
+						<xsd:enumeration value="CONNECTICUT "/>
+						<xsd:enumeration value="DELAWARE "/>
+						<xsd:enumeration value="DISTRICT OF COLUMBIA"/>
+						<xsd:enumeration value="FLORIDA "/>
+						<xsd:enumeration value="GEORGIA "/>
+						<xsd:enumeration value="GUAM"/>
+						<xsd:enumeration value="HAWAII "/>
+						<xsd:enumeration value="IOWA "/>
+						<xsd:enumeration value="IDAHO "/>
+						<xsd:enumeration value="ILLINOIS "/>
+						<xsd:enumeration value="INDIANA "/>
+						<xsd:enumeration value="KANSAS "/>
+						<xsd:enumeration value="KENTUCKY "/>
+						<xsd:enumeration value="LOUISIANA "/>
+						<xsd:enumeration value="MASSACHUSETTS "/>
+						<xsd:enumeration value="MARYLAND "/>
+						<xsd:enumeration value="MAINE "/>
+						<xsd:enumeration value="MICHIGAN "/>
+						<xsd:enumeration value="MINNESOTA "/>
+						<xsd:enumeration value="MISSOURI "/>
+						<xsd:enumeration value="MISSISSIPPI "/>
+						<xsd:enumeration value="MONTANA "/>
+						<xsd:enumeration value="NORTH CAROLINA "/>
+						<xsd:enumeration value="NORTH DAKOTA "/>
+						<xsd:enumeration value="NEBRASKA "/>
+						<xsd:enumeration value="NEW HAMPSHIRE "/>
+						<xsd:enumeration value="NEW JERSEY "/>
+						<xsd:enumeration value="NEW MEXICO "/>
+						<xsd:enumeration value="NEVADA "/>
+						<xsd:enumeration value="NEW YORK "/>
+						<xsd:enumeration value="OHIO "/>
+						<xsd:enumeration value="OKLAHOMA "/>
+						<xsd:enumeration value="OREGON "/>
+						<xsd:enumeration value="PENNSYLVANIA "/>
+						<xsd:enumeration value="PUERTO RICO"/>
+						<xsd:enumeration value="RHODE ISLAND "/>
+						<xsd:enumeration value="SOUTH CAROLINA "/>
+						<xsd:enumeration value="SOUTH DAKOTA "/>
+						<xsd:enumeration value="TENNESSEE "/>
+						<xsd:enumeration value="TEXAS "/>
+						<xsd:enumeration value="UTAH "/>
+						<xsd:enumeration value="VIRGINIA "/>
+						<xsd:enumeration value="VIRGIN ISLANDS"/>
+						<xsd:enumeration value="VERMONT "/>
+						<xsd:enumeration value="WASHINGTON "/>
+						<xsd:enumeration value="WISCONSIN "/>
+						<xsd:enumeration value="WEST VIRGINIA "/>
+						<xsd:enumeration value="WYOMING "/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Us5DigitZipCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Country" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSStreetStreetAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSProvince" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSPostalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSCountry" minOccurs="0">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AFGHANISTAN"/>
+						<xsd:enumeration value="ALBANIA"/>
+						<xsd:enumeration value="ALGERIA"/>
+						<xsd:enumeration value="ANDORRA"/>
+						<xsd:enumeration value="ANGOLA"/>
+						<xsd:enumeration value="ANGUILLA"/>
+						<xsd:enumeration value="ANTARCTICA"/>
+						<xsd:enumeration value="ANTIGUA AND BARBUDA"/>
+						<xsd:enumeration value="ARGENTINA"/>
+						<xsd:enumeration value="ARMENIA"/>
+						<xsd:enumeration value="ARUBA"/>
+						<xsd:enumeration value="ASHMORE AND CARTIER ISLANDS"/>
+						<xsd:enumeration value="AUSTRALIA"/>
+						<xsd:enumeration value="AUSTRIA"/>
+						<xsd:enumeration value="AZERBAIJAN"/>
+						<xsd:enumeration value="BAHAMAS"/>
+						<xsd:enumeration value="BAHRAIN"/>
+						<xsd:enumeration value="BAKER ISLAND"/>
+						<xsd:enumeration value="BANGLADESH"/>
+						<xsd:enumeration value="BARBADOS"/>
+						<xsd:enumeration value="BASSAS DA INDIA"/>
+						<xsd:enumeration value="BELARUS"/>
+						<xsd:enumeration value="BELGIUM"/>
+						<xsd:enumeration value="BELIZE"/>
+						<xsd:enumeration value="BENIN"/>
+						<xsd:enumeration value="BERMUDA"/>
+						<xsd:enumeration value="BHUTAN"/>
+						<xsd:enumeration value="BOLIVIA"/>
+						<xsd:enumeration value="BOSNIA AND HERZEGOVINA"/>
+						<xsd:enumeration value="BOTSWANA"/>
+						<xsd:enumeration value="BOUVET ISLAND"/>
+						<xsd:enumeration value="BRAZIL"/>
+						<xsd:enumeration value="BRITISH INDIAN OCEAN TERRITORY"/>
+						<xsd:enumeration value="BRITISH VIRGIN ISLANDS"/>
+						<xsd:enumeration value="BRUNEI"/>
+						<xsd:enumeration value="BRUNEI DARUSSALAM"/>
+						<xsd:enumeration value="BULGARIA"/>
+						<xsd:enumeration value="BURKINA"/>
+						<xsd:enumeration value="BURKINA FASO"/>
+						<xsd:enumeration value="BURMA"/>
+						<xsd:enumeration value="BURUNDI"/>
+						<xsd:enumeration value="CABO VERDE"/>
+						<xsd:enumeration value="CAMBODIA"/>
+						<xsd:enumeration value="CAMEROON"/>
+						<xsd:enumeration value="CANADA"/>
+						<xsd:enumeration value="CAPE VERDE"/>
+						<xsd:enumeration value="CAYMAN ISLANDS"/>
+						<xsd:enumeration value="CENTRAL AFRICAN REPUBLIC"/>
+						<xsd:enumeration value="CHAD"/>
+						<xsd:enumeration value="CHANGES"/>
+						<xsd:enumeration value="CHILE"/>
+						<xsd:enumeration value="CHINA"/>
+						<xsd:enumeration value="CHRISTMAS ISLAND"/>
+						<xsd:enumeration value="CLIPPERTON ISLAND"/>
+						<xsd:enumeration value="COCOS (KEELING) ISLANDS"/>
+						<xsd:enumeration value="COLOMBIA"/>
+						<xsd:enumeration value="COMOROS"/>
+						<xsd:enumeration value="CONGO"/>
+						<xsd:enumeration value="CONGO (BRAZZAVILLE)"/>
+						<xsd:enumeration value="COOK ISLANDS"/>
+						<xsd:enumeration value="CORAL SEA ISLANDS"/>
+						<xsd:enumeration value="COSTA RICA"/>
+						<xsd:enumeration value="COTE D'IVOIRE"/>
+						<xsd:enumeration value="CROATIA"/>
+						<xsd:enumeration value="CUBA"/>
+						<xsd:enumeration value="CYPRUS"/>
+						<xsd:enumeration value="CZECH REPUBLIC"/>
+						<xsd:enumeration value="DEMOCRATIC REPUBLIC OF THE CONGO"/>
+						<xsd:enumeration value="DENMARK"/>
+						<xsd:enumeration value="DJIBOUTI"/>
+						<xsd:enumeration value="DOMINICA"/>
+						<xsd:enumeration value="DOMINICAN REPUBLIC"/>
+						<xsd:enumeration value="ECUADOR"/>
+						<xsd:enumeration value="EGYPT"/>
+						<xsd:enumeration value="EL SALVADOR"/>
+						<xsd:enumeration value="EQUATORIAL GUINEA"/>
+						<xsd:enumeration value="ERITREA"/>
+						<xsd:enumeration value="ESTONIA"/>
+						<xsd:enumeration value="ESWATINI"/>
+						<xsd:enumeration value="ETHIOPIA"/>
+						<xsd:enumeration value="EUROPA ISLAND"/>
+						<xsd:enumeration value="FALKLAND ISLANDS (ISLAS MALVINAS)"/>
+						<xsd:enumeration value="FAROE ISLANDS"/>
+						<xsd:enumeration value="FEDERATED STATES OF MICRONESIA"/>
+						<xsd:enumeration value="FIJI"/>
+						<xsd:enumeration value="FINLAND"/>
+						<xsd:enumeration value="FRANCE"/>
+						<xsd:enumeration value="FRENCH GUIANA"/>
+						<xsd:enumeration value="FRENCH POLYNESIA"/>
+						<xsd:enumeration value="FRENCH SOUTHERN AND ANTARCTIC LANDS"/>
+						<xsd:enumeration value="GABON"/>
+						<xsd:enumeration value="GAMBIA"/>
+						<xsd:enumeration value="GAMBIA, THE"/>
+						<xsd:enumeration value="GAZA STRIP"/>
+						<xsd:enumeration value="GEORGIA"/>
+						<xsd:enumeration value="GERMANY"/>
+						<xsd:enumeration value="GHANA"/>
+						<xsd:enumeration value="GIBRALTAR"/>
+						<xsd:enumeration value="GLORIOSO ISLANDS"/>
+						<xsd:enumeration value="GREECE"/>
+						<xsd:enumeration value="GREENLAND"/>
+						<xsd:enumeration value="GRENADA"/>
+						<xsd:enumeration value="GUADELOUPE"/>
+						<xsd:enumeration value="GUATEMALA"/>
+						<xsd:enumeration value="GUERNSEY"/>
+						<xsd:enumeration value="GUINEA"/>
+						<xsd:enumeration value="GUINEA-BISSAU"/>
+						<xsd:enumeration value="GUYANA"/>
+						<xsd:enumeration value="HAITI"/>
+						<xsd:enumeration value="HEARD ISLAND AND MCDONALD ISLANDS"/>
+						<xsd:enumeration value="HOLY SEE"/>
+						<xsd:enumeration value="HONDURAS"/>
+						<xsd:enumeration value="HONG KONG"/>
+						<xsd:enumeration value="HOWLAND ISLAND"/>
+						<xsd:enumeration value="HUNGARY"/>
+						<xsd:enumeration value="ICELAND"/>
+						<xsd:enumeration value="INDIA"/>
+						<xsd:enumeration value="INDONESIA"/>
+						<xsd:enumeration value="IRAN"/>
+						<xsd:enumeration value="IRAQ"/>
+						<xsd:enumeration value="IRELAND"/>
+						<xsd:enumeration value="ISRAEL"/>
+						<xsd:enumeration value="ITALY"/>
+						<xsd:enumeration value="JAMAICA"/>
+						<xsd:enumeration value="JAN MAYEN"/>
+						<xsd:enumeration value="JAPAN"/>
+						<xsd:enumeration value="JARVIS ISLAND"/>
+						<xsd:enumeration value="JERSEY"/>
+						<xsd:enumeration value="JOHNSTON ATOLL"/>
+						<xsd:enumeration value="JORDAN"/>
+						<xsd:enumeration value="JUAN DE NOVA ISLAND"/>
+						<xsd:enumeration value="KAZAKHSTAN"/>
+						<xsd:enumeration value="KENYA"/>
+						<xsd:enumeration value="KINGMAN REEF"/>
+						<xsd:enumeration value="KIRIBATI"/>
+						<xsd:enumeration value="KOREA, REPUBLIC OF"/>
+						<xsd:enumeration value="KUWAIT"/>
+						<xsd:enumeration value="KYRGYZSTAN"/>
+						<xsd:enumeration value="LAO PEOPLE'S DEMOCRATIC REPUBLIC"/>
+						<xsd:enumeration value="LAOS"/>
+						<xsd:enumeration value="LATVIA"/>
+						<xsd:enumeration value="LEBANON"/>
+						<xsd:enumeration value="LESOTHO"/>
+						<xsd:enumeration value="LIBERIA"/>
+						<xsd:enumeration value="LIBYA"/>
+						<xsd:enumeration value="LIECHTENSTEIN"/>
+						<xsd:enumeration value="LITHUANIA"/>
+						<xsd:enumeration value="LUXEMBOURG"/>
+						<xsd:enumeration value="MACAU"/>
+						<xsd:enumeration value="MACEDONIA"/>
+						<xsd:enumeration value="MADAGASCAR"/>
+						<xsd:enumeration value="MALAWI"/>
+						<xsd:enumeration value="MALAYSIA"/>
+						<xsd:enumeration value="MALDIVES"/>
+						<xsd:enumeration value="MALI"/>
+						<xsd:enumeration value="MALTA"/>
+						<xsd:enumeration value="MAN, ISLE OF"/>
+						<xsd:enumeration value="MARSHALL ISLANDS"/>
+						<xsd:enumeration value="MARTINIQUE"/>
+						<xsd:enumeration value="MAURITANIA"/>
+						<xsd:enumeration value="MAURITIUS"/>
+						<xsd:enumeration value="MAYOTTE"/>
+						<xsd:enumeration value="MEXICO"/>
+						<xsd:enumeration value="MICRONESIA"/>
+						<xsd:enumeration value="MIDWAY ISLANDS"/>
+						<xsd:enumeration value="MOLDOVA"/>
+						<xsd:enumeration value="MONACO"/>
+						<xsd:enumeration value="MONGOLIA"/>
+						<xsd:enumeration value="MONTENEGRO"/>
+						<xsd:enumeration value="MONTSERRAT"/>
+						<xsd:enumeration value="MOROCCO"/>
+						<xsd:enumeration value="MOZAMBIQUE"/>
+						<xsd:enumeration value="MYANMAR"/>
+						<xsd:enumeration value="NAMIBIA"/>
+						<xsd:enumeration value="NAURU"/>
+						<xsd:enumeration value="NAVASSA ISLAND"/>
+						<xsd:enumeration value="NEPAL"/>
+						<xsd:enumeration value="NETHERLANDS"/>
+						<xsd:enumeration value="NETHERLANDS ANTILLES"/>
+						<xsd:enumeration value="NEW CALEDONIA"/>
+						<xsd:enumeration value="NEW ZEALAND"/>
+						<xsd:enumeration value="NICARAGUA"/>
+						<xsd:enumeration value="NIGER"/>
+						<xsd:enumeration value="NIGERIA"/>
+						<xsd:enumeration value="NIUE"/>
+						<xsd:enumeration value="NORFOLK ISLAND"/>
+						<xsd:enumeration value="NORTH KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="NORTH MACEDONIA"/>
+						<xsd:enumeration value="NORTHERN MARIANA ISLANDS"/>
+						<xsd:enumeration value="NORWAY"/>
+						<xsd:enumeration value="OMAN"/>
+						<xsd:enumeration value="PAKISTAN"/>
+						<xsd:enumeration value="PALAU"/>
+						<xsd:enumeration value="PALESTINE STATE"/>
+						<xsd:enumeration value="PALMYRA ATOLL"/>
+						<xsd:enumeration value="PANAMA"/>
+						<xsd:enumeration value="PAPUA NEW GUINEA"/>
+						<xsd:enumeration value="PARACEL ISLANDS"/>
+						<xsd:enumeration value="PARAGUAY"/>
+						<xsd:enumeration value="PERU"/>
+						<xsd:enumeration value="PHILIPPINES"/>
+						<xsd:enumeration value="PITCAIRN ISLANDS"/>
+						<xsd:enumeration value="POLAND"/>
+						<xsd:enumeration value="PORTUGAL"/>
+						<xsd:enumeration value="QATAR"/>
+						<xsd:enumeration value="REUNION"/>
+						<xsd:enumeration value="ROMANIA"/>
+						<xsd:enumeration value="RUSSIA"/>
+						<xsd:enumeration value="RUSSIAN FEDERATION"/>
+						<xsd:enumeration value="RWANDA"/>
+						<xsd:enumeration value="SAMOA"/>
+						<xsd:enumeration value="SAN MARINO"/>
+						<xsd:enumeration value="SAINT KITTS AND NEVIS"/>
+						<xsd:enumeration value="SAINT LUCIA"/>
+						<xsd:enumeration value="SAINT VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SAO TOME AND PRINCIPE"/>
+						<xsd:enumeration value="SAUDI ARABIA"/>
+						<xsd:enumeration value="SENEGAL"/>
+						<xsd:enumeration value="SERBIA"/>
+						<xsd:enumeration value="SEYCHELLES"/>
+						<xsd:enumeration value="SIERRA LEONE"/>
+						<xsd:enumeration value="SINGAPORE"/>
+						<xsd:enumeration value="SLOVAKIA"/>
+						<xsd:enumeration value="SLOVENIA"/>
+						<xsd:enumeration value="SOLOMON ISLANDS"/>
+						<xsd:enumeration value="SOMALIA"/>
+						<xsd:enumeration value="SOUTH AFRICA"/>
+						<xsd:enumeration value="SOUTH GEORGIA AND THE SOUTH SANDWICH"/>
+						<xsd:enumeration value="SOUTH KOREA (REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="SOUTH SUDAN"/>
+						<xsd:enumeration value="SPAIN"/>
+						<xsd:enumeration value="SPRATLY ISLANDS"/>
+						<xsd:enumeration value="SRI LANKA"/>
+						<xsd:enumeration value="ST. HELENA"/>
+						<xsd:enumeration value="ST. KITTS AND NEVIS"/>
+						<xsd:enumeration value="ST. LUCIA"/>
+						<xsd:enumeration value="ST. PIERRE AND MIQUELON"/>
+						<xsd:enumeration value="ST. VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SUDAN"/>
+						<xsd:enumeration value="SURINAME"/>
+						<xsd:enumeration value="SVALBARD"/>
+						<xsd:enumeration value="SWAZILAND"/>
+						<xsd:enumeration value="SWEDEN"/>
+						<xsd:enumeration value="SWITZERLAND"/>
+						<xsd:enumeration value="SYRIA"/>
+						<xsd:enumeration value="SYRIA (SYRIAN ARAB REPUBLIC)"/>
+						<xsd:enumeration value="TAHITI"/>
+						<xsd:enumeration value="TAIWAN"/>
+						<xsd:enumeration value="TAJIKISTAN"/>
+						<xsd:enumeration value="TANZANIA"/>
+						<xsd:enumeration value="THAILAND"/>
+						<xsd:enumeration value="TIMOR-LESTE"/>
+						<xsd:enumeration value="TOGO"/>
+						<xsd:enumeration value="TOKELAU"/>
+						<xsd:enumeration value="TONGA"/>
+						<xsd:enumeration value="TRINIDAD AND TOBAGO"/>
+						<xsd:enumeration value="TROMELIN ISLAND"/>
+						<xsd:enumeration value="TRUST TERRITORY OF THE PACIFIC ISLANDS (PALAU)"/>
+						<xsd:enumeration value="TUNISIA"/>
+						<xsd:enumeration value="TURKEY"/>
+						<xsd:enumeration value="TURKMENISTAN"/>
+						<xsd:enumeration value="TURKS AND CAICOS ISLANDS"/>
+						<xsd:enumeration value="TUVALU"/>
+						<xsd:enumeration value="UGANDA"/>
+						<xsd:enumeration value="UKRAINE"/>
+						<xsd:enumeration value="UNITED ARAB EMIRATES"/>
+						<xsd:enumeration value="UNITED KINGDOM"/>
+						<xsd:enumeration value="UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND"/>
+						<xsd:enumeration value="URUGUAY"/>
+						<xsd:enumeration value="UZBEKISTAN"/>
+						<xsd:enumeration value="VANUATU"/>
+						<xsd:enumeration value="VENEZUELA"/>
+						<xsd:enumeration value="VIET NAM"/>
+						<xsd:enumeration value="VIETNAM"/>
+						<xsd:enumeration value="WALLIS AND FUTUNA"/>
+						<xsd:enumeration value="WEST BANK"/>
+						<xsd:enumeration value="WESTERN SAHARA"/>
+						<xsd:enumeration value="WESTERN SAMOA"/>
+						<xsd:enumeration value="YEMEN"/>
+						<xsd:enumeration value="ZAIRE"/>
+						<xsd:enumeration value="ZAMBIA"/>
+						<xsd:enumeration value="ZIMBABWE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteTransformationShipmentRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(14)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherGHGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassFGHGorN2OSentForTransformation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasMassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursMissingDataProcedure" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReasonMissingDataProcedureWasUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Secondary mass measurement"/>
+						<xsd:enumeration value="Estimate based on a related parameter"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingDataOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteDestructionInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsFacilityUSbased" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UsStreetAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsState" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ALASKA "/>
+						<xsd:enumeration value="ALABAMA "/>
+						<xsd:enumeration value="AMERICAN SAMOA"/>
+						<xsd:enumeration value="ARKANSAS "/>
+						<xsd:enumeration value="ARIZONA "/>
+						<xsd:enumeration value="CALIFORNIA "/>
+						<xsd:enumeration value="COLORADO "/>
+						<xsd:enumeration value="CONNECTICUT "/>
+						<xsd:enumeration value="DELAWARE "/>
+						<xsd:enumeration value="DISTRICT OF COLUMBIA"/>
+						<xsd:enumeration value="FLORIDA "/>
+						<xsd:enumeration value="GEORGIA "/>
+						<xsd:enumeration value="GUAM"/>
+						<xsd:enumeration value="HAWAII "/>
+						<xsd:enumeration value="IOWA "/>
+						<xsd:enumeration value="IDAHO "/>
+						<xsd:enumeration value="ILLINOIS "/>
+						<xsd:enumeration value="INDIANA "/>
+						<xsd:enumeration value="KANSAS "/>
+						<xsd:enumeration value="KENTUCKY "/>
+						<xsd:enumeration value="LOUISIANA "/>
+						<xsd:enumeration value="MASSACHUSETTS "/>
+						<xsd:enumeration value="MARYLAND "/>
+						<xsd:enumeration value="MAINE "/>
+						<xsd:enumeration value="MICHIGAN "/>
+						<xsd:enumeration value="MINNESOTA "/>
+						<xsd:enumeration value="MISSOURI "/>
+						<xsd:enumeration value="MISSISSIPPI "/>
+						<xsd:enumeration value="MONTANA "/>
+						<xsd:enumeration value="NORTH CAROLINA "/>
+						<xsd:enumeration value="NORTH DAKOTA "/>
+						<xsd:enumeration value="NEBRASKA "/>
+						<xsd:enumeration value="NEW HAMPSHIRE "/>
+						<xsd:enumeration value="NEW JERSEY "/>
+						<xsd:enumeration value="NEW MEXICO "/>
+						<xsd:enumeration value="NEVADA "/>
+						<xsd:enumeration value="NEW YORK "/>
+						<xsd:enumeration value="OHIO "/>
+						<xsd:enumeration value="OKLAHOMA "/>
+						<xsd:enumeration value="OREGON "/>
+						<xsd:enumeration value="PENNSYLVANIA "/>
+						<xsd:enumeration value="PUERTO RICO"/>
+						<xsd:enumeration value="RHODE ISLAND "/>
+						<xsd:enumeration value="SOUTH CAROLINA "/>
+						<xsd:enumeration value="SOUTH DAKOTA "/>
+						<xsd:enumeration value="TENNESSEE "/>
+						<xsd:enumeration value="TEXAS "/>
+						<xsd:enumeration value="UTAH "/>
+						<xsd:enumeration value="VIRGINIA "/>
+						<xsd:enumeration value="VIRGIN ISLANDS"/>
+						<xsd:enumeration value="VERMONT "/>
+						<xsd:enumeration value="WASHINGTON "/>
+						<xsd:enumeration value="WISCONSIN "/>
+						<xsd:enumeration value="WEST VIRGINIA "/>
+						<xsd:enumeration value="WYOMING "/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Us5DigitZipCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Country" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSStreetStreetAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSProvince" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSPostalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NonUSCountry" minOccurs="0">
+			<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AFGHANISTAN"/>
+						<xsd:enumeration value="ALBANIA"/>
+						<xsd:enumeration value="ALGERIA"/>
+						<xsd:enumeration value="ANDORRA"/>
+						<xsd:enumeration value="ANGOLA"/>
+						<xsd:enumeration value="ANGUILLA"/>
+						<xsd:enumeration value="ANTARCTICA"/>
+						<xsd:enumeration value="ANTIGUA AND BARBUDA"/>
+						<xsd:enumeration value="ARGENTINA"/>
+						<xsd:enumeration value="ARMENIA"/>
+						<xsd:enumeration value="ARUBA"/>
+						<xsd:enumeration value="ASHMORE AND CARTIER ISLANDS"/>
+						<xsd:enumeration value="AUSTRALIA"/>
+						<xsd:enumeration value="AUSTRIA"/>
+						<xsd:enumeration value="AZERBAIJAN"/>
+						<xsd:enumeration value="BAHAMAS"/>
+						<xsd:enumeration value="BAHRAIN"/>
+						<xsd:enumeration value="BAKER ISLAND"/>
+						<xsd:enumeration value="BANGLADESH"/>
+						<xsd:enumeration value="BARBADOS"/>
+						<xsd:enumeration value="BASSAS DA INDIA"/>
+						<xsd:enumeration value="BELARUS"/>
+						<xsd:enumeration value="BELGIUM"/>
+						<xsd:enumeration value="BELIZE"/>
+						<xsd:enumeration value="BENIN"/>
+						<xsd:enumeration value="BERMUDA"/>
+						<xsd:enumeration value="BHUTAN"/>
+						<xsd:enumeration value="BOLIVIA"/>
+						<xsd:enumeration value="BOSNIA AND HERZEGOVINA"/>
+						<xsd:enumeration value="BOTSWANA"/>
+						<xsd:enumeration value="BOUVET ISLAND"/>
+						<xsd:enumeration value="BRAZIL"/>
+						<xsd:enumeration value="BRITISH INDIAN OCEAN TERRITORY"/>
+						<xsd:enumeration value="BRITISH VIRGIN ISLANDS"/>
+						<xsd:enumeration value="BRUNEI"/>
+						<xsd:enumeration value="BRUNEI DARUSSALAM"/>
+						<xsd:enumeration value="BULGARIA"/>
+						<xsd:enumeration value="BURKINA"/>
+						<xsd:enumeration value="BURKINA FASO"/>
+						<xsd:enumeration value="BURMA"/>
+						<xsd:enumeration value="BURUNDI"/>
+						<xsd:enumeration value="CABO VERDE"/>
+						<xsd:enumeration value="CAMBODIA"/>
+						<xsd:enumeration value="CAMEROON"/>
+						<xsd:enumeration value="CANADA"/>
+						<xsd:enumeration value="CAPE VERDE"/>
+						<xsd:enumeration value="CAYMAN ISLANDS"/>
+						<xsd:enumeration value="CENTRAL AFRICAN REPUBLIC"/>
+						<xsd:enumeration value="CHAD"/>
+						<xsd:enumeration value="CHANGES"/>
+						<xsd:enumeration value="CHILE"/>
+						<xsd:enumeration value="CHINA"/>
+						<xsd:enumeration value="CHRISTMAS ISLAND"/>
+						<xsd:enumeration value="CLIPPERTON ISLAND"/>
+						<xsd:enumeration value="COCOS (KEELING) ISLANDS"/>
+						<xsd:enumeration value="COLOMBIA"/>
+						<xsd:enumeration value="COMOROS"/>
+						<xsd:enumeration value="CONGO"/>
+						<xsd:enumeration value="CONGO (BRAZZAVILLE)"/>
+						<xsd:enumeration value="COOK ISLANDS"/>
+						<xsd:enumeration value="CORAL SEA ISLANDS"/>
+						<xsd:enumeration value="COSTA RICA"/>
+						<xsd:enumeration value="COTE D'IVOIRE"/>
+						<xsd:enumeration value="CROATIA"/>
+						<xsd:enumeration value="CUBA"/>
+						<xsd:enumeration value="CYPRUS"/>
+						<xsd:enumeration value="CZECH REPUBLIC"/>
+						<xsd:enumeration value="DEMOCRATIC REPUBLIC OF THE CONGO"/>
+						<xsd:enumeration value="DENMARK"/>
+						<xsd:enumeration value="DJIBOUTI"/>
+						<xsd:enumeration value="DOMINICA"/>
+						<xsd:enumeration value="DOMINICAN REPUBLIC"/>
+						<xsd:enumeration value="ECUADOR"/>
+						<xsd:enumeration value="EGYPT"/>
+						<xsd:enumeration value="EL SALVADOR"/>
+						<xsd:enumeration value="EQUATORIAL GUINEA"/>
+						<xsd:enumeration value="ERITREA"/>
+						<xsd:enumeration value="ESTONIA"/>
+						<xsd:enumeration value="ESWATINI"/>
+						<xsd:enumeration value="ETHIOPIA"/>
+						<xsd:enumeration value="EUROPA ISLAND"/>
+						<xsd:enumeration value="FALKLAND ISLANDS (ISLAS MALVINAS)"/>
+						<xsd:enumeration value="FAROE ISLANDS"/>
+						<xsd:enumeration value="FEDERATED STATES OF MICRONESIA"/>
+						<xsd:enumeration value="FIJI"/>
+						<xsd:enumeration value="FINLAND"/>
+						<xsd:enumeration value="FRANCE"/>
+						<xsd:enumeration value="FRENCH GUIANA"/>
+						<xsd:enumeration value="FRENCH POLYNESIA"/>
+						<xsd:enumeration value="FRENCH SOUTHERN AND ANTARCTIC LANDS"/>
+						<xsd:enumeration value="GABON"/>
+						<xsd:enumeration value="GAMBIA"/>
+						<xsd:enumeration value="GAMBIA, THE"/>
+						<xsd:enumeration value="GAZA STRIP"/>
+						<xsd:enumeration value="GEORGIA"/>
+						<xsd:enumeration value="GERMANY"/>
+						<xsd:enumeration value="GHANA"/>
+						<xsd:enumeration value="GIBRALTAR"/>
+						<xsd:enumeration value="GLORIOSO ISLANDS"/>
+						<xsd:enumeration value="GREECE"/>
+						<xsd:enumeration value="GREENLAND"/>
+						<xsd:enumeration value="GRENADA"/>
+						<xsd:enumeration value="GUADELOUPE"/>
+						<xsd:enumeration value="GUATEMALA"/>
+						<xsd:enumeration value="GUERNSEY"/>
+						<xsd:enumeration value="GUINEA"/>
+						<xsd:enumeration value="GUINEA-BISSAU"/>
+						<xsd:enumeration value="GUYANA"/>
+						<xsd:enumeration value="HAITI"/>
+						<xsd:enumeration value="HEARD ISLAND AND MCDONALD ISLANDS"/>
+						<xsd:enumeration value="HOLY SEE"/>
+						<xsd:enumeration value="HONDURAS"/>
+						<xsd:enumeration value="HONG KONG"/>
+						<xsd:enumeration value="HOWLAND ISLAND"/>
+						<xsd:enumeration value="HUNGARY"/>
+						<xsd:enumeration value="ICELAND"/>
+						<xsd:enumeration value="INDIA"/>
+						<xsd:enumeration value="INDONESIA"/>
+						<xsd:enumeration value="IRAN"/>
+						<xsd:enumeration value="IRAQ"/>
+						<xsd:enumeration value="IRELAND"/>
+						<xsd:enumeration value="ISRAEL"/>
+						<xsd:enumeration value="ITALY"/>
+						<xsd:enumeration value="JAMAICA"/>
+						<xsd:enumeration value="JAN MAYEN"/>
+						<xsd:enumeration value="JAPAN"/>
+						<xsd:enumeration value="JARVIS ISLAND"/>
+						<xsd:enumeration value="JERSEY"/>
+						<xsd:enumeration value="JOHNSTON ATOLL"/>
+						<xsd:enumeration value="JORDAN"/>
+						<xsd:enumeration value="JUAN DE NOVA ISLAND"/>
+						<xsd:enumeration value="KAZAKHSTAN"/>
+						<xsd:enumeration value="KENYA"/>
+						<xsd:enumeration value="KINGMAN REEF"/>
+						<xsd:enumeration value="KIRIBATI"/>
+						<xsd:enumeration value="KOREA, REPUBLIC OF"/>
+						<xsd:enumeration value="KUWAIT"/>
+						<xsd:enumeration value="KYRGYZSTAN"/>
+						<xsd:enumeration value="LAO PEOPLE'S DEMOCRATIC REPUBLIC"/>
+						<xsd:enumeration value="LAOS"/>
+						<xsd:enumeration value="LATVIA"/>
+						<xsd:enumeration value="LEBANON"/>
+						<xsd:enumeration value="LESOTHO"/>
+						<xsd:enumeration value="LIBERIA"/>
+						<xsd:enumeration value="LIBYA"/>
+						<xsd:enumeration value="LIECHTENSTEIN"/>
+						<xsd:enumeration value="LITHUANIA"/>
+						<xsd:enumeration value="LUXEMBOURG"/>
+						<xsd:enumeration value="MACAU"/>
+						<xsd:enumeration value="MACEDONIA"/>
+						<xsd:enumeration value="MADAGASCAR"/>
+						<xsd:enumeration value="MALAWI"/>
+						<xsd:enumeration value="MALAYSIA"/>
+						<xsd:enumeration value="MALDIVES"/>
+						<xsd:enumeration value="MALI"/>
+						<xsd:enumeration value="MALTA"/>
+						<xsd:enumeration value="MAN, ISLE OF"/>
+						<xsd:enumeration value="MARSHALL ISLANDS"/>
+						<xsd:enumeration value="MARTINIQUE"/>
+						<xsd:enumeration value="MAURITANIA"/>
+						<xsd:enumeration value="MAURITIUS"/>
+						<xsd:enumeration value="MAYOTTE"/>
+						<xsd:enumeration value="MEXICO"/>
+						<xsd:enumeration value="MICRONESIA"/>
+						<xsd:enumeration value="MIDWAY ISLANDS"/>
+						<xsd:enumeration value="MOLDOVA"/>
+						<xsd:enumeration value="MONACO"/>
+						<xsd:enumeration value="MONGOLIA"/>
+						<xsd:enumeration value="MONTENEGRO"/>
+						<xsd:enumeration value="MONTSERRAT"/>
+						<xsd:enumeration value="MOROCCO"/>
+						<xsd:enumeration value="MOZAMBIQUE"/>
+						<xsd:enumeration value="MYANMAR"/>
+						<xsd:enumeration value="NAMIBIA"/>
+						<xsd:enumeration value="NAURU"/>
+						<xsd:enumeration value="NAVASSA ISLAND"/>
+						<xsd:enumeration value="NEPAL"/>
+						<xsd:enumeration value="NETHERLANDS"/>
+						<xsd:enumeration value="NETHERLANDS ANTILLES"/>
+						<xsd:enumeration value="NEW CALEDONIA"/>
+						<xsd:enumeration value="NEW ZEALAND"/>
+						<xsd:enumeration value="NICARAGUA"/>
+						<xsd:enumeration value="NIGER"/>
+						<xsd:enumeration value="NIGERIA"/>
+						<xsd:enumeration value="NIUE"/>
+						<xsd:enumeration value="NORFOLK ISLAND"/>
+						<xsd:enumeration value="NORTH KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="NORTH MACEDONIA"/>
+						<xsd:enumeration value="NORTHERN MARIANA ISLANDS"/>
+						<xsd:enumeration value="NORWAY"/>
+						<xsd:enumeration value="OMAN"/>
+						<xsd:enumeration value="PAKISTAN"/>
+						<xsd:enumeration value="PALAU"/>
+						<xsd:enumeration value="PALESTINE STATE"/>
+						<xsd:enumeration value="PALMYRA ATOLL"/>
+						<xsd:enumeration value="PANAMA"/>
+						<xsd:enumeration value="PAPUA NEW GUINEA"/>
+						<xsd:enumeration value="PARACEL ISLANDS"/>
+						<xsd:enumeration value="PARAGUAY"/>
+						<xsd:enumeration value="PERU"/>
+						<xsd:enumeration value="PHILIPPINES"/>
+						<xsd:enumeration value="PITCAIRN ISLANDS"/>
+						<xsd:enumeration value="POLAND"/>
+						<xsd:enumeration value="PORTUGAL"/>
+						<xsd:enumeration value="QATAR"/>
+						<xsd:enumeration value="REUNION"/>
+						<xsd:enumeration value="ROMANIA"/>
+						<xsd:enumeration value="RUSSIA"/>
+						<xsd:enumeration value="RUSSIAN FEDERATION"/>
+						<xsd:enumeration value="RWANDA"/>
+						<xsd:enumeration value="SAMOA"/>
+						<xsd:enumeration value="SAN MARINO"/>
+						<xsd:enumeration value="SAINT KITTS AND NEVIS"/>
+						<xsd:enumeration value="SAINT LUCIA"/>
+						<xsd:enumeration value="SAINT VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SAO TOME AND PRINCIPE"/>
+						<xsd:enumeration value="SAUDI ARABIA"/>
+						<xsd:enumeration value="SENEGAL"/>
+						<xsd:enumeration value="SERBIA"/>
+						<xsd:enumeration value="SEYCHELLES"/>
+						<xsd:enumeration value="SIERRA LEONE"/>
+						<xsd:enumeration value="SINGAPORE"/>
+						<xsd:enumeration value="SLOVAKIA"/>
+						<xsd:enumeration value="SLOVENIA"/>
+						<xsd:enumeration value="SOLOMON ISLANDS"/>
+						<xsd:enumeration value="SOMALIA"/>
+						<xsd:enumeration value="SOUTH AFRICA"/>
+						<xsd:enumeration value="SOUTH GEORGIA AND THE SOUTH SANDWICH"/>
+						<xsd:enumeration value="SOUTH KOREA (REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="SOUTH SUDAN"/>
+						<xsd:enumeration value="SPAIN"/>
+						<xsd:enumeration value="SPRATLY ISLANDS"/>
+						<xsd:enumeration value="SRI LANKA"/>
+						<xsd:enumeration value="ST. HELENA"/>
+						<xsd:enumeration value="ST. KITTS AND NEVIS"/>
+						<xsd:enumeration value="ST. LUCIA"/>
+						<xsd:enumeration value="ST. PIERRE AND MIQUELON"/>
+						<xsd:enumeration value="ST. VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SUDAN"/>
+						<xsd:enumeration value="SURINAME"/>
+						<xsd:enumeration value="SVALBARD"/>
+						<xsd:enumeration value="SWAZILAND"/>
+						<xsd:enumeration value="SWEDEN"/>
+						<xsd:enumeration value="SWITZERLAND"/>
+						<xsd:enumeration value="SYRIA"/>
+						<xsd:enumeration value="SYRIA (SYRIAN ARAB REPUBLIC)"/>
+						<xsd:enumeration value="TAHITI"/>
+						<xsd:enumeration value="TAIWAN"/>
+						<xsd:enumeration value="TAJIKISTAN"/>
+						<xsd:enumeration value="TANZANIA"/>
+						<xsd:enumeration value="THAILAND"/>
+						<xsd:enumeration value="TIMOR-LESTE"/>
+						<xsd:enumeration value="TOGO"/>
+						<xsd:enumeration value="TOKELAU"/>
+						<xsd:enumeration value="TONGA"/>
+						<xsd:enumeration value="TRINIDAD AND TOBAGO"/>
+						<xsd:enumeration value="TROMELIN ISLAND"/>
+						<xsd:enumeration value="TRUST TERRITORY OF THE PACIFIC ISLANDS (PALAU)"/>
+						<xsd:enumeration value="TUNISIA"/>
+						<xsd:enumeration value="TURKEY"/>
+						<xsd:enumeration value="TURKMENISTAN"/>
+						<xsd:enumeration value="TURKS AND CAICOS ISLANDS"/>
+						<xsd:enumeration value="TUVALU"/>
+						<xsd:enumeration value="UGANDA"/>
+						<xsd:enumeration value="UKRAINE"/>
+						<xsd:enumeration value="UNITED ARAB EMIRATES"/>
+						<xsd:enumeration value="UNITED KINGDOM"/>
+						<xsd:enumeration value="UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND"/>
+						<xsd:enumeration value="URUGUAY"/>
+						<xsd:enumeration value="UZBEKISTAN"/>
+						<xsd:enumeration value="VANUATU"/>
+						<xsd:enumeration value="VENEZUELA"/>
+						<xsd:enumeration value="VIET NAM"/>
+						<xsd:enumeration value="VIETNAM"/>
+						<xsd:enumeration value="WALLIS AND FUTUNA"/>
+						<xsd:enumeration value="WEST BANK"/>
+						<xsd:enumeration value="WESTERN SAHARA"/>
+						<xsd:enumeration value="WESTERN SAMOA"/>
+						<xsd:enumeration value="YEMEN"/>
+						<xsd:enumeration value="ZAIRE"/>
+						<xsd:enumeration value="ZAMBIA"/>
+						<xsd:enumeration value="ZIMBABWE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OffSiteDestructionShipmentRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(15)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherGHGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuantityFGHGSentFoDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasFGHGRemovedAsBYPRODUCTorOTHERWASTE" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(6) and (a)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasMassDeterminedUsingMissingDataProcedure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassDeterminedUsingMissingDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursMissingDataProcedure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ReasonMissingDataProcedureWasUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEstimateMissingDataOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(a)(16)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--	Importer and Exporter details	-->
+	<xsd:complexType name="ImportsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImporterName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImporterNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DoesImporterDestroyFGHG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DoesImporterTransForDestruction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DoesImporterTransForTransformation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GhgImportInformationDetails" type="ghg:GhgImportInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GhgImportInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GhgImportInformationRowDetails" type="ghg:GhgImportInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportDestructionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImportDestructionInformationDetails" type="ghg:ImportDestructionInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportDestructionInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImportDestructionInformationRowDetails" type="ghg:ImportDestructionInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportTransformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImportTransformationInformationDetails" type="ghg:ImportTransformationInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportTransformationInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ImportTransformationInformationRowDetails" type="ghg:ImportTransformationInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExportsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ExporterName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExporterEmployerID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsUSBased" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsExporterAddress" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsExporterCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsExporterState" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsExporterZipCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsExporterCountry" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NonUSExporterAddress" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NonUSExporterCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NonUSExporterProvince" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NonUSExporterPostalCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NonUSExporterCountry" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2) and 98.416(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhgExportShipmentInformationDetails" type="ghg:GhgExportShipmentInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GhgExportShipmentInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GhgExportShipmentInformationRowDetails" type="ghg:GhgExportShipmentInformationRowDetailsDataType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DoesImporterDestroyFGHGDataType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="DoesImporterTransForDestructionDataType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="DoesImporterTransForTransformationDataType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="GhgImportInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.41(c)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateImported" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortOfEntry" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CountryList" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AFGHANISTAN"/>
+						<xsd:enumeration value="ALBANIA"/>
+						<xsd:enumeration value="ALGERIA"/>
+						<xsd:enumeration value="ANDORRA"/>
+						<xsd:enumeration value="ANGOLA"/>
+						<xsd:enumeration value="ANGUILLA"/>
+						<xsd:enumeration value="ANTARCTICA"/>
+						<xsd:enumeration value="ANTIGUA AND BARBUDA"/>
+						<xsd:enumeration value="ARGENTINA"/>
+						<xsd:enumeration value="ARMENIA"/>
+						<xsd:enumeration value="ARUBA"/>
+						<xsd:enumeration value="ASHMORE AND CARTIER ISLANDS"/>
+						<xsd:enumeration value="AUSTRALIA"/>
+						<xsd:enumeration value="AUSTRIA"/>
+						<xsd:enumeration value="AZERBAIJAN"/>
+						<xsd:enumeration value="BAHAMAS"/>
+						<xsd:enumeration value="BAHRAIN"/>
+						<xsd:enumeration value="BAKER ISLAND"/>
+						<xsd:enumeration value="BANGLADESH"/>
+						<xsd:enumeration value="BARBADOS"/>
+						<xsd:enumeration value="BASSAS DA INDIA"/>
+						<xsd:enumeration value="BELARUS"/>
+						<xsd:enumeration value="BELGIUM"/>
+						<xsd:enumeration value="BELIZE"/>
+						<xsd:enumeration value="BENIN"/>
+						<xsd:enumeration value="BERMUDA"/>
+						<xsd:enumeration value="BHUTAN"/>
+						<xsd:enumeration value="BOLIVIA"/>
+						<xsd:enumeration value="BOSNIA AND HERZEGOVINA"/>
+						<xsd:enumeration value="BOTSWANA"/>
+						<xsd:enumeration value="BOUVET ISLAND"/>
+						<xsd:enumeration value="BRAZIL"/>
+						<xsd:enumeration value="BRITISH INDIAN OCEAN TERRITORY"/>
+						<xsd:enumeration value="BRITISH VIRGIN ISLANDS"/>
+						<xsd:enumeration value="BRUNEI"/>
+						<xsd:enumeration value="BRUNEI DARUSSALAM"/>
+						<xsd:enumeration value="BULGARIA"/>
+						<xsd:enumeration value="BURKINA"/>
+						<xsd:enumeration value="BURKINA FASO"/>
+						<xsd:enumeration value="BURMA"/>
+						<xsd:enumeration value="BURUNDI"/>
+						<xsd:enumeration value="CABO VERDE"/>
+						<xsd:enumeration value="CAMBODIA"/>
+						<xsd:enumeration value="CAMEROON"/>
+						<xsd:enumeration value="CANADA"/>
+						<xsd:enumeration value="CAPE VERDE"/>
+						<xsd:enumeration value="CAYMAN ISLANDS"/>
+						<xsd:enumeration value="CENTRAL AFRICAN REPUBLIC"/>
+						<xsd:enumeration value="CHAD"/>
+						<xsd:enumeration value="CHANGES"/>
+						<xsd:enumeration value="CHILE"/>
+						<xsd:enumeration value="CHINA"/>
+						<xsd:enumeration value="CHRISTMAS ISLAND"/>
+						<xsd:enumeration value="CLIPPERTON ISLAND"/>
+						<xsd:enumeration value="COCOS (KEELING) ISLANDS"/>
+						<xsd:enumeration value="COLOMBIA"/>
+						<xsd:enumeration value="COMOROS"/>
+						<xsd:enumeration value="CONGO"/>
+						<xsd:enumeration value="CONGO (BRAZZAVILLE)"/>
+						<xsd:enumeration value="COOK ISLANDS"/>
+						<xsd:enumeration value="CORAL SEA ISLANDS"/>
+						<xsd:enumeration value="COSTA RICA"/>
+						<xsd:enumeration value="COTE D'IVOIRE"/>
+						<xsd:enumeration value="CROATIA"/>
+						<xsd:enumeration value="CUBA"/>
+						<xsd:enumeration value="CYPRUS"/>
+						<xsd:enumeration value="CZECH REPUBLIC"/>
+						<xsd:enumeration value="DEMOCRATIC REPUBLIC OF THE CONGO"/>
+						<xsd:enumeration value="DENMARK"/>
+						<xsd:enumeration value="DJIBOUTI"/>
+						<xsd:enumeration value="DOMINICA"/>
+						<xsd:enumeration value="DOMINICAN REPUBLIC"/>
+						<xsd:enumeration value="ECUADOR"/>
+						<xsd:enumeration value="EGYPT"/>
+						<xsd:enumeration value="EL SALVADOR"/>
+						<xsd:enumeration value="EQUATORIAL GUINEA"/>
+						<xsd:enumeration value="ERITREA"/>
+						<xsd:enumeration value="ESTONIA"/>
+						<xsd:enumeration value="ESWATINI"/>
+						<xsd:enumeration value="ETHIOPIA"/>
+						<xsd:enumeration value="EUROPA ISLAND"/>
+						<xsd:enumeration value="FALKLAND ISLANDS (ISLAS MALVINAS)"/>
+						<xsd:enumeration value="FAROE ISLANDS"/>
+						<xsd:enumeration value="FEDERATED STATES OF MICRONESIA"/>
+						<xsd:enumeration value="FIJI"/>
+						<xsd:enumeration value="FINLAND"/>
+						<xsd:enumeration value="FRANCE"/>
+						<xsd:enumeration value="FRENCH GUIANA"/>
+						<xsd:enumeration value="FRENCH POLYNESIA"/>
+						<xsd:enumeration value="FRENCH SOUTHERN AND ANTARCTIC LANDS"/>
+						<xsd:enumeration value="GABON"/>
+						<xsd:enumeration value="GAMBIA"/>
+						<xsd:enumeration value="GAMBIA, THE"/>
+						<xsd:enumeration value="GAZA STRIP"/>
+						<xsd:enumeration value="GEORGIA"/>
+						<xsd:enumeration value="GERMANY"/>
+						<xsd:enumeration value="GHANA"/>
+						<xsd:enumeration value="GIBRALTAR"/>
+						<xsd:enumeration value="GLORIOSO ISLANDS"/>
+						<xsd:enumeration value="GREECE"/>
+						<xsd:enumeration value="GREENLAND"/>
+						<xsd:enumeration value="GRENADA"/>
+						<xsd:enumeration value="GUADELOUPE"/>
+						<xsd:enumeration value="GUATEMALA"/>
+						<xsd:enumeration value="GUERNSEY"/>
+						<xsd:enumeration value="GUINEA"/>
+						<xsd:enumeration value="GUINEA-BISSAU"/>
+						<xsd:enumeration value="GUYANA"/>
+						<xsd:enumeration value="HAITI"/>
+						<xsd:enumeration value="HEARD ISLAND AND MCDONALD ISLANDS"/>
+						<xsd:enumeration value="HOLY SEE"/>
+						<xsd:enumeration value="HONDURAS"/>
+						<xsd:enumeration value="HONG KONG"/>
+						<xsd:enumeration value="HOWLAND ISLAND"/>
+						<xsd:enumeration value="HUNGARY"/>
+						<xsd:enumeration value="ICELAND"/>
+						<xsd:enumeration value="INDIA"/>
+						<xsd:enumeration value="INDONESIA"/>
+						<xsd:enumeration value="IRAN"/>
+						<xsd:enumeration value="IRAQ"/>
+						<xsd:enumeration value="IRELAND"/>
+						<xsd:enumeration value="ISRAEL"/>
+						<xsd:enumeration value="ITALY"/>
+						<xsd:enumeration value="JAMAICA"/>
+						<xsd:enumeration value="JAN MAYEN"/>
+						<xsd:enumeration value="JAPAN"/>
+						<xsd:enumeration value="JARVIS ISLAND"/>
+						<xsd:enumeration value="JERSEY"/>
+						<xsd:enumeration value="JOHNSTON ATOLL"/>
+						<xsd:enumeration value="JORDAN"/>
+						<xsd:enumeration value="JUAN DE NOVA ISLAND"/>
+						<xsd:enumeration value="KAZAKHSTAN"/>
+						<xsd:enumeration value="KENYA"/>
+						<xsd:enumeration value="KINGMAN REEF"/>
+						<xsd:enumeration value="KIRIBATI"/>
+						<xsd:enumeration value="KOREA, REPUBLIC OF"/>
+						<xsd:enumeration value="KUWAIT"/>
+						<xsd:enumeration value="KYRGYZSTAN"/>
+						<xsd:enumeration value="LAO PEOPLE'S DEMOCRATIC REPUBLIC"/>
+						<xsd:enumeration value="LAOS"/>
+						<xsd:enumeration value="LATVIA"/>
+						<xsd:enumeration value="LEBANON"/>
+						<xsd:enumeration value="LESOTHO"/>
+						<xsd:enumeration value="LIBERIA"/>
+						<xsd:enumeration value="LIBYA"/>
+						<xsd:enumeration value="LIECHTENSTEIN"/>
+						<xsd:enumeration value="LITHUANIA"/>
+						<xsd:enumeration value="LUXEMBOURG"/>
+						<xsd:enumeration value="MACAU"/>
+						<xsd:enumeration value="MACEDONIA"/>
+						<xsd:enumeration value="MADAGASCAR"/>
+						<xsd:enumeration value="MALAWI"/>
+						<xsd:enumeration value="MALAYSIA"/>
+						<xsd:enumeration value="MALDIVES"/>
+						<xsd:enumeration value="MALI"/>
+						<xsd:enumeration value="MALTA"/>
+						<xsd:enumeration value="MAN, ISLE OF"/>
+						<xsd:enumeration value="MARSHALL ISLANDS"/>
+						<xsd:enumeration value="MARTINIQUE"/>
+						<xsd:enumeration value="MAURITANIA"/>
+						<xsd:enumeration value="MAURITIUS"/>
+						<xsd:enumeration value="MAYOTTE"/>
+						<xsd:enumeration value="MEXICO"/>
+						<xsd:enumeration value="MICRONESIA"/>
+						<xsd:enumeration value="MIDWAY ISLANDS"/>
+						<xsd:enumeration value="MOLDOVA"/>
+						<xsd:enumeration value="MONACO"/>
+						<xsd:enumeration value="MONGOLIA"/>
+						<xsd:enumeration value="MONTENEGRO"/>
+						<xsd:enumeration value="MONTSERRAT"/>
+						<xsd:enumeration value="MOROCCO"/>
+						<xsd:enumeration value="MOZAMBIQUE"/>
+						<xsd:enumeration value="MYANMAR"/>
+						<xsd:enumeration value="NAMIBIA"/>
+						<xsd:enumeration value="NAURU"/>
+						<xsd:enumeration value="NAVASSA ISLAND"/>
+						<xsd:enumeration value="NEPAL"/>
+						<xsd:enumeration value="NETHERLANDS"/>
+						<xsd:enumeration value="NETHERLANDS ANTILLES"/>
+						<xsd:enumeration value="NEW CALEDONIA"/>
+						<xsd:enumeration value="NEW ZEALAND"/>
+						<xsd:enumeration value="NICARAGUA"/>
+						<xsd:enumeration value="NIGER"/>
+						<xsd:enumeration value="NIGERIA"/>
+						<xsd:enumeration value="NIUE"/>
+						<xsd:enumeration value="NORFOLK ISLAND"/>
+						<xsd:enumeration value="NORTH KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="NORTH MACEDONIA"/>
+						<xsd:enumeration value="NORTHERN MARIANA ISLANDS"/>
+						<xsd:enumeration value="NORWAY"/>
+						<xsd:enumeration value="OMAN"/>
+						<xsd:enumeration value="PAKISTAN"/>
+						<xsd:enumeration value="PALAU"/>
+						<xsd:enumeration value="PALESTINE STATE"/>
+						<xsd:enumeration value="PALMYRA ATOLL"/>
+						<xsd:enumeration value="PANAMA"/>
+						<xsd:enumeration value="PAPUA NEW GUINEA"/>
+						<xsd:enumeration value="PARACEL ISLANDS"/>
+						<xsd:enumeration value="PARAGUAY"/>
+						<xsd:enumeration value="PERU"/>
+						<xsd:enumeration value="PHILIPPINES"/>
+						<xsd:enumeration value="PITCAIRN ISLANDS"/>
+						<xsd:enumeration value="POLAND"/>
+						<xsd:enumeration value="PORTUGAL"/>
+						<xsd:enumeration value="QATAR"/>
+						<xsd:enumeration value="REUNION"/>
+						<xsd:enumeration value="ROMANIA"/>
+						<xsd:enumeration value="RUSSIA"/>
+						<xsd:enumeration value="RUSSIAN FEDERATION"/>
+						<xsd:enumeration value="RWANDA"/>
+						<xsd:enumeration value="SAMOA"/>
+						<xsd:enumeration value="SAN MARINO"/>
+						<xsd:enumeration value="SAINT KITTS AND NEVIS"/>
+						<xsd:enumeration value="SAINT LUCIA"/>
+						<xsd:enumeration value="SAINT VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SAO TOME AND PRINCIPE"/>
+						<xsd:enumeration value="SAUDI ARABIA"/>
+						<xsd:enumeration value="SENEGAL"/>
+						<xsd:enumeration value="SERBIA"/>
+						<xsd:enumeration value="SEYCHELLES"/>
+						<xsd:enumeration value="SIERRA LEONE"/>
+						<xsd:enumeration value="SINGAPORE"/>
+						<xsd:enumeration value="SLOVAKIA"/>
+						<xsd:enumeration value="SLOVENIA"/>
+						<xsd:enumeration value="SOLOMON ISLANDS"/>
+						<xsd:enumeration value="SOMALIA"/>
+						<xsd:enumeration value="SOUTH AFRICA"/>
+						<xsd:enumeration value="SOUTH GEORGIA AND THE SOUTH SANDWICH"/>
+						<xsd:enumeration value="SOUTH KOREA (REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="SOUTH SUDAN"/>
+						<xsd:enumeration value="SPAIN"/>
+						<xsd:enumeration value="SPRATLY ISLANDS"/>
+						<xsd:enumeration value="SRI LANKA"/>
+						<xsd:enumeration value="ST. HELENA"/>
+						<xsd:enumeration value="ST. KITTS AND NEVIS"/>
+						<xsd:enumeration value="ST. LUCIA"/>
+						<xsd:enumeration value="ST. PIERRE AND MIQUELON"/>
+						<xsd:enumeration value="ST. VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SUDAN"/>
+						<xsd:enumeration value="SURINAME"/>
+						<xsd:enumeration value="SVALBARD"/>
+						<xsd:enumeration value="SWAZILAND"/>
+						<xsd:enumeration value="SWEDEN"/>
+						<xsd:enumeration value="SWITZERLAND"/>
+						<xsd:enumeration value="SYRIA"/>
+						<xsd:enumeration value="SYRIA (SYRIAN ARAB REPUBLIC)"/>
+						<xsd:enumeration value="TAHITI"/>
+						<xsd:enumeration value="TAIWAN"/>
+						<xsd:enumeration value="TAJIKISTAN"/>
+						<xsd:enumeration value="TANZANIA"/>
+						<xsd:enumeration value="THAILAND"/>
+						<xsd:enumeration value="TIMOR-LESTE"/>
+						<xsd:enumeration value="TOGO"/>
+						<xsd:enumeration value="TOKELAU"/>
+						<xsd:enumeration value="TONGA"/>
+						<xsd:enumeration value="TRINIDAD AND TOBAGO"/>
+						<xsd:enumeration value="TROMELIN ISLAND"/>
+						<xsd:enumeration value="TRUST TERRITORY OF THE PACIFIC ISLANDS (PALAU)"/>
+						<xsd:enumeration value="TUNISIA"/>
+						<xsd:enumeration value="TURKEY"/>
+						<xsd:enumeration value="TURKMENISTAN"/>
+						<xsd:enumeration value="TURKS AND CAICOS ISLANDS"/>
+						<xsd:enumeration value="TUVALU"/>
+						<xsd:enumeration value="UGANDA"/>
+						<xsd:enumeration value="UKRAINE"/>
+						<xsd:enumeration value="UNITED ARAB EMIRATES"/>
+						<xsd:enumeration value="UNITED KINGDOM"/>
+						<xsd:enumeration value="UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND"/>
+						<xsd:enumeration value="URUGUAY"/>
+						<xsd:enumeration value="UZBEKISTAN"/>
+						<xsd:enumeration value="VANUATU"/>
+						<xsd:enumeration value="VENEZUELA"/>
+						<xsd:enumeration value="VIET NAM"/>
+						<xsd:enumeration value="VIETNAM"/>
+						<xsd:enumeration value="WALLIS AND FUTUNA"/>
+						<xsd:enumeration value="WEST BANK"/>
+						<xsd:enumeration value="WESTERN SAHARA"/>
+						<xsd:enumeration value="WESTERN SAMOA"/>
+						<xsd:enumeration value="YEMEN"/>
+						<xsd:enumeration value="ZAIRE"/>
+						<xsd:enumeration value="ZAMBIA"/>
+						<xsd:enumeration value="ZIMBABWE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherFGHG" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FghgCategory" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassImported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CommodityCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(6)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportDestructionInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityAddress" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UsStateList" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ALASKA "/>
+						<xsd:enumeration value="ALABAMA "/>
+						<xsd:enumeration value="AMERICAN SAMOA"/>
+						<xsd:enumeration value="ARKANSAS "/>
+						<xsd:enumeration value="ARIZONA "/>
+						<xsd:enumeration value="CALIFORNIA "/>
+						<xsd:enumeration value="COLORADO "/>
+						<xsd:enumeration value="CONNECTICUT "/>
+						<xsd:enumeration value="DELAWARE "/>
+						<xsd:enumeration value="DISTRICT OF COLUMBIA"/>
+						<xsd:enumeration value="FLORIDA "/>
+						<xsd:enumeration value="GEORGIA "/>
+						<xsd:enumeration value="GUAM"/>
+						<xsd:enumeration value="HAWAII "/>
+						<xsd:enumeration value="IOWA "/>
+						<xsd:enumeration value="IDAHO "/>
+						<xsd:enumeration value="ILLINOIS "/>
+						<xsd:enumeration value="INDIANA "/>
+						<xsd:enumeration value="KANSAS "/>
+						<xsd:enumeration value="KENTUCKY "/>
+						<xsd:enumeration value="LOUISIANA "/>
+						<xsd:enumeration value="MASSACHUSETTS "/>
+						<xsd:enumeration value="MARYLAND "/>
+						<xsd:enumeration value="MAINE "/>
+						<xsd:enumeration value="MICHIGAN "/>
+						<xsd:enumeration value="MINNESOTA "/>
+						<xsd:enumeration value="MISSOURI "/>
+						<xsd:enumeration value="MISSISSIPPI "/>
+						<xsd:enumeration value="MONTANA "/>
+						<xsd:enumeration value="NORTH CAROLINA "/>
+						<xsd:enumeration value="NORTH DAKOTA "/>
+						<xsd:enumeration value="NEBRASKA "/>
+						<xsd:enumeration value="NEW HAMPSHIRE "/>
+						<xsd:enumeration value="NEW JERSEY "/>
+						<xsd:enumeration value="NEW MEXICO "/>
+						<xsd:enumeration value="NEVADA "/>
+						<xsd:enumeration value="NEW YORK "/>
+						<xsd:enumeration value="OHIO "/>
+						<xsd:enumeration value="OKLAHOMA "/>
+						<xsd:enumeration value="OREGON "/>
+						<xsd:enumeration value="PENNSYLVANIA "/>
+						<xsd:enumeration value="PUERTO RICO"/>
+						<xsd:enumeration value="RHODE ISLAND "/>
+						<xsd:enumeration value="SOUTH CAROLINA "/>
+						<xsd:enumeration value="SOUTH DAKOTA "/>
+						<xsd:enumeration value="TENNESSEE "/>
+						<xsd:enumeration value="TEXAS "/>
+						<xsd:enumeration value="UTAH "/>
+						<xsd:enumeration value="VIRGINIA "/>
+						<xsd:enumeration value="VIRGIN ISLANDS"/>
+						<xsd:enumeration value="VERMONT "/>
+						<xsd:enumeration value="WASHINGTON "/>
+						<xsd:enumeration value="WISCONSIN "/>
+						<xsd:enumeration value="WEST VIRGINIA "/>
+						<xsd:enumeration value="WYOMING "/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityZipCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsFacilityOwnedOrOperated" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and 98.416(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AreQuantitiesDestroyed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherFGHG" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FghgCategory" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassDestroyed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2), (c)(8), and (c)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImportTransformationInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FacilityAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FacilityCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsStateList" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ALASKA "/>
+						<xsd:enumeration value="ALABAMA "/>
+						<xsd:enumeration value="AMERICAN SAMOA"/>
+						<xsd:enumeration value="ARKANSAS "/>
+						<xsd:enumeration value="ARIZONA "/>
+						<xsd:enumeration value="CALIFORNIA "/>
+						<xsd:enumeration value="COLORADO "/>
+						<xsd:enumeration value="CONNECTICUT "/>
+						<xsd:enumeration value="DELAWARE "/>
+						<xsd:enumeration value="DISTRICT OF COLUMBIA"/>
+						<xsd:enumeration value="FLORIDA "/>
+						<xsd:enumeration value="GEORGIA "/>
+						<xsd:enumeration value="GUAM"/>
+						<xsd:enumeration value="HAWAII "/>
+						<xsd:enumeration value="IOWA "/>
+						<xsd:enumeration value="IDAHO "/>
+						<xsd:enumeration value="ILLINOIS "/>
+						<xsd:enumeration value="INDIANA "/>
+						<xsd:enumeration value="KANSAS "/>
+						<xsd:enumeration value="KENTUCKY "/>
+						<xsd:enumeration value="LOUISIANA "/>
+						<xsd:enumeration value="MASSACHUSETTS "/>
+						<xsd:enumeration value="MARYLAND "/>
+						<xsd:enumeration value="MAINE "/>
+						<xsd:enumeration value="MICHIGAN "/>
+						<xsd:enumeration value="MINNESOTA "/>
+						<xsd:enumeration value="MISSOURI "/>
+						<xsd:enumeration value="MISSISSIPPI "/>
+						<xsd:enumeration value="MONTANA "/>
+						<xsd:enumeration value="NORTH CAROLINA "/>
+						<xsd:enumeration value="NORTH DAKOTA "/>
+						<xsd:enumeration value="NEBRASKA "/>
+						<xsd:enumeration value="NEW HAMPSHIRE "/>
+						<xsd:enumeration value="NEW JERSEY "/>
+						<xsd:enumeration value="NEW MEXICO "/>
+						<xsd:enumeration value="NEVADA "/>
+						<xsd:enumeration value="NEW YORK "/>
+						<xsd:enumeration value="OHIO "/>
+						<xsd:enumeration value="OKLAHOMA "/>
+						<xsd:enumeration value="OREGON "/>
+						<xsd:enumeration value="PENNSYLVANIA "/>
+						<xsd:enumeration value="PUERTO RICO"/>
+						<xsd:enumeration value="RHODE ISLAND "/>
+						<xsd:enumeration value="SOUTH CAROLINA "/>
+						<xsd:enumeration value="SOUTH DAKOTA "/>
+						<xsd:enumeration value="TENNESSEE "/>
+						<xsd:enumeration value="TEXAS "/>
+						<xsd:enumeration value="UTAH "/>
+						<xsd:enumeration value="VIRGINIA "/>
+						<xsd:enumeration value="VIRGIN ISLANDS"/>
+						<xsd:enumeration value="VERMONT "/>
+						<xsd:enumeration value="WASHINGTON "/>
+						<xsd:enumeration value="WISCONSIN "/>
+						<xsd:enumeration value="WEST VIRGINIA "/>
+						<xsd:enumeration value="WYOMING "/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityZipCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherFGHG" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FghgCategory" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassSoldOrTransferred" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(c)(2) and (c)(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IsExporterUSBasedDataType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="usStateListDataType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="GhgExportShipmentInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateExported" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PortOfExport" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExportedCountry" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AFGHANISTAN"/>
+						<xsd:enumeration value="ALBANIA"/>
+						<xsd:enumeration value="ALGERIA"/>
+						<xsd:enumeration value="ANDORRA"/>
+						<xsd:enumeration value="ANGOLA"/>
+						<xsd:enumeration value="ANGUILLA"/>
+						<xsd:enumeration value="ANTARCTICA"/>
+						<xsd:enumeration value="ANTIGUA AND BARBUDA"/>
+						<xsd:enumeration value="ARGENTINA"/>
+						<xsd:enumeration value="ARMENIA"/>
+						<xsd:enumeration value="ARUBA"/>
+						<xsd:enumeration value="ASHMORE AND CARTIER ISLANDS"/>
+						<xsd:enumeration value="AUSTRALIA"/>
+						<xsd:enumeration value="AUSTRIA"/>
+						<xsd:enumeration value="AZERBAIJAN"/>
+						<xsd:enumeration value="BAHAMAS"/>
+						<xsd:enumeration value="BAHRAIN"/>
+						<xsd:enumeration value="BAKER ISLAND"/>
+						<xsd:enumeration value="BANGLADESH"/>
+						<xsd:enumeration value="BARBADOS"/>
+						<xsd:enumeration value="BASSAS DA INDIA"/>
+						<xsd:enumeration value="BELARUS"/>
+						<xsd:enumeration value="BELGIUM"/>
+						<xsd:enumeration value="BELIZE"/>
+						<xsd:enumeration value="BENIN"/>
+						<xsd:enumeration value="BERMUDA"/>
+						<xsd:enumeration value="BHUTAN"/>
+						<xsd:enumeration value="BOLIVIA"/>
+						<xsd:enumeration value="BOSNIA AND HERZEGOVINA"/>
+						<xsd:enumeration value="BOTSWANA"/>
+						<xsd:enumeration value="BOUVET ISLAND"/>
+						<xsd:enumeration value="BRAZIL"/>
+						<xsd:enumeration value="BRITISH INDIAN OCEAN TERRITORY"/>
+						<xsd:enumeration value="BRITISH VIRGIN ISLANDS"/>
+						<xsd:enumeration value="BRUNEI"/>
+						<xsd:enumeration value="BRUNEI DARUSSALAM"/>
+						<xsd:enumeration value="BULGARIA"/>
+						<xsd:enumeration value="BURKINA"/>
+						<xsd:enumeration value="BURKINA FASO"/>
+						<xsd:enumeration value="BURMA"/>
+						<xsd:enumeration value="BURUNDI"/>
+						<xsd:enumeration value="CABO VERDE"/>
+						<xsd:enumeration value="CAMBODIA"/>
+						<xsd:enumeration value="CAMEROON"/>
+						<xsd:enumeration value="CANADA"/>
+						<xsd:enumeration value="CAPE VERDE"/>
+						<xsd:enumeration value="CAYMAN ISLANDS"/>
+						<xsd:enumeration value="CENTRAL AFRICAN REPUBLIC"/>
+						<xsd:enumeration value="CHAD"/>
+						<xsd:enumeration value="CHANGES"/>
+						<xsd:enumeration value="CHILE"/>
+						<xsd:enumeration value="CHINA"/>
+						<xsd:enumeration value="CHRISTMAS ISLAND"/>
+						<xsd:enumeration value="CLIPPERTON ISLAND"/>
+						<xsd:enumeration value="COCOS (KEELING) ISLANDS"/>
+						<xsd:enumeration value="COLOMBIA"/>
+						<xsd:enumeration value="COMOROS"/>
+						<xsd:enumeration value="CONGO"/>
+						<xsd:enumeration value="CONGO (BRAZZAVILLE)"/>
+						<xsd:enumeration value="COOK ISLANDS"/>
+						<xsd:enumeration value="CORAL SEA ISLANDS"/>
+						<xsd:enumeration value="COSTA RICA"/>
+						<xsd:enumeration value="COTE D'IVOIRE"/>
+						<xsd:enumeration value="CROATIA"/>
+						<xsd:enumeration value="CUBA"/>
+						<xsd:enumeration value="CYPRUS"/>
+						<xsd:enumeration value="CZECH REPUBLIC"/>
+						<xsd:enumeration value="DEMOCRATIC REPUBLIC OF THE CONGO"/>
+						<xsd:enumeration value="DENMARK"/>
+						<xsd:enumeration value="DJIBOUTI"/>
+						<xsd:enumeration value="DOMINICA"/>
+						<xsd:enumeration value="DOMINICAN REPUBLIC"/>
+						<xsd:enumeration value="ECUADOR"/>
+						<xsd:enumeration value="EGYPT"/>
+						<xsd:enumeration value="EL SALVADOR"/>
+						<xsd:enumeration value="EQUATORIAL GUINEA"/>
+						<xsd:enumeration value="ERITREA"/>
+						<xsd:enumeration value="ESTONIA"/>
+						<xsd:enumeration value="ESWATINI"/>
+						<xsd:enumeration value="ETHIOPIA"/>
+						<xsd:enumeration value="EUROPA ISLAND"/>
+						<xsd:enumeration value="FALKLAND ISLANDS (ISLAS MALVINAS)"/>
+						<xsd:enumeration value="FAROE ISLANDS"/>
+						<xsd:enumeration value="FEDERATED STATES OF MICRONESIA"/>
+						<xsd:enumeration value="FIJI"/>
+						<xsd:enumeration value="FINLAND"/>
+						<xsd:enumeration value="FRANCE"/>
+						<xsd:enumeration value="FRENCH GUIANA"/>
+						<xsd:enumeration value="FRENCH POLYNESIA"/>
+						<xsd:enumeration value="FRENCH SOUTHERN AND ANTARCTIC LANDS"/>
+						<xsd:enumeration value="GABON"/>
+						<xsd:enumeration value="GAMBIA"/>
+						<xsd:enumeration value="GAMBIA, THE"/>
+						<xsd:enumeration value="GAZA STRIP"/>
+						<xsd:enumeration value="GEORGIA"/>
+						<xsd:enumeration value="GERMANY"/>
+						<xsd:enumeration value="GHANA"/>
+						<xsd:enumeration value="GIBRALTAR"/>
+						<xsd:enumeration value="GLORIOSO ISLANDS"/>
+						<xsd:enumeration value="GREECE"/>
+						<xsd:enumeration value="GREENLAND"/>
+						<xsd:enumeration value="GRENADA"/>
+						<xsd:enumeration value="GUADELOUPE"/>
+						<xsd:enumeration value="GUATEMALA"/>
+						<xsd:enumeration value="GUERNSEY"/>
+						<xsd:enumeration value="GUINEA"/>
+						<xsd:enumeration value="GUINEA-BISSAU"/>
+						<xsd:enumeration value="GUYANA"/>
+						<xsd:enumeration value="HAITI"/>
+						<xsd:enumeration value="HEARD ISLAND AND MCDONALD ISLANDS"/>
+						<xsd:enumeration value="HOLY SEE"/>
+						<xsd:enumeration value="HONDURAS"/>
+						<xsd:enumeration value="HONG KONG"/>
+						<xsd:enumeration value="HOWLAND ISLAND"/>
+						<xsd:enumeration value="HUNGARY"/>
+						<xsd:enumeration value="ICELAND"/>
+						<xsd:enumeration value="INDIA"/>
+						<xsd:enumeration value="INDONESIA"/>
+						<xsd:enumeration value="IRAN"/>
+						<xsd:enumeration value="IRAQ"/>
+						<xsd:enumeration value="IRELAND"/>
+						<xsd:enumeration value="ISRAEL"/>
+						<xsd:enumeration value="ITALY"/>
+						<xsd:enumeration value="JAMAICA"/>
+						<xsd:enumeration value="JAN MAYEN"/>
+						<xsd:enumeration value="JAPAN"/>
+						<xsd:enumeration value="JARVIS ISLAND"/>
+						<xsd:enumeration value="JERSEY"/>
+						<xsd:enumeration value="JOHNSTON ATOLL"/>
+						<xsd:enumeration value="JORDAN"/>
+						<xsd:enumeration value="JUAN DE NOVA ISLAND"/>
+						<xsd:enumeration value="KAZAKHSTAN"/>
+						<xsd:enumeration value="KENYA"/>
+						<xsd:enumeration value="KINGMAN REEF"/>
+						<xsd:enumeration value="KIRIBATI"/>
+						<xsd:enumeration value="KOREA, REPUBLIC OF"/>
+						<xsd:enumeration value="KUWAIT"/>
+						<xsd:enumeration value="KYRGYZSTAN"/>
+						<xsd:enumeration value="LAO PEOPLE'S DEMOCRATIC REPUBLIC"/>
+						<xsd:enumeration value="LAOS"/>
+						<xsd:enumeration value="LATVIA"/>
+						<xsd:enumeration value="LEBANON"/>
+						<xsd:enumeration value="LESOTHO"/>
+						<xsd:enumeration value="LIBERIA"/>
+						<xsd:enumeration value="LIBYA"/>
+						<xsd:enumeration value="LIECHTENSTEIN"/>
+						<xsd:enumeration value="LITHUANIA"/>
+						<xsd:enumeration value="LUXEMBOURG"/>
+						<xsd:enumeration value="MACAU"/>
+						<xsd:enumeration value="MACEDONIA"/>
+						<xsd:enumeration value="MADAGASCAR"/>
+						<xsd:enumeration value="MALAWI"/>
+						<xsd:enumeration value="MALAYSIA"/>
+						<xsd:enumeration value="MALDIVES"/>
+						<xsd:enumeration value="MALI"/>
+						<xsd:enumeration value="MALTA"/>
+						<xsd:enumeration value="MAN, ISLE OF"/>
+						<xsd:enumeration value="MARSHALL ISLANDS"/>
+						<xsd:enumeration value="MARTINIQUE"/>
+						<xsd:enumeration value="MAURITANIA"/>
+						<xsd:enumeration value="MAURITIUS"/>
+						<xsd:enumeration value="MAYOTTE"/>
+						<xsd:enumeration value="MEXICO"/>
+						<xsd:enumeration value="MICRONESIA"/>
+						<xsd:enumeration value="MIDWAY ISLANDS"/>
+						<xsd:enumeration value="MOLDOVA"/>
+						<xsd:enumeration value="MONACO"/>
+						<xsd:enumeration value="MONGOLIA"/>
+						<xsd:enumeration value="MONTENEGRO"/>
+						<xsd:enumeration value="MONTSERRAT"/>
+						<xsd:enumeration value="MOROCCO"/>
+						<xsd:enumeration value="MOZAMBIQUE"/>
+						<xsd:enumeration value="MYANMAR"/>
+						<xsd:enumeration value="NAMIBIA"/>
+						<xsd:enumeration value="NAURU"/>
+						<xsd:enumeration value="NAVASSA ISLAND"/>
+						<xsd:enumeration value="NEPAL"/>
+						<xsd:enumeration value="NETHERLANDS"/>
+						<xsd:enumeration value="NETHERLANDS ANTILLES"/>
+						<xsd:enumeration value="NEW CALEDONIA"/>
+						<xsd:enumeration value="NEW ZEALAND"/>
+						<xsd:enumeration value="NICARAGUA"/>
+						<xsd:enumeration value="NIGER"/>
+						<xsd:enumeration value="NIGERIA"/>
+						<xsd:enumeration value="NIUE"/>
+						<xsd:enumeration value="NORFOLK ISLAND"/>
+						<xsd:enumeration value="NORTH KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="NORTH MACEDONIA"/>
+						<xsd:enumeration value="NORTHERN MARIANA ISLANDS"/>
+						<xsd:enumeration value="NORWAY"/>
+						<xsd:enumeration value="OMAN"/>
+						<xsd:enumeration value="PAKISTAN"/>
+						<xsd:enumeration value="PALAU"/>
+						<xsd:enumeration value="PALESTINE STATE"/>
+						<xsd:enumeration value="PALMYRA ATOLL"/>
+						<xsd:enumeration value="PANAMA"/>
+						<xsd:enumeration value="PAPUA NEW GUINEA"/>
+						<xsd:enumeration value="PARACEL ISLANDS"/>
+						<xsd:enumeration value="PARAGUAY"/>
+						<xsd:enumeration value="PERU"/>
+						<xsd:enumeration value="PHILIPPINES"/>
+						<xsd:enumeration value="PITCAIRN ISLANDS"/>
+						<xsd:enumeration value="POLAND"/>
+						<xsd:enumeration value="PORTUGAL"/>
+						<xsd:enumeration value="QATAR"/>
+						<xsd:enumeration value="REUNION"/>
+						<xsd:enumeration value="ROMANIA"/>
+						<xsd:enumeration value="RUSSIA"/>
+						<xsd:enumeration value="RUSSIAN FEDERATION"/>
+						<xsd:enumeration value="RWANDA"/>
+						<xsd:enumeration value="SAMOA"/>
+						<xsd:enumeration value="SAN MARINO"/>
+						<xsd:enumeration value="SAINT KITTS AND NEVIS"/>
+						<xsd:enumeration value="SAINT LUCIA"/>
+						<xsd:enumeration value="SAINT VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SAO TOME AND PRINCIPE"/>
+						<xsd:enumeration value="SAUDI ARABIA"/>
+						<xsd:enumeration value="SENEGAL"/>
+						<xsd:enumeration value="SERBIA"/>
+						<xsd:enumeration value="SEYCHELLES"/>
+						<xsd:enumeration value="SIERRA LEONE"/>
+						<xsd:enumeration value="SINGAPORE"/>
+						<xsd:enumeration value="SLOVAKIA"/>
+						<xsd:enumeration value="SLOVENIA"/>
+						<xsd:enumeration value="SOLOMON ISLANDS"/>
+						<xsd:enumeration value="SOMALIA"/>
+						<xsd:enumeration value="SOUTH AFRICA"/>
+						<xsd:enumeration value="SOUTH GEORGIA AND THE SOUTH SANDWICH"/>
+						<xsd:enumeration value="SOUTH KOREA (REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="SOUTH SUDAN"/>
+						<xsd:enumeration value="SPAIN"/>
+						<xsd:enumeration value="SPRATLY ISLANDS"/>
+						<xsd:enumeration value="SRI LANKA"/>
+						<xsd:enumeration value="ST. HELENA"/>
+						<xsd:enumeration value="ST. KITTS AND NEVIS"/>
+						<xsd:enumeration value="ST. LUCIA"/>
+						<xsd:enumeration value="ST. PIERRE AND MIQUELON"/>
+						<xsd:enumeration value="ST. VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SUDAN"/>
+						<xsd:enumeration value="SURINAME"/>
+						<xsd:enumeration value="SVALBARD"/>
+						<xsd:enumeration value="SWAZILAND"/>
+						<xsd:enumeration value="SWEDEN"/>
+						<xsd:enumeration value="SWITZERLAND"/>
+						<xsd:enumeration value="SYRIA"/>
+						<xsd:enumeration value="SYRIA (SYRIAN ARAB REPUBLIC)"/>
+						<xsd:enumeration value="TAHITI"/>
+						<xsd:enumeration value="TAIWAN"/>
+						<xsd:enumeration value="TAJIKISTAN"/>
+						<xsd:enumeration value="TANZANIA"/>
+						<xsd:enumeration value="THAILAND"/>
+						<xsd:enumeration value="TIMOR-LESTE"/>
+						<xsd:enumeration value="TOGO"/>
+						<xsd:enumeration value="TOKELAU"/>
+						<xsd:enumeration value="TONGA"/>
+						<xsd:enumeration value="TRINIDAD AND TOBAGO"/>
+						<xsd:enumeration value="TROMELIN ISLAND"/>
+						<xsd:enumeration value="TRUST TERRITORY OF THE PACIFIC ISLANDS (PALAU)"/>
+						<xsd:enumeration value="TUNISIA"/>
+						<xsd:enumeration value="TURKEY"/>
+						<xsd:enumeration value="TURKMENISTAN"/>
+						<xsd:enumeration value="TURKS AND CAICOS ISLANDS"/>
+						<xsd:enumeration value="TUVALU"/>
+						<xsd:enumeration value="UGANDA"/>
+						<xsd:enumeration value="UKRAINE"/>
+						<xsd:enumeration value="UNITED ARAB EMIRATES"/>
+						<xsd:enumeration value="UNITED KINGDOM"/>
+						<xsd:enumeration value="UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND"/>
+						<xsd:enumeration value="URUGUAY"/>
+						<xsd:enumeration value="UZBEKISTAN"/>
+						<xsd:enumeration value="VANUATU"/>
+						<xsd:enumeration value="VENEZUELA"/>
+						<xsd:enumeration value="VIET NAM"/>
+						<xsd:enumeration value="VIETNAM"/>
+						<xsd:enumeration value="WALLIS AND FUTUNA"/>
+						<xsd:enumeration value="WEST BANK"/>
+						<xsd:enumeration value="WESTERN SAHARA"/>
+						<xsd:enumeration value="WESTERN SAMOA"/>
+						<xsd:enumeration value="YEMEN"/>
+						<xsd:enumeration value="ZAIRE"/>
+						<xsd:enumeration value="ZAMBIA"/>
+						<xsd:enumeration value="ZIMBABWE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RecipientCompany" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipientAddress" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipientCity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipientProvince" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipientPostalCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipientCountry" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AFGHANISTAN"/>
+						<xsd:enumeration value="ALBANIA"/>
+						<xsd:enumeration value="ALGERIA"/>
+						<xsd:enumeration value="AMERICAN SAMOA"/>
+						<xsd:enumeration value="ANDORRA"/>
+						<xsd:enumeration value="ANGOLA"/>
+						<xsd:enumeration value="ANGUILLA"/>
+						<xsd:enumeration value="ANTARCTICA"/>
+						<xsd:enumeration value="ANTIGUA AND BARBUDA"/>
+						<xsd:enumeration value="ARGENTINA"/>
+						<xsd:enumeration value="ARMENIA"/>
+						<xsd:enumeration value="ARUBA"/>
+						<xsd:enumeration value="ASHMORE AND CARTIER ISLANDS"/>
+						<xsd:enumeration value="AUSTRALIA"/>
+						<xsd:enumeration value="AUSTRIA"/>
+						<xsd:enumeration value="AZERBAIJAN"/>
+						<xsd:enumeration value="BAHAMAS"/>
+						<xsd:enumeration value="BAHRAIN"/>
+						<xsd:enumeration value="BAKER ISLAND"/>
+						<xsd:enumeration value="BANGLADESH"/>
+						<xsd:enumeration value="BARBADOS"/>
+						<xsd:enumeration value="BASSAS DA INDIA"/>
+						<xsd:enumeration value="BELARUS"/>
+						<xsd:enumeration value="BELGIUM"/>
+						<xsd:enumeration value="BELIZE"/>
+						<xsd:enumeration value="BENIN"/>
+						<xsd:enumeration value="BERMUDA"/>
+						<xsd:enumeration value="BHUTAN"/>
+						<xsd:enumeration value="BOLIVIA"/>
+						<xsd:enumeration value="BOSNIA AND HERZEGOVINA"/>
+						<xsd:enumeration value="BOTSWANA"/>
+						<xsd:enumeration value="BOUVET ISLAND"/>
+						<xsd:enumeration value="BRAZIL"/>
+						<xsd:enumeration value="BRITISH INDIAN OCEAN TERRITORY"/>
+						<xsd:enumeration value="BRITISH VIRGIN ISLANDS"/>
+						<xsd:enumeration value="BRUNEI"/>
+						<xsd:enumeration value="BRUNEI DARUSSALAM"/>
+						<xsd:enumeration value="BULGARIA"/>
+						<xsd:enumeration value="BURKINA"/>
+						<xsd:enumeration value="BURKINA FASO"/>
+						<xsd:enumeration value="BURMA"/>
+						<xsd:enumeration value="BURUNDI"/>
+						<xsd:enumeration value="CABO VERDE"/>
+						<xsd:enumeration value="CAMBODIA"/>
+						<xsd:enumeration value="CAMEROON"/>
+						<xsd:enumeration value="CANADA"/>
+						<xsd:enumeration value="CAPE VERDE"/>
+						<xsd:enumeration value="CAYMAN ISLANDS"/>
+						<xsd:enumeration value="CENTRAL AFRICAN REPUBLIC"/>
+						<xsd:enumeration value="CHAD"/>
+						<xsd:enumeration value="CHANGES"/>
+						<xsd:enumeration value="CHILE"/>
+						<xsd:enumeration value="CHINA"/>
+						<xsd:enumeration value="CHRISTMAS ISLAND"/>
+						<xsd:enumeration value="CLIPPERTON ISLAND"/>
+						<xsd:enumeration value="COCOS (KEELING) ISLANDS"/>
+						<xsd:enumeration value="COLOMBIA"/>
+						<xsd:enumeration value="COMOROS"/>
+						<xsd:enumeration value="CONGO"/>
+						<xsd:enumeration value="CONGO (BRAZZAVILLE)"/>
+						<xsd:enumeration value="COOK ISLANDS"/>
+						<xsd:enumeration value="CORAL SEA ISLANDS"/>
+						<xsd:enumeration value="COSTA RICA"/>
+						<xsd:enumeration value="COTE D'IVOIRE"/>
+						<xsd:enumeration value="CROATIA"/>
+						<xsd:enumeration value="CUBA"/>
+						<xsd:enumeration value="CYPRUS"/>
+						<xsd:enumeration value="CZECH REPUBLIC"/>
+						<xsd:enumeration value="DEMOCRATIC REPUBLIC OF THE CONGO"/>
+						<xsd:enumeration value="DENMARK"/>
+						<xsd:enumeration value="DJIBOUTI"/>
+						<xsd:enumeration value="DOMINICA"/>
+						<xsd:enumeration value="DOMINICAN REPUBLIC"/>
+						<xsd:enumeration value="ECUADOR"/>
+						<xsd:enumeration value="EGYPT"/>
+						<xsd:enumeration value="EL SALVADOR"/>
+						<xsd:enumeration value="EQUATORIAL GUINEA"/>
+						<xsd:enumeration value="ERITREA"/>
+						<xsd:enumeration value="ESTONIA"/>
+						<xsd:enumeration value="ESWATINI"/>
+						<xsd:enumeration value="ETHIOPIA"/>
+						<xsd:enumeration value="EUROPA ISLAND"/>
+						<xsd:enumeration value="FALKLAND ISLANDS (ISLAS MALVINAS)"/>
+						<xsd:enumeration value="FAROE ISLANDS"/>
+						<xsd:enumeration value="FEDERATED STATES OF MICRONESIA"/>
+						<xsd:enumeration value="FIJI"/>
+						<xsd:enumeration value="FINLAND"/>
+						<xsd:enumeration value="FRANCE"/>
+						<xsd:enumeration value="FRENCH GUIANA"/>
+						<xsd:enumeration value="FRENCH POLYNESIA"/>
+						<xsd:enumeration value="FRENCH SOUTHERN AND ANTARCTIC LANDS"/>
+						<xsd:enumeration value="GABON"/>
+						<xsd:enumeration value="GAMBIA"/>
+						<xsd:enumeration value="GAMBIA, THE"/>
+						<xsd:enumeration value="GAZA STRIP"/>
+						<xsd:enumeration value="GEORGIA"/>
+						<xsd:enumeration value="GERMANY"/>
+						<xsd:enumeration value="GHANA"/>
+						<xsd:enumeration value="GIBRALTAR"/>
+						<xsd:enumeration value="GLORIOSO ISLANDS"/>
+						<xsd:enumeration value="GREECE"/>
+						<xsd:enumeration value="GREENLAND"/>
+						<xsd:enumeration value="GRENADA"/>
+						<xsd:enumeration value="GUADELOUPE"/>
+						<xsd:enumeration value="GUAM"/>
+						<xsd:enumeration value="GUATEMALA"/>
+						<xsd:enumeration value="GUERNSEY"/>
+						<xsd:enumeration value="GUINEA"/>
+						<xsd:enumeration value="GUINEA-BISSAU"/>
+						<xsd:enumeration value="GUYANA"/>
+						<xsd:enumeration value="HAITI"/>
+						<xsd:enumeration value="HEARD ISLAND AND MCDONALD ISLANDS"/>
+						<xsd:enumeration value="HOLY SEE"/>
+						<xsd:enumeration value="HONDURAS"/>
+						<xsd:enumeration value="HONG KONG"/>
+						<xsd:enumeration value="HOWLAND ISLAND"/>
+						<xsd:enumeration value="HUNGARY"/>
+						<xsd:enumeration value="ICELAND"/>
+						<xsd:enumeration value="INDIA"/>
+						<xsd:enumeration value="INDONESIA"/>
+						<xsd:enumeration value="IRAN"/>
+						<xsd:enumeration value="IRAQ"/>
+						<xsd:enumeration value="IRELAND"/>
+						<xsd:enumeration value="ISRAEL"/>
+						<xsd:enumeration value="ITALY"/>
+						<xsd:enumeration value="JAMAICA"/>
+						<xsd:enumeration value="JAN MAYEN"/>
+						<xsd:enumeration value="JAPAN"/>
+						<xsd:enumeration value="JARVIS ISLAND"/>
+						<xsd:enumeration value="JERSEY"/>
+						<xsd:enumeration value="JOHNSTON ATOLL"/>
+						<xsd:enumeration value="JORDAN"/>
+						<xsd:enumeration value="JUAN DE NOVA ISLAND"/>
+						<xsd:enumeration value="KAZAKHSTAN"/>
+						<xsd:enumeration value="KENYA"/>
+						<xsd:enumeration value="KINGMAN REEF"/>
+						<xsd:enumeration value="KIRIBATI"/>
+						<xsd:enumeration value="KOREA, REPUBLIC OF"/>
+						<xsd:enumeration value="KUWAIT"/>
+						<xsd:enumeration value="KYRGYZSTAN"/>
+						<xsd:enumeration value="LAO PEOPLE'S DEMOCRATIC REPUBLIC"/>
+						<xsd:enumeration value="LAOS"/>
+						<xsd:enumeration value="LATVIA"/>
+						<xsd:enumeration value="LEBANON"/>
+						<xsd:enumeration value="LESOTHO"/>
+						<xsd:enumeration value="LIBERIA"/>
+						<xsd:enumeration value="LIBYA"/>
+						<xsd:enumeration value="LIECHTENSTEIN"/>
+						<xsd:enumeration value="LITHUANIA"/>
+						<xsd:enumeration value="LUXEMBOURG"/>
+						<xsd:enumeration value="MACAU"/>
+						<xsd:enumeration value="MACEDONIA"/>
+						<xsd:enumeration value="MADAGASCAR"/>
+						<xsd:enumeration value="MALAWI"/>
+						<xsd:enumeration value="MALAYSIA"/>
+						<xsd:enumeration value="MALDIVES"/>
+						<xsd:enumeration value="MALI"/>
+						<xsd:enumeration value="MALTA"/>
+						<xsd:enumeration value="MAN, ISLE OF"/>
+						<xsd:enumeration value="MARSHALL ISLANDS"/>
+						<xsd:enumeration value="MARTINIQUE"/>
+						<xsd:enumeration value="MAURITANIA"/>
+						<xsd:enumeration value="MAURITIUS"/>
+						<xsd:enumeration value="MAYOTTE"/>
+						<xsd:enumeration value="MEXICO"/>
+						<xsd:enumeration value="MICRONESIA"/>
+						<xsd:enumeration value="MIDWAY ISLANDS"/>
+						<xsd:enumeration value="MOLDOVA"/>
+						<xsd:enumeration value="MONACO"/>
+						<xsd:enumeration value="MONGOLIA"/>
+						<xsd:enumeration value="MONTENEGRO"/>
+						<xsd:enumeration value="MONTSERRAT"/>
+						<xsd:enumeration value="MOROCCO"/>
+						<xsd:enumeration value="MOZAMBIQUE"/>
+						<xsd:enumeration value="MYANMAR"/>
+						<xsd:enumeration value="NAMIBIA"/>
+						<xsd:enumeration value="NAURU"/>
+						<xsd:enumeration value="NAVASSA ISLAND"/>
+						<xsd:enumeration value="NEPAL"/>
+						<xsd:enumeration value="NETHERLANDS"/>
+						<xsd:enumeration value="NETHERLANDS ANTILLES"/>
+						<xsd:enumeration value="NEW CALEDONIA"/>
+						<xsd:enumeration value="NEW ZEALAND"/>
+						<xsd:enumeration value="NICARAGUA"/>
+						<xsd:enumeration value="NIGER"/>
+						<xsd:enumeration value="NIGERIA"/>
+						<xsd:enumeration value="NIUE"/>
+						<xsd:enumeration value="NORFOLK ISLAND"/>
+						<xsd:enumeration value="NORTH KOREA (DEMOCRATIC PEOPLE'S REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="NORTH MACEDONIA"/>
+						<xsd:enumeration value="NORTHERN MARIANA ISLANDS"/>
+						<xsd:enumeration value="NORWAY"/>
+						<xsd:enumeration value="OMAN"/>
+						<xsd:enumeration value="PAKISTAN"/>
+						<xsd:enumeration value="PALAU"/>
+						<xsd:enumeration value="PALESTINE STATE"/>
+						<xsd:enumeration value="PALMYRA ATOLL"/>
+						<xsd:enumeration value="PANAMA"/>
+						<xsd:enumeration value="PAPUA NEW GUINEA"/>
+						<xsd:enumeration value="PARACEL ISLANDS"/>
+						<xsd:enumeration value="PARAGUAY"/>
+						<xsd:enumeration value="PERU"/>
+						<xsd:enumeration value="PHILIPPINES"/>
+						<xsd:enumeration value="PITCAIRN ISLANDS"/>
+						<xsd:enumeration value="POLAND"/>
+						<xsd:enumeration value="PORTUGAL"/>
+						<xsd:enumeration value="PUERTO RICO"/>
+						<xsd:enumeration value="QATAR"/>
+						<xsd:enumeration value="REUNION"/>
+						<xsd:enumeration value="ROMANIA"/>
+						<xsd:enumeration value="RUSSIA"/>
+						<xsd:enumeration value="RUSSIAN FEDERATION"/>
+						<xsd:enumeration value="RWANDA"/>
+						<xsd:enumeration value="SAMOA"/>
+						<xsd:enumeration value="SAN MARINO"/>
+						<xsd:enumeration value="SAINT KITTS AND NEVIS"/>
+						<xsd:enumeration value="SAINT LUCIA"/>
+						<xsd:enumeration value="SAINT VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SAO TOME AND PRINCIPE"/>
+						<xsd:enumeration value="SAUDI ARABIA"/>
+						<xsd:enumeration value="SENEGAL"/>
+						<xsd:enumeration value="SERBIA"/>
+						<xsd:enumeration value="SEYCHELLES"/>
+						<xsd:enumeration value="SIERRA LEONE"/>
+						<xsd:enumeration value="SINGAPORE"/>
+						<xsd:enumeration value="SLOVAKIA"/>
+						<xsd:enumeration value="SLOVENIA"/>
+						<xsd:enumeration value="SOLOMON ISLANDS"/>
+						<xsd:enumeration value="SOMALIA"/>
+						<xsd:enumeration value="SOUTH AFRICA"/>
+						<xsd:enumeration value="SOUTH GEORGIA AND THE SOUTH SANDWICH"/>
+						<xsd:enumeration value="SOUTH KOREA (REPUBLIC OF KOREA)"/>
+						<xsd:enumeration value="SOUTH SUDAN"/>
+						<xsd:enumeration value="SPAIN"/>
+						<xsd:enumeration value="SPRATLY ISLANDS"/>
+						<xsd:enumeration value="SRI LANKA"/>
+						<xsd:enumeration value="ST. HELENA"/>
+						<xsd:enumeration value="ST. KITTS AND NEVIS"/>
+						<xsd:enumeration value="ST. LUCIA"/>
+						<xsd:enumeration value="ST. PIERRE AND MIQUELON"/>
+						<xsd:enumeration value="ST. VINCENT AND THE GRENADINES"/>
+						<xsd:enumeration value="SUDAN"/>
+						<xsd:enumeration value="SURINAME"/>
+						<xsd:enumeration value="SVALBARD"/>
+						<xsd:enumeration value="SWAZILAND"/>
+						<xsd:enumeration value="SWEDEN"/>
+						<xsd:enumeration value="SWITZERLAND"/>
+						<xsd:enumeration value="SYRIA"/>
+						<xsd:enumeration value="SYRIA (SYRIAN ARAB REPUBLIC)"/>
+						<xsd:enumeration value="TAHITI"/>
+						<xsd:enumeration value="TAIWAN"/>
+						<xsd:enumeration value="TAJIKISTAN"/>
+						<xsd:enumeration value="TANZANIA"/>
+						<xsd:enumeration value="THAILAND"/>
+						<xsd:enumeration value="TIMOR-LESTE"/>
+						<xsd:enumeration value="TOGO"/>
+						<xsd:enumeration value="TOKELAU"/>
+						<xsd:enumeration value="TONGA"/>
+						<xsd:enumeration value="TRINIDAD AND TOBAGO"/>
+						<xsd:enumeration value="TROMELIN ISLAND"/>
+						<xsd:enumeration value="TRUST TERRITORY OF THE PACIFIC ISLANDS (PALAU)"/>
+						<xsd:enumeration value="TUNISIA"/>
+						<xsd:enumeration value="TURKEY"/>
+						<xsd:enumeration value="TURKMENISTAN"/>
+						<xsd:enumeration value="TURKS AND CAICOS ISLANDS"/>
+						<xsd:enumeration value="TUVALU"/>
+						<xsd:enumeration value="UGANDA"/>
+						<xsd:enumeration value="UKRAINE"/>
+						<xsd:enumeration value="UNITED ARAB EMIRATES"/>
+						<xsd:enumeration value="UNITED KINGDOM"/>
+						<xsd:enumeration value="UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND"/>
+						<xsd:enumeration value="URUGUAY"/>
+						<xsd:enumeration value="UZBEKISTAN"/>
+						<xsd:enumeration value="VANUATU"/>
+						<xsd:enumeration value="VENEZUELA"/>
+						<xsd:enumeration value="VIET NAM"/>
+						<xsd:enumeration value="VIETNAM"/>
+						<xsd:enumeration value="VIRGIN ISLANDS"/>
+						<xsd:enumeration value="WALLIS AND FUTUNA"/>
+						<xsd:enumeration value="WEST BANK"/>
+						<xsd:enumeration value="WESTERN SAHARA"/>
+						<xsd:enumeration value="WESTERN SAMOA"/>
+						<xsd:enumeration value="YEMEN"/>
+						<xsd:enumeration value="ZAIRE"/>
+						<xsd:enumeration value="ZAMBIA"/>
+						<xsd:enumeration value="ZIMBABWE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GhGasNameExtended" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherFGHG" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FghgCategory" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassExported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CommodityCode" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.416(d)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,18 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_CemsLimeUnitDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="CemsLimeUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LimeProductDataDetails" type="ghg:CEMSProductDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ByProductDataDetails" type="ghg:CEMSByProductDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CemsLimeUnitDetails" type="ghg:CemsLimeUnitDetailsDataType"/>
+</xsd:schema>

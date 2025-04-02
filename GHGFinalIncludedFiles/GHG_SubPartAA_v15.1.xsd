@@ -1,0 +1,99 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartAA_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="PulpPaperUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<!-- FossilFuelUnit removed by mjs 20101129 -->
+			<!-- <xsd:element ref="ghg:FossilFuelUnit" minOccurs="0" maxOccurs="unbounded"/> -->
+			<!-- BiomassFuelUnit renamed to AAUnit by mjs 20101129 -->
+			<!-- <xsd:element ref="ghg:BiomassFuelUnit" minOccurs="0" maxOccurs="unbounded"/> -->
+			<xsd:element ref="ghg:AAUnit" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:CEMSAAUnit" minOccurs="0"/>
+			<!--  CalciumCarbonateMakeUpQuantity switched to MeasurementDetailsDataType2 by mjs 20101130 -->
+			<xsd:element name="CalciumCarbonateMakeUpQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.276(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- CO2MassTotal renamed to MakeUpCO2MassTotal by mjs 20101207-->
+			<!-- CO2MassTotal added by mjs 20101130 -->
+			<xsd:element name="MakeUpCO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.276(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--  SodiumCarbonateMakeUpQuantity switched to MeasurementDetailsDataType2 by mjs 20101130 -->
+			<xsd:element name="SodiumCarbonateMakeUpQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.276(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualSteamPurchaseQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.276(j)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- AnnualPulpPaperProductsProduced removed by mjs 20101130 -->
+			<!--<xsd:element name="AnnualPulpPaperProductsProduced" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- AnnualPulpProductsProduced added by mjs 20101130 -->
+			<xsd:element name="AnnualPulpProductsProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.276(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartAA" type="ghg:PulpPaperUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.270</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,29 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartS_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_NoCemsLimeUnitDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_CemsLimeUnitDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_SubPartSReportingForms_v15.1.xsd"/>
+	<xsd:complexType name="LimeUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element ref="ghg:CemsLimeUnitDetails" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ghg:NoCemsLimeUnitDetails" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartSReportingFormsDetails" type="ghg:SubPartSReportingFormsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartS" type="ghg:LimeUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.190</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

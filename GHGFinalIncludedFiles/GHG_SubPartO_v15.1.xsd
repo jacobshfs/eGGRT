@@ -1,0 +1,559 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartO_v15.1.xsd
+        Current Version Available At : 
+        Description   : Gives the HFC-23 Information.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="HydroFluoroCarbonsUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="HCFC22ProducedDetails" type="ghg:HCFC22ProducedDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isHCFC22ProducedOnSiteIndicator" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isHFC23DestroyedOnsiteIndicator" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isHFC23DestroyedOffsiteIndicator" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HFC23OnsiteDestructionDetails" type="ghg:HFC23OnsiteDestructionDetailsDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="AnnualMassofReactantsFedToProcess" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="MassofByProductsRemoved" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element ref="ghg:HFC23UnitDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element ref="ghg:HFC23OffSiteDestructionFacilityDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HFC23OnsiteDestructionDetailsDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EqO8HFCAddedToTotalEmissions" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<!--<xsd:element name="FlowRateHFC23Fed" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			
+			<xsd:element name="AnnualMassHFC23FedtoDestructionDetails" type="ghg:AnnualMassHFC23FedtoDestructionDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualMassHFC23EmittedfromDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(11), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConcentrationHFC23OutletDetails" type="ghg:ConcentrationHFC23OutletDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(c)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isAffectedByDEorMethods" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(e)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="FlowRateHFC23Outlet" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>-->
+			<!--<xsd:element name="FlowRateHFC23Inlet" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>-->
+			<!--<xsd:element name="EmissionRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="DestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="HFCOneTimeReportDetails" type="ghg:HFCOneTimeReportDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartO" type="ghg:HydroFluoroCarbonsUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.150</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="HFC23UnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:HFC23EventDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:HFC23OffSiteDestructionFacilityDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AnnualHFC23Generated" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23SoldOffSite" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23DestroyedOffSite" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23InStorage" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23Emitted" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23EmittedfromLeaks" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23EmittedfromVents" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HFC23UnitDetails" type="ghg:HFC23UnitDetailsDataType"/>
+	<xsd:complexType name="HFC23EventDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EventName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23Generated" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+							<xsd:attribute name="isSubstituted" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isCBI" type="xsd:string" use="optional" fixed="Y"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HFC23EventDetails" type="ghg:HFC23EventDetailsDataType"/>
+	<xsd:complexType name="HFC23OffSiteDestructionFacilityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(6)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:FacilityAddress" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(6)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuantityofHFC23Sent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(6), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="AnnualMassofHFC23IntoThermalOxidizer" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="AnnualMassofHFC23Destroyed" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="AnnualMassofHFC23EmittedFromThermalOxidizer" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element ref="ghg:DestructionDeviceDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HFC23OffSiteDestructionFacilityDetails" type="ghg:HFC23OffSiteDestructionFacilityDetailsDataType"/>
+	<xsd:complexType name="HCFC22ProducedDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionProcessNameOrId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="HFC23EmissionMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:HFC23EmissionMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassHCFC22Produced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CombinedMassOtherMaterials" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(4), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="StartUpMalfunctionMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23EmissionsO4" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23EmissionsO5" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="LossFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="factorUOM" type="ghg:factorUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="AnnualHFC23EmittedfromVents" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(13), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualHFC23EmittedfromLeaks" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(12), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ReactantsFedToProcessDetails" type="ghg:ReactantsFedToProcessDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="HFC23OnsiteDestructionDetails" type="ghg:HFC23OnsiteDestructionDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReactantsFedToProcessDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ReactantName" type="ghg:ReactantList" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherReactantName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualMassofReactantsFedToProcess" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(a)(3), 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType10">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HFCOneTimeReportDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodUsedtoRecordDestructionEfficiency" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(e)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedtoRecordMassHFC23Destroyed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(e)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RegulationNameofDestructionProcess" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(e)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConcentrationHFC23OutletDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ConcentrationOfHFC23" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType8">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DetectionLimitConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DetectionLimitConcetrationUnits" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(c)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyIndicator" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(d)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcentrationAtOutlet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(d)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FlowrateAtOutlet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(d)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EmissionRateCalculated" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.156(d)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RevisedDestructionEfficiencyCalculationMethod" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Used §98.154(l)(1) - substituted the recent higher HFC-23 concentration for the value from the previous performance test, and calculated a new destruction efficiency"/>
+						<xsd:enumeration value="Used §98.154(l)(2) - determined the HFC-23 mass rate into the destruction device and calculated the new destruction efficiency"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualMassHFC23FedtoDestructionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="IsSubstitutedIndicator" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="ParameterMissingDataProcedure" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Concentration"/>
+						<xsd:enumeration value="Mass flow rate"/>
+						<xsd:enumeration value="Mass"/>
+						<xsd:enumeration value="Other"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherParameterMissingDataProcedure" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="200"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberofHoursSubstituted" type="ghg:Count" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="HFC23EmissionMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Equation O-4"/>
+			<xsd:enumeration value="Equation O-5"/>
+			<xsd:enumeration value="Both"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RevisedDestructionEfficiencyMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="98.154(l)(1)"/>
+			<xsd:enumeration value="98.154(l)(2)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,52 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartN_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_CemsGlassDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_NoCemsGlassDetails_v15.1.xsd"/>
+	<xsd:complexType name="GlassUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="TotalGlassProducedQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.146(a)(2) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+						<!-- massUOM added by michael smith 20101025 -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:CemsGlassUnitDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:CarbonateTypeQuantityDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="TotalNumberofFurnaces" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.146(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NoCemsGlassDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartN" type="ghg:GlassUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.140</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,153 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartG_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart G - Ammonia Manufacturing
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_NoCemsAmmoniaDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_CemsAmmoniaDetails_v15.1.xsd"/>
+	<xsd:complexType name="AmmoniaUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:CemsAmmoniaDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NoCemsAmmoniaDetails" minOccurs="0"/>
+			<xsd:element name="AnnualUreaProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualAmmoniaProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DeterminationMethodforUreaProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethodUreaType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						<!-- changed to MethodUreaType from xsd:string mjs 20101208 -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--OtherDeterminationMethodforUreaProduced added mjs 20101208 -->
+			<xsd:element name="OtherDeterminationMethodforUreaProduced" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- added by michael smith 20101001 -->
+			<xsd:element name="CO2Consumed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- added by michael smith 20101001 -->
+			<xsd:element name="CO2ConsumedMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethodCO2Type"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						<!-- changed to MethodCO2Type from xsd:string mjs 20101208 -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- OtherCO2ConsumedMethod added by michael smith 20101001 -->
+			<xsd:element name="OtherCO2ConsumedMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--
+			<xsd:element name="TotalSyntheticFertilizerProduced" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNitrogeninSyntheticFertilizerProduced" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			-->
+			<!-- removed by michael smith 20101001 -->
+			<!--<xsd:element name="UreaUses" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- MethodUreaType added mjs 20101208-->
+	<xsd:simpleType name="MethodUreaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Direct weight measurement"/>
+			<xsd:enumeration value="Company records"/>
+			<xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- MethodUreaType added mjs 20101208-->
+	<xsd:simpleType name="MethodCO2Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Continuous measurement of concentration and flow"/>
+			<xsd:enumeration value="Company records"/>
+			<xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="SubPartG" type="ghg:AmmoniaUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.70</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

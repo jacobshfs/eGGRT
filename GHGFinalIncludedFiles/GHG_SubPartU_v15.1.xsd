@@ -1,0 +1,40 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartU_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart U-Miscellaneous Uses of Carbonate
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="CarbonateUsesUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails"  maxOccurs="unbounded"/>
+			<!-- AnnualCarbonateDetails removed mjs 20101208 -->
+			<!-- <xsd:element ref="ghg:AnnualCarbonateDetails" minOccurs="0" maxOccurs="unbounded"/> -->
+			<!-- EmissionsCalculationMethod moved to this level from AnnualCarbonateDetails mjs 20101208 -->
+			<xsd:element name="EmissionsCalculationMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.216(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:SPUEmissionsCalculationMethodList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- choice added mjs 20101208 -->
+			<xsd:choice>
+				<xsd:element ref="ghg:CO2EmissionsUsingCalcinationFractionMethodDetails" maxOccurs="unbounded"/>
+				<xsd:element ref="ghg:CO2EmissionsUsingMassMethodDetails" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartU" type="ghg:CarbonateUsesUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.210</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

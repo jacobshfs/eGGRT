@@ -1,0 +1,96 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartZ_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_NoCemsPhosphoricAcidDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_CemsPhosphoricAcidDetails_v15.1.xsd"/>
+	<xsd:complexType name="PhosphoricAcidUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails"  maxOccurs="unbounded"/>
+			<xsd:element name="NumberOfWetProcessLines" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.266(f)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualPhosphoricAcidProductionCapacity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:PhosphateRockOriginDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element ref="ghg:CemsPhosphoricAcidDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NoCemsPhosphoricAcidDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartZ" type="ghg:PhosphoricAcidUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.260</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--<xsd:complexType name="PhosphateRockOriginDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Origin" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isCBI" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualPermittedProductionCapacity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualPhosphoricAcidProduction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualPhosphateRockConsumption" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualAveragePercentInorganicCarbon" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>-->
+	<!--<xsd:element name="PhosphateRockOriginDetails" type="ghg:PhosphateRockOriginDetailsDataType"/>-->
+</xsd:schema>

@@ -1,0 +1,237 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartE_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subparts E 
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_TestRunsDetails_v15.1.xsd"/>
+	<xsd:complexType name="AdipicAcidUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<!-- AnnualNitrousOxideQuantity removed mjs 20101209-->
+			<!--<xsd:element name="AnnualNitrousOxideQuantity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- AnnualAdipicAcidQuantity renamed to AnnualAdipicAcidProduction, changed to MeasurementDetailsDataType3-->
+			<xsd:element name="AnnualN2OFromAdipicAcid" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- AnnualAdipicAcidFromNitrousOxideAbatementTechnology removed mjs 20101209-->
+			<!--<xsd:element name="AnnualAdipicAcidFromNitrousOxideAbatementTechnology" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="AnnualNitrousOxideSoldorTransferred" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:PerformanceTestDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element name="NumberOfDistinctAbatement" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="isNSCRUsed" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AbatementDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberMonthsMissingDataProceduresUsed" type="ghg:Count" minOccurs="0"/>
+			<!--<xsd:element ref="ghg:AlternativeMethodNitrousOxideDeterminationDetails" minOccurs="0"/>-->
+			<xsd:choice>
+				<xsd:element name="AnnualCylohxaneOnlyUsed" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.56(d)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:MeasurementDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AnnualCylohxaneMixedUsed" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.56(d)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:MeasurementDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="AnnualPercentEmissionsReduction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="effUOM" type="ghg:effUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="AdministeredApprovedDetails" type="ghg:SubpartEAdministeredApprovedDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.56(k)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SiteSpecificDetails" type="ghg:SubpartESiteSpecificDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.56(j)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartEAdministeredApprovedDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AdministeredApprovedAdipicAcidProductionUnitDetails" type="ghg:AdministeredApprovedAdipicAcidProductionUnitDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AlternateMethodName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AlternateMethodDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AlternateMethodRequestDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="AlternateMethodApprovedDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="isPreviouslyApprovedMethod" type="xsd:string" minOccurs="0"/>
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartESiteSpecificDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SiteSpecificAdipicAcidProductionUnitDetails" type="ghg:SiteSpecificAdipicAcidProductionUnitDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- EEUnit added mjs 20101209-->
+	<xsd:complexType name="AdministeredApprovedAdipicAcidProductionUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(j)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SiteSpecificAdipicAcidProductionUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(j)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberOfTestRuns" type="ghg:Count" minOccurs="0"/>
+			<xsd:element name="NumberOfTimesTestRunsRepeated" type="ghg:Count" minOccurs="0"/>
+			<xsd:element name="AbatementTechnologyConfiguration" type="ghg:AbatementTechnologyConfigurationList" minOccurs="0"/>
+			<xsd:element name="PerformanceTestMethod" type="ghg:PerformanceTestMethodList" minOccurs="0"/>
+			<xsd:element name="AdipicAcidProductionAbatementTechnologyDetails" type="ghg:AdipicAcidProductionAbatementTechnologyDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdipicAcidProductionTestRunDetails" type="ghg:AdipicAcidProductionTestRunDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartE" type="ghg:AdipicAcidUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.50</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AdipicAcidProductionAbatementTechnologyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DateOfInstallation" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AbatementUtilizationFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FractionControlFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdipicAcidProductionTestRunDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="N2OConcentration" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="concentrationUOM" type="ghg:concentrationUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="VolumentricFlow" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

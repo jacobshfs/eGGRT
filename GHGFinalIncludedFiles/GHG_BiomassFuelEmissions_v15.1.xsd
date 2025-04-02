@@ -1,0 +1,27 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_BiomassFuelEmissions_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="BiomassFuelUnitDataType">
+		<xsd:sequence>
+			<xsd:element name="BiomassFuelType" type="biomassFuelTypes"/>
+			<xsd:element name="AnnualHHV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualCarbonContentSpentLiquorSolids" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassSpentLiquorSolids" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodMassSpentLiquorSolids" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BiomassCO2Emissions" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BiomassCH4Emissions" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BiomassN2OEmissions" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="biomassFuelTypes">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Coal"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="BiomassFuelUnit" type="BiomassFuelUnitDataType"/>
+</xsd:schema>

@@ -1,0 +1,965 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+			Schema Name : GHG_SubPartTT_v15.1.xsd
+			Current Version Available At :
+			Description : Identification information regarding the submission file.(Industrial Waste Landfills)
+	    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_LandfillGasOX_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_LandfillGasMeasurementLocations_v15.1.xsd"/>
+	<xsd:complexType name="IndustrialWasteDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="IsLandFillOpenIndicator">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="StartingYearforAcceptingWaste" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(a)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsLeachateRecirculationIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(a)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LeachateRecirculationFrequency" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:98.466(a)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:LeachateRecirculationFrequencyOverPastYearsList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsLandfillGasCollectionSystemIndicator">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(g) and (h)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsPassiveVentFlareIndicator">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(g)(2) and (h)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CoverMaterialsTypeDetails" type="ghg:CoverMaterialsTypeDetailsDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(e)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EstimatedYearLandFillClosure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LastYearReceivedWaste" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(a)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneFractionLandfillGasDeterminationIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneFractionLandfillGasList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneFractionLandfillGas" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMCFValueDefaultIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ActiveAerationInformationDetails" type="ghg:ActiveAerationInformationDetailsDataType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="LandfillsNoGasCollectionSystemDetails" type="ghg:LandfillsNoGasCollectionSystemDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference: 98.466(g) and (h)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="LandfillsGasCollectionSystemDetails" type="ghg:LandfillsGasCollectionSystemDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference: 98.466(g) and (h)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="NumberOfStreams" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasteStreamForMethod3Details" type="ghg:WasteStreamForMethod3DetailsDataType" minOccurs="0"/>
+			<xsd:element name="WasteStreamForMethod4Details" type="ghg:WasteStreamForMethod4DetailsDataType" minOccurs="0"/>
+			<xsd:element name="WasteStreamDetails" type="ghg:WasteStreamDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AnnualModeledCH4GenerationTT1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteStreamForMethod3DetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LandfillCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(c)(4)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsWasteQuantityDataAvailableIndicator" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="PriorYearWasteDisposalDataFirstAvailable" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(4)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="YearLastReceivedWaste" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(4)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DoesFacilityKnowWhenLandfillOpened" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LandfillFirstReceivedWaste" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteStreamForMethod4DetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WasteInPlaceQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsWasteInPlaceQuantityKnownIndicator" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="LandfillDesignCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CumulativeWasteQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillReceivedWasteYearLast" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DoesFacilityKnowWhenLandfillOpened" type="ghg:IndicatorDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LandfillYearOpen" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuantityAvailableYears" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActiveAerationInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ReportingYearMCF" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AerationSystemDescription" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AerationBlowerCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)]</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="flowUOM" type="ghg:flowUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillFractionAffectedbyAeration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AerationBlowerOperationsHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FactorsUsedAsBasisOfMCF" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartTT" type="ghg:IndustrialWasteDataType"/>
+	<xsd:complexType name="CoverMaterialsTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CoverTypeName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CoverTypeNameList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillSurfaceAreaContainingWaste" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(e)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LandfillsNoGasCollectionSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFraction" type="ghg:TTWithoutLFGCSMethaneOxidationFractionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnnualMethaneEmissionsEquationTT6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(g)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LandfillsGasCollectionSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualVolumeFGCollectedGasVolumetricFlow" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualAverageMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType7">
+							<xsd:attribute name="percentUOM" type="ghg:percentUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsTemperatureIncorporatedIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsPressureIncorporatedIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsLFGFlowWetBasisIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMethaneConcentrationWetBasisIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasCollectionMonthlyAverageDetails" type="ghg:GasCollectionMonthlyAverageDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OnSiteDestructionIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:OnSiteDestructionIndicatorList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteDepthTTDetails" type="ghg:WasteDepthTTDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SystemManufacturer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SystemCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="flowUOM" type="ghg:flowUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofWells" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EstimatedGasCollectionEfficiency" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractions" type="ghg:TTWithLFGCSMethaneOxidationFractionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MeasurementLocations" type="ghg:MeasurementLocationsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="ModeledMethaneGenerationEquationHH5" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MeasuredMethaneGenerationEquationHH7" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BasisforInputMethaneGenerationValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisforTTInputMethaneGenerationValueList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneEmissionsEquationHH6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneEmissionfromEquationHH8" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantityOfRecoveredMethaneHH4" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EstimatedWasteDepthDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AreaType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:AreaTypeList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteDepth" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heightUOM" type="ghg:heightUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GasCollectionMonthlyAverageDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MonthNameList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageTemperature" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AveragePressure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageMoistureContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteStreamDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="StreamIdentification" type="ghg:StreamIdentificationDetailsDataType"/>
+			<xsd:element name="AnaerobicBiodegradationTestMethodDetails" type="ghg:AnaerobicBiodegradationTestMethodDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:98.466(d)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RangeOfYearsDiposalAndProductionDataUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(c)(3)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="HistoricalWasteStreamQuantityDetails" type="ghg:HistoricalWasteStreamQuantityDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicBiodegradationTestMethodDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicBiodegradationTestMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:AnaerobicBiodegradationTestMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherAnaerobicBiodegradationTestMethod" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StreamIdentificationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="StreamName" type="xsd:string"/>
+			<xsd:element name="StreamDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StreamTypeDetails" type="ghg:StreamTypeDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StreamTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="StreamType">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="food processing"/>
+						<xsd:enumeration value="pulp and paper"/>
+						<xsd:enumeration value="pulp and paper wastes segregated into separate streams"/>
+						<xsd:enumeration value="pulp and paper wastes not segregated into separate streams"/>
+						<xsd:enumeration value="wood and wood product"/>
+						<xsd:enumeration value="construction and demolition"/>
+						<xsd:enumeration value="industrial sludge"/>
+						<xsd:enumeration value="inert waste"/>
+						<xsd:enumeration value="other industrial solid waste"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StreamSubType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="boiler ash"/>
+						<xsd:enumeration value="wastewater sludge"/>
+						<xsd:enumeration value="kraft recovery wastes"/>
+						<xsd:enumeration value="other pulp and paper wastes"/>
+						<xsd:enumeration value="pulp and paper manufacturing wastes, general"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HistoricalWasteStreamQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WasteStreamInLandfillFirstYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteStreamInLandfillLastYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethodsUsedForHistoricalWasteStreamQuantityDetails" type="ghg:MethodsUsedForHistoricalWasteStreamQuantityDetailsDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.463(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MethodsUsedForHistoricalWasteStreamQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Year" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Method1" default="N" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Method #1: waste quantity measurement methods specified in 98.463(a)(2)(i)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Method2" default="N" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Method #2: calculate average waste disposal rate per Equation TT-2 and calculate the waste disposal quantities for historic years in which direct waste disposal measurements are not available using historical production   data (Equation TT-2 and TT-3)	
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Method3" default="N" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Method #3: calculate an average annual bulk waste disposal quantity when waste quantity data determined by other methods are available consecutively for the most recent disposal years (Equation TT-4a)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Method4" default="N" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Method #4: calculate an average annual bulk waste disposal quantity when waste quantity data determined by other methods are available for sporadic (non-consecutive) years (Equation TT-4b)
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DecayRate" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasteDisposedQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(d)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteStreamDOCValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.466(d)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsDefaultValueFromTableTT1Indicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.466(d)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMeasuredValueUsing60DayAnaerobicBiodegradationTestIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:98.466(d)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsBasedOnTotalAndVolatileSolidsMeasurementsIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:98.466(d)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteDepthTTDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WasteDepthTTDetail" type="ghg:WasteDepthTTDetailDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.446(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteDepthTTDetailDataType">
+		<xsd:sequence>
+			<xsd:element name="AreaType" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:AreaTypeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteDepth" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heightUOM" type="ghg:heightUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SurfaceArea" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="AnaerobicBiodegradationTestMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ASTM D5511-11"/>
+			<xsd:enumeration value="ASTM D5526-94"/>
+			<xsd:enumeration value="ASTM E2170-01"/>
+			<xsd:enumeration value="ISO 11734 (1995)"/>
+			<xsd:enumeration value="OECD Test No. 311"/>
+			<xsd:enumeration value="OPPTS 835.3400"/>
+			<xsd:enumeration value="OPPTS 835.3420"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WasteStreamMethodForDOCxList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="default value from Table TT-1 for all years"/>
+			<xsd:enumeration value="a measured value using a 60-day anaerobic biodegradation test for all years"/>
+			<xsd:enumeration value="a value based on total and volatile solids measurements for all years"/>
+			<xsd:enumeration value="different methods for determining DOCx were used for different years"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LeachateRecirculationFrequencyOverPastYearsList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Used several times a year for the past ten (10) years"/>
+			<xsd:enumeration value="Used at least once a year for the past ten (10) years"/>
+			<xsd:enumeration value="Used occasionally but not every year over the past ten (10) years"/>
+			<xsd:enumeration value="Not used for the past ten (10) years"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BasisforTTInputMethaneGenerationValueList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Equation TT-1"/>
+			<xsd:enumeration value="Equation HH-4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MethaneFractionLandfillGasList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Based on measured value"/>
+			<xsd:enumeration value="Default"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

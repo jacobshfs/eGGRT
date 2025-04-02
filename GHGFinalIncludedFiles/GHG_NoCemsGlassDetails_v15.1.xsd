@@ -1,0 +1,29 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NoCemsGlassDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NoCemsGlassDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GlassProductionNoCemsFurnaceDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xsd:element ref="ghg:CarbonateTypeQuantityDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!--<xsd:element name="TotalNumberofFurnaces" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.146(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsGlassDetails" type="ghg:NoCemsGlassDataType"/>
+</xsd:schema>

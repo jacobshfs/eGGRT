@@ -1,0 +1,23 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_QuarterlyCement_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="QuarterlyCementDataType">
+		<xsd:sequence>
+			<xsd:element name="QuarterName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Mass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassUnits" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyCAOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyNonCAOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyMGOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyNonMGOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyCKDEmissionFactor" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="QuarterlyCement" type="QuarterlyCementDataType"/>
+</xsd:schema>

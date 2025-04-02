@@ -1,0 +1,24 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NoCemsIronSteelDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NoCemsIronSteelDataType">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element ref="ghg:CarbonBalanceInputOutput" minOccurs="0"/>
+				<xsd:element ref="ghg:SiteSpecificEmissionFactorMethodDetails" minOccurs="0"/>
+				<xsd:element name="CokePushingsDetails" type="ghg:CokePushingsDetailsDataType" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsIronSteelDetails" type="ghg:NoCemsIronSteelDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.176(d)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

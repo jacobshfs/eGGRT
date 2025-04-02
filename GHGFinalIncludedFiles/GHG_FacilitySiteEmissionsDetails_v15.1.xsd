@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ghg="http://www.ccdsupport.com/schema/ghg" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:include schemaLocation="GHG_FacilitySiteAllDetails_v15.1.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : GHG_FacilitySiteEmissionsDetails_v15.1.xsd
+		Current Version Available At :
+		Description : 	.
+		Application : 
+	</xsd:documentation>
+	</xsd:annotation>
+	<!-- changed from FacilitySiteEmissionsDetails to FacilitySiteInfoDetails to match 20101014 changes by michael smith 20101020 -->
+	<xsd:complexType name="FacilitySiteInfoDetails">
+		<xsd:sequence>
+			<!-- changed from EmissionsYear to ReportingYear by michael smith 20101014 -->
+			<xsd:element name="CertificationStatement" type="xsd:string" fixed="The designated representative or alternate designated representative must sign (i.e., agree to) this certification statement. If you are an agent and you click on  &quot;SUBMIT&quot;, you are not agreeing to the certification statement, but are submitting the certification statement on behalf of the designated  representative or alternate designated representative who is agreeing to the certification statement. An agent is only authorized to make the electronic submission on behalf of the designated representative, not to sign (i.e., agree to) the certification statement." minOccurs="0"/>
+			<xsd:element name="ReportingYear" type="xsd:gYear"/>
+			<xsd:element ref="ghg:FacilitySiteDetails"/>
+			<xsd:element name="CalculationMethodologyChangesDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StartDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(2) and 98.3(d)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(2) and 98.3(d)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateTimeReportGenerated" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="DateSubmitted" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="DateSigned" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SignedRepresentativeName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>-->
+			<!-- GHG-2270 <xsd:element name="SubpartBAMMDetails" type="ghg:SubpartBAMMDetailsDataType" minOccurs="0" maxOccurs="unbounded"/> -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FacilitySiteDetails" type="ghg:FacilitySiteAllDetails"/>
+</xsd:schema>

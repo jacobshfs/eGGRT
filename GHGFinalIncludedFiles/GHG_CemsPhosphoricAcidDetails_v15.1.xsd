@@ -1,0 +1,19 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_CemsPhosphoricAcidDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_Tier4Details_v15.1.xsd"/>
+	<xsd:complexType name="CemsPhosphoricAcidDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:PhosphoricAcidProcessLine" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xsd:element ref="ghg:Tier4Details" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CemsPhosphoricAcidDetails" type="ghg:CemsPhosphoricAcidDetailsDataType"/>
+	
+</xsd:schema>

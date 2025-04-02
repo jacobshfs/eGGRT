@@ -1,0 +1,176 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NitricAcidTrainUnit_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NitricAcidTrainUnitDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TrainIdentificationNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualN2OEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ProductionAnnualNitricAcid" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(l)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType3"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="AnnualNitricAcidfromN2OAbatement" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="NitricAcidProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:NitricAcidProcessTypeList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofAbatementTechnologies" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AbatementTechnologyDetails" type="ghg:NitricAcidAbatementTechnologyDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:PerformanceTestDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element name="N2OCalculationMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:N2OCalculationMethodType">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="AdministeredApprovedDetails" type="ghg:AdministeredApprovedDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.226(n)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="NitricAcidSiteSpecificDetails" type="ghg:NitricAcidSiteSpecificDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.226(m)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NitricAcidSiteSpecificDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:NitricAcidSiteSpecificPerformanceTestDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="NumberRepeatPerformanceTest" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(j)(7) and 98.226(m)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NitricAcidSiteSpecificPerformanceTestDetails" type="ghg:NitricAcidSiteSpecificPerformanceTestDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.56(j) and 98.226(m)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="NitricAcidSiteSpecificPerformanceTestDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TestID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.266(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TestMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.56(j)(2) and 98.226(m)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:TestMethodType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NitricAcidProcessTypeList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="low pressure (&lt;100 kilopascal)"/>
+			<xsd:enumeration value="medium pressure (400-800 kilopascal)"/>
+			<xsd:enumeration value="high pressure (800-1400 kilopascal)"/>
+			<xsd:enumeration value="dual pressure"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="NitricAcidTrainUnit" type="ghg:NitricAcidTrainUnitDataType"/>
+</xsd:schema>

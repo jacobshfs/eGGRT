@@ -1,0 +1,44 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_CemsTiO2Details_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_ChlorideProcessCemsLineDetails_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_Tier4Details_v15.1.xsd"/>
+	<xsd:complexType name="CemsTiO2DataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:ChlorideProcessCemsLineDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xsd:element ref="ghg:Tier4Details" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!--<xsd:element name="ProcessLineIdentificationNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CemsTiO2Details" type="ghg:CemsTiO2DataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.316(a)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

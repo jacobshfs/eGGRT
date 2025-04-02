@@ -1,0 +1,219 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartBB_v15.1.xsd 
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Silicon Carbide Production.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="SiliconCarbideUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="AnnualProductionofSiliconCarbide" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.286(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualProductionCapacityofSiliconCarbide" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.286(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:SiliconCarbideCemsDetails" minOccurs="0"/>
+			<!-- SiliconCarbideNoCemsDetails removed mjs 201012008 -->
+			<!-- <xsd:element ref="ghg:SiliconCarbideNoCemsDetails" minOccurs="0" maxOccurs="unbounded"/> -->
+			<!-- CarbonContentFactorPetCokefromSupplier removed mjs 201012008 -->
+			<!--<xsd:element name="CarbonContentFactorPetCokefromSupplier" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="factorUOM" type="ghg:factorUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NoCEMSSiliconDetails" minOccurs="0"/>
+			<!--<xsd:element name="BasisforCarbonContentFactorPetCoke" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisforCarbonContentFactorPetCokeList">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:QAQCDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberofMonthsCarbonContentDataSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofMonthsPetCokeConsumptionDataSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NoCEMSSiliconDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="BasisforCarbonContentFactorPetCoke" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisforCarbonContentFactorPetCokeList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:QAQCDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberofMonthsCarbonContentDataSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofMonthsPetCokeConsumptionDataSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCEMSSiliconDetails" type="ghg:NoCEMSSiliconDetailsDataType"/>
+	<xsd:element name="SubPartBB" type="ghg:SiliconCarbideUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.280</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SiliconCarbideCemsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualConsumptionPetCoke" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:Tier4Details" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SiliconCarbideCemsDetails" type="ghg:SiliconCarbideCemsDetailsDataType"/>
+	<xsd:complexType name="SiliconCarbideNoCemsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:MonthlyNoCemsDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SiliconCarbideNoCemsDetails" type="ghg:SiliconCarbideNoCemsDetailsDataType"/>
+	<xsd:complexType name="MonthlyNoCemsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ConsumptionPetCoke" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CarbonContentFactorPetCoke" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="factorUOM" type="ghg:factorUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="factorUOM" type="ghg:factorUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MonthlyNoCemsDetails" type="ghg:MonthlyNoCemsDetailsDataType"/>
+	<xsd:complexType name="QAQCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SamplingResultCarbonContentPetCoke" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.286(b)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="QAQCDetails" type="ghg:QAQCDetailsDataType"/>
+</xsd:schema>

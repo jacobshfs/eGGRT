@@ -1,0 +1,56 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartY_v15.1.xsd
+        Current Version Available At : 
+        Description   : Gives the HFC-23 Information.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_Tier4Details_v15.1.xsd"/>
+	<xsd:complexType name="PetroleumRefineriesUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:FlareGasDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:CrackingCokingReformingDetails" minOccurs="0"/>
+			<!--<xsd:element ref="ghg:CEMSYDetails" minOccurs="0"/>-->
+			<!--<xsd:element ref="ghg:FluidCokingDetails" minOccurs="0"/>-->
+			<xsd:element ref="ghg:SulfurRecoveryDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:CokeCalciningDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:AsphaltBlowingDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:DelayedCokingDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:ProcessVentsDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:UnControlledBlowDownDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:EquipmentLeaksDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:StorageTankDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:LoadingOperationsDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:YTier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xsd:element ref="ghg:MeasurementMethodDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartY" type="ghg:PetroleumRefineriesUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.250</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CEMSYDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:Tier4Details" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CEMSYDetails" type="ghg:CEMSYDetailsDataType"/>
+	<xsd:complexType name="MeasurementMethodDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MeasurementMethodDetails" type="ghg:MeasurementMethodDetailsDataType"/>
+</xsd:schema>

@@ -1,0 +1,348 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartC_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="CUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:UnitsCDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NonOperationalUnitsCDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartC" type="ghg:CUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.30</xsd:documentation>
+		</xsd:annotation>
+		<xsd:unique name="UniqueSubpartCUnitName">
+			<xsd:selector xpath="ghg:UnitsCDetails/ghg:UnitIdentification"/>
+			<xsd:field xpath="ghg:UnitName"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="UnitsCDetails" type="ghg:UnitsCDetailsDataType">
+		<xsd:unique name="UniqueSubpartCFuelId">
+			<xsd:selector xpath="ghg:TierFuelDetails"/>
+			<xsd:field xpath="ghg:FuelInputsId"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="NonOperationalUnitsCDetails" type="ghg:NonOperationalUnitsCDetailsDataType">
+	</xsd:element>
+	<xsd:complexType name="NonOperationalUnitsCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UnitIdentification" type="ghg:UnitIdentificationDetailsDataType2">
+				<xsd:annotation>
+				<xsd:documentation>MRR Reference: 98.36(b)(1), (c)(1)(i), (c)(2)(i), (c)(3)(i), and (d)(2)(i); 98.36(b)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UnitsCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UnitIdentification" type="ghg:UnitIdentificationDetailsDataType2">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.36(b)(1), (c)(1)(i), (c)(2)(i), (c)(3)(i), and (d)(2)(i); 98.36(b)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="IndividualUnitDetails" type="ghg:IndividualUnitDetailsDataType">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.36(b)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SmallUnitAggregationDetails" type="ghg:SmallUnitAggregationDetailsDataType">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.36(c)(1)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CommonPipeDetails" type="ghg:CommonPipeDetailsDataType">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.36(c)(3)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CommonStackDetails" type="ghg:CommonStackDataType">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.36(c)(2)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Part75Details" type="ghg:Part75DetailsDataType"/>
+			</xsd:choice>
+			<xsd:element name="PlantCode" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.36(b)(11), 98.36(c)(1)(xi), 98.36(c)(3)(x), 98.36(c)(2)(x), 98.36(d)(2)(ii)(J), 98.36(d)(2)(iii)(J)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsGeneratedUsingSorbentInjectionDetails" type="ghg:CO2EmissionsGeneratedUsingSorbentInjectionDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(viii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SorbentCO2EmissionsQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(10) and 98.36(c)(1)(x)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsAllBiomassFuelsCombined" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(8)(ii), 98.36(b)(9)(ii), 98.36(c)(1)(vi), 98.36(c)(2)(viii), 98.36(c)(3)(vi), 98.36(d)(2)(ii)(I), and 98.36(d)(2)(iii)(I) </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsAllFossilFuelsCombined" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(c)(1)(vi) and 98.36(c)(3)(vi)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:TierFuelDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="BioGenicCO2VerificationDetails" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="BioGenicCO2VerificationMSW" type="ghg:BioGenicCO2SampleAnalysisResultsDataType" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>MRR Reference:  98.36(e)(2)(x)(A)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="BioGenicCO2VerificationNonMSW" type="ghg:BioGenicCO2SampleAnalysisResultsDataType" minOccurs="0" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>MRR Reference:  98.36(e)(2)(xi)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Tier4Details" type="ghg:UnitTier4DetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndividualUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UseIvtIndicator" type="ghg:IvtIndicatorDataType" minOccurs="0"/>
+			<xsd:element name="MaxRatedheatInputCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM2"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SmallUnitAggregationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UseIvtIndicator" type="ghg:IvtIndicatorDataType" minOccurs="0"/>
+			<xsd:element name="HighestMaxRatedheatInputCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(c)(1)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CumulativeMaxRatedHeatInputCapacity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommonPipeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UseIvtIndicator" type="ghg:IvtIndicatorDataType" minOccurs="0"/>
+			<xsd:element name="HighestMaxRatedHeatInputCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(c)(3)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CumulativeMaxRatedHeatInputCapacity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommonStackDataType">
+		<xsd:sequence>
+			<xsd:element name="UseIvtIndicator" type="ghg:IvtIndicatorDataType" minOccurs="0"/>
+			<xsd:element name="NumberofUnits" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(c)(2)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CombinedMaxRatedHeatInputCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(c)(2)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UnitTier4DetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SlipStreamIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.33(a)(4)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:Tier4QuarterFuelDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(B)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalSourceOperatingHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OperatingHoursDetails" type="ghg:OperatingHoursDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(C) and 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsNonBiogenic" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(ii) and 98.36(c)(2)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsBiogenic" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualCO2EmissionsMeasuredByCEMS" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(i), 98.36(b)(9)(ii), 98.36(c)(2)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:TierMethodologyStartDate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(6), 98.36(c)(2)(vi)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:TierMethodologyEndDate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(7), 98.36(c)(2)(vii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:BiogenicPortionDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CO2EmissionsGeneratedUsingSorbentInjectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalAmountOfSorbentUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(viii)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SorbentMolecularWeight" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(viii)(B)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SorbentRatio" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(viii)(C)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="IvtIndicatorDataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="N (EGU)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

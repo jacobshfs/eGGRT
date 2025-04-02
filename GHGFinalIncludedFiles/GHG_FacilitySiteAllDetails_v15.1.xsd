@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ghg="http://www.ccdsupport.com/schema/ghg" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<!--<xsd:include schemaLocation="GHG_FacilitySiteDataType_v15.1.xsd"/>-->
+	<!--<xsd:include schemaLocation="GHG_LocationAddressDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_AltNameDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_MailingAddressDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_GeographicCoordinateDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_AffiliationDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_PhoneFaxEmailDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_IndividualDataType_v15.1.xsd"/> -->
+	<!--<xsd:include schemaLocation="GHG_OrganizationDataType_v15.1.xsd"/> -->
+	<xsd:include schemaLocation="GHG_UnitInfo_v15.1.xsd"/>
+	<xsd:include schemaLocation="SC_FacilitySiteIdentity_v2.0.xsd"/>
+	<xsd:include schemaLocation="SC_LocationAddress_v2.0.xsd"/>
+	<xsd:include schemaLocation="SC_MailingAddress_v2.0.xsd"/>
+	<xsd:include schemaLocation="SC_IndividualIdentity_v2.0.xsd"/>
+	<xsd:include schemaLocation="SC_OrganizationIdentity_v2.0.xsd"/>
+	<xsd:include schemaLocation="GHG_StateReportingDataDetails_v15.1.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name : GHG_FacilitySiteAllDetails_v15.1.xsd
+		Current Version Available At :
+		Description : 	.
+		Application : 
+	</xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="FacilitySiteAllDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:FacilitySite"/>
+			<xsd:element ref="ghg:LocationAddress" minOccurs="0"/>
+			<!--	<xsd:element ref="ghg:AlternativeNameInfo" minOccurs="0"/>-->
+			<!--	<xsd:element ref="ghg:MailingAddress" minOccurs="0"/> -->
+			<!--	<xsd:element ref="ghg:IndividualDetails" minOccurs="0" maxOccurs="unbounded"/> -->
+			<!--	<xsd:element ref="ghg:OrganizationDetails" minOccurs="0" maxOccurs="unbounded"/> -->
+			<!--	<xsd:element ref="ghg:GeographicCoordinates" minOccurs="0" maxOccurs="unbounded"/> -->
+			<xsd:element name="CogenerationUnitEmissionsIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(v)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:YesNoNATypeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:YesNoNATypeList" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PrimaryNAICSCode" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(10)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:PrimaryNAICSCodeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SecondPrimaryNAICSCode" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(10)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:PrimaryNAICSCodeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AdditionalNAICSCodes" type="ghg:AdditionalNAICSCodesDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(10)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OwnerOperatorDetails" type="ghg:OwnerOperatorDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ParentCompanyDetails" type="ghg:ParentCompanyDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalNonBiogenicCO2eFacilitySubpartsCtoJJ" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalBiogenicCO2FacilitySubpartsCtoJJ" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.3(c)(4)(ii) and 98.3(d)(3)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalCO2eSupplierSubpartsKKtoPP" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PlantCodeIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.6</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:Group" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!--<xsd:element ref="ghg:SubPart" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!-- changed from UnitInformation to SubPartInformation by michael smith 20101019 -->
+			<xsd:element ref="ghg:SubPartInformation" minOccurs="0"/>
+			<!-- GHG-2270 <xsd:element name="OneTimeBackYearReporting" type="ghg:OneTimeBackYearReportingDataType" minOccurs="0"/> -->
+			<!--<xsd:element ref="ghg:StateReportingDataDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- GHG-2270 <xsd:complexType name="OneTimeBackYearReportingDataType">
+		<xsd:sequence>
+			<xsd:element name="BackYearReportingForm" type="ghg:BackYearReportingFormDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType> -->
+	<!-- GHG-2270 <xsd:complexType name="BackYearReportingFormDataType">
+		<xsd:sequence>
+			<xsd:element name="Subpart" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Filename" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType> -->
+	<xsd:complexType name="OwnerOperatorDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OwnerOperator" type="ghg:OwnerOperatorDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OwnerOperatorDataType">
+		<xsd:sequence>
+			<xsd:element name="OwnerOperatorName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="StreetAddress" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="City" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="State" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StateTerritoryList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Zip" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ParentCompanyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ParentCompany" type="ghg:ParentCompanyDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ParentCompanyDataType">
+		<xsd:sequence>
+			<xsd:element name="ParentCompanyLegalName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="StreetAddress" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="City" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="State" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StateTerritoryList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Zip" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PercentOwnershipInterest" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdditionalNAICSCodesDataType">
+		<xsd:sequence>
+			<xsd:element name="AdditionalNAICSCode" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FacilitySite" type="ghg:FacilitySiteIdentityDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.3(c)(1)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--<xsd:element name="LocationAddress" type="ghg:LocationAddressDataType"/>-->
+	<!--<xsd:element name="AlternativeNameInfo" type="ghg:AltNameDataType"/>-->
+	<!--<xsd:element name="MailingAddress" type="ghg:MailingAddressDataType"/>-->
+	<xsd:element name="IndividualDetails" type="ghg:IndividualIdentityDataType"/>
+	<xsd:element name="OrganizationDetails" type="ghg:OrganizationIdentityDataType"/>
+	<!-- <xsd:element name="GeographicCoordinates" type="ghg:GeographicCoordinateDataType"/> -->
+	<!--
+
+	<xsd:element name="Affiliation" type="ghg:AffiliationDataType"/>
+	<xsd:element name="PhoneFaxEmail" type="ghg:PhoneFaxEmailDataType"/>
+	<xsd:element name="Individual" type="ghg:IndividualDataType"/>
+	<xsd:element name="Organization" type="ghg:OrganizationDataType"/>
+	
+	<xsd:complexType name="IndividualDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:Affiliation" minOccurs="0"/>
+			<xsd:element ref="ghg:PhoneFaxEmail" minOccurs="0"/>
+			<xsd:element ref="ghg:Individual" minOccurs="0"/>
+			<xsd:element ref="ghg:MailingAddress" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrganizationDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:Affiliation" minOccurs="0"/>
+			<xsd:element ref="ghg:PhoneFaxEmail" minOccurs="0"/>
+			<xsd:element ref="ghg:Organization" minOccurs="0"/>
+			<xsd:element ref="ghg:MailingAddress" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+-->
+</xsd:schema>

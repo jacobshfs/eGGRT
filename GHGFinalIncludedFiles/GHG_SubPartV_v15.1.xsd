@@ -1,0 +1,258 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartV_v15.1.xsd
+		Current Version Available At : 
+		Description      : Subpart V - Nitric Acid Production
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartV" type="ghg:SubPartVDetails"/>
+	<xsd:complexType name="SubPartVDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartVReportingFormsDetails" type="ghg:SubPartVReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartVReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartVFacilityInformationDetails" type="ghg:SubpartVFacilityInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="NitricAcidTrainInformationDetails" type="ghg:NitricAcidTrainInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartVFacilityInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="NumberOfNitricAcidTrains" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(f)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityAnnualNitricAcidProduction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualPercentNitrousOxideEmissionReduction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="percentUOM" type="ghg:percentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NitricAcidTrainInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="NitricAcidTrainInfoDetails" type="ghg:NitricAcidTrainInfoDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NitricAcidTrainInfoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="NitricAcidTrainInfoRowDetails" type="ghg:NitricAcidTrainInfoRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NitricAcidTrainInfoRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="NitricAcidTrainId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessUnitDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumberofMonthsMissingDataProceduresUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(l)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="0"/>
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+						<xsd:enumeration value="5"/>
+						<xsd:enumeration value="6"/>
+						<xsd:enumeration value="7"/>
+						<xsd:enumeration value="8"/>
+						<xsd:enumeration value="9"/>
+						<xsd:enumeration value="10"/>
+						<xsd:enumeration value="11"/>
+						<xsd:enumeration value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NitricAcidProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(K)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Low pressure (&lt;100 kilopascal)"/>
+						<xsd:enumeration value="Medium pressure (400-800 kilopascal)"/>
+						<xsd:enumeration value="High pressure (800-1400 kilopascal)"/>
+						<xsd:enumeration value="Dual pressure"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsAdminApprovedAlternateMethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsAlternateMethodPreviouslyApproved" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.223(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AlternateMethodName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(n)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AlternateMethodDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(n)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AlternateMethodRequestDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(n)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AlternateMethodApprovalDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(n)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberOfPerfomanceTestsRepeated" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PerformanceTestIdOne" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PerformanceTestMethodOne" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ASTM D6348-03"/>
+						<xsd:enumeration value="EPA Method 320"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PerformanceTestIdTwo" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PerformanceTestMethodTwo" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ASTM D6348-03"/>
+						<xsd:enumeration value="EPA Method 320"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="PerformanceTestIdThree" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PerformanceTestMethodThree" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(m)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ASTM D6348-03"/>
+						<xsd:enumeration value="EPA Method 320"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DoesNitricAcidTrainExhaust" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsNSCRUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherAbatementTechnologiesUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherAbatementTechnologyDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherAbatementTechnologyInstallationDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualUnroundedNitrousOxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.226(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

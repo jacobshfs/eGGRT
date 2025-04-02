@@ -1,0 +1,155 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NoCemsLimeUnitDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NoCemsLimeUnitDetailsDataType">
+		<xsd:sequence>
+			<!-- AnnualChemicalCompositionofByProductNotSold removed by mjs 20101130 -->
+			<!--<xsd:element name="AnnualChemicalCompositionofByProductNotSold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="AnnualLimeProductionCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:MonthlyLimeDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:MonthlyByProductDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element ref="ghg:LimeProductDataDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:ByProductDataDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:CO2UseDetails" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(17)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:AnnualAverageSIvtDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- TotalCO2Emissions removed by mjs 20101130 -->
+			<!-- <xsd:element name="TotalCO2Emissions">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsLimeUnitDetails" type="ghg:NoCemsLimeUnitDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.196(b)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CO2UseDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="isCO2UsedOnSiteIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(17)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualAmountofCO2CapturedforUse" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(17)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethodUsedtoDetermineAmountofCO2" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(17)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethodUsedtoDetermineAmountofCO2List"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherMethodUsedtoDetermineAmountofCO2" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.196(b)(17)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CO2UseDetails" type="ghg:CO2UseDetailsDataType"/>
+	<xsd:element name="AnnualAverageSIvtDetails" type="ghg:AnnualAverageSIvtDataType"/>
+	<xsd:complexType name="AnnualAverageSIvtDataType">
+		<xsd:sequence>
+		<!-- <xsd:element name="UnqiueIdentifier" type="xsd:string" minOccurs="0"/> -->
+			<xsd:element name="ProductName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProductType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AverageCalciumOxideContentValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Required units of measure for this equation input: metric ton CaO/metric ton lime</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="calciumOxideContentUOM" type="ghg:calciumOxideContentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageMagnesiumOxideContentValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Required units of measure for this equation input: metric ton MgO/metric ton lime</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="magnesiumOxideContentUOM" type="ghg:magnesiumOxideContentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageEmissionFactorValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Required units of measure for this equation input: metric tons CO2/ton lime</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

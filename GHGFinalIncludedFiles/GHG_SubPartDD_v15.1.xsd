@@ -1,0 +1,864 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+			Schema Name      : GHG_SubPartDD_v15.1.xsd
+			Current Version Available At :
+			Description      : Electrical Transmission and Distribution Equipment Use
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartDD" type="ghg:SubPartDDDetails"/>
+	<xsd:complexType name="SubPartDDDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartDDReportingFormsDetails" type="ghg:SubPartDDReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartDDReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartDDSummaryDetails" type="ghg:SubpartDDSummaryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="GHGDDSpecificInformationDetails" type="ghg:GHGDDSpecificInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartDDSummaryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LengthOfLinesCarryingVoltageAbove35KV" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="distanceUOM" type="ghg:distanceUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForLinesAbove35KV" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForLinesAbove35KV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataAbove35KV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LengthOfLinesCarryingVoltageBelow35KV" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="distanceUOM" type="ghg:distanceUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForLinesBelow35KV" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForLinesBelow35KV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataBelow35KV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FacilityTerritoryLiesDetails" type="ghg:FacilityTerritoryLiesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityTerritoryLiesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityTerritoryLiesRowDetails" type="ghg:FacilityTerritoryLiesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GHGDDSpecificInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataMethodsForEachApplicableGasDetails" type="ghg:MissingDataMethodsForEachApplicableGasDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateDecreaseInSF6AndPFCDetails" type="ghg:CalculateDecreaseInSF6AndPFCDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateAcquisitionsOfSF6AndPFCDetails" type="ghg:CalculateAcquisitionsOfSF6AndPFCDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateDisbursementsOfSF6AndPFCDetails" type="ghg:CalculateDisbursementsOfSF6AndPFCDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateNetIncreaseInTotalNameplateCapacityDetails" type="ghg:CalculateNetIncreaseInTotalNameplateCapacityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Sf6PfcEquipmentCategoriesDetails" type="ghg:Sf6PfcEquipmentCategoriesDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculatedValueOfUserEmissionsPerGasDetails" type="ghg:CalculatedValueOfUserEmissionsPerGasDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataMethodsForEachApplicableGasDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataMethodsForEachApplicableGasRowDetails" type="ghg:MissingDataMethodsForEachApplicableGasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDecreaseInSF6AndPFCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateDecreaseInSF6AndPFCRowDetails" type="ghg:CalculateDecreaseInSF6AndPFCRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateAcquisitionsOfSF6AndPFCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateAcquisitionsOfSF6AndPFCRowDetails" type="ghg:CalculateAcquisitionsOfSF6AndPFCRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDisbursementsOfSF6AndPFCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateDisbursementsOfSF6AndPFCRowDetails" type="ghg:CalculateDisbursementsOfSF6AndPFCRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateNetIncreaseInTotalNameplateCapacityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateNetIncreaseInTotalNameplateCapacityRowDetails" type="ghg:CalculateNetIncreaseInTotalNameplateCapacityRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Sf6PfcEquipmentCategoriesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Sf6PfcEquipmentCategoriesRowDetails" type="ghg:Sf6PfcEquipmentCategoriesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculatedValueOfUserEmissionsPerGasDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculatedValueOfUserEmissionsPerGasRowDetails" type="ghg:CalculatedValueOfUserEmissionsPerGasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FacilityTerritoryLiesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityStateAndTerritory" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Alabama"/>
+						<xsd:enumeration value="Alaska"/>
+						<xsd:enumeration value="Arizona"/>
+						<xsd:enumeration value="Arkansas"/>
+						<xsd:enumeration value="California"/>
+						<xsd:enumeration value="Colorado"/>
+						<xsd:enumeration value="Connecticut"/>
+						<xsd:enumeration value="Delaware"/>
+						<xsd:enumeration value="District of Columbia"/>
+						<xsd:enumeration value="Florida"/>
+						<xsd:enumeration value="Georgia"/>
+						<xsd:enumeration value="Hawaii"/>
+						<xsd:enumeration value="Idaho"/>
+						<xsd:enumeration value="Illinois"/>
+						<xsd:enumeration value="Indiana"/>
+						<xsd:enumeration value="Iowa"/>
+						<xsd:enumeration value="Kansas"/>
+						<xsd:enumeration value="Kentucky"/>
+						<xsd:enumeration value="Louisiana"/>
+						<xsd:enumeration value="Maine"/>
+						<xsd:enumeration value="Maryland"/>
+						<xsd:enumeration value="Massachusetts"/>
+						<xsd:enumeration value="Michigan"/>
+						<xsd:enumeration value="Minnesota"/>
+						<xsd:enumeration value="Mississippi"/>
+						<xsd:enumeration value="Missouri"/>
+						<xsd:enumeration value="Montana"/>
+						<xsd:enumeration value="Nebraska"/>
+						<xsd:enumeration value="Nevada"/>
+						<xsd:enumeration value="New Hampshire"/>
+						<xsd:enumeration value="New Jersey"/>
+						<xsd:enumeration value="New Mexico"/>
+						<xsd:enumeration value="New York"/>
+						<xsd:enumeration value="North Carolina"/>
+						<xsd:enumeration value="North Dakota"/>
+						<xsd:enumeration value="Ohio"/>
+						<xsd:enumeration value="Oklahoma"/>
+						<xsd:enumeration value="Oregon"/>
+						<xsd:enumeration value="Pennsylvania"/>
+						<xsd:enumeration value="Rhode Island"/>
+						<xsd:enumeration value="South Carolina"/>
+						<xsd:enumeration value="South Dakota"/>
+						<xsd:enumeration value="Tennessee"/>
+						<xsd:enumeration value="Texas"/>
+						<xsd:enumeration value="Utah"/>
+						<xsd:enumeration value="Vermont"/>
+						<xsd:enumeration value="Virginia"/>
+						<xsd:enumeration value="Washington"/>
+						<xsd:enumeration value="West Virginia"/>
+						<xsd:enumeration value="Wisconsin"/>
+						<xsd:enumeration value="Wyoming"/>
+						<xsd:enumeration value="American Samoa"/>
+						<xsd:enumeration value="Guam"/>
+						<xsd:enumeration value="Northern Mariana Islands"/>
+						<xsd:enumeration value="Puerto Rico"/>
+						<xsd:enumeration value="US Virgin Islands"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataMethodsForEachApplicableGasRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsGasReported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BeginningNameplateCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(a)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNameplateCapacityOfNewHermeticallySealed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNameplateCapacityOfNewHermeticallySealed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfNewHermeticallySealed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNameplateCapacityOfNewEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNameplateCapacityOfNewEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfNewEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNameplateCapacityOfRetired" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNameplateCapacityOfRetired" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfRetired" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNameplateCapacityOfRetiredEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNameplateCapacityOfRetiredEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfRetiredEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNumberOfNewHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNumberOfNewHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForNumberOfNewHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForNewEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForNewEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForNewEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForRetiredHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForRetiredHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForRetiredHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForRetiredEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForRetiredEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForRetiredEquipmentOtherThanHermeticallySealedPressure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGStoredBeginningYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGStoredBeginningYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGStoredBeginningYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGStoredEndOfYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGStoredEndOfYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGStoredEndOfYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGPurchasedInBulk" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGPurchasedInBulk" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGPurchasedInBulk" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGPurchasedFromManufacturers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGPurchasedFromManufacturers" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGPurchasedFromManufacturers" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGReturnedToFacility" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGReturnedToFacility" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGReturnedToFacility" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGSoldToOtherEntities" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGSoldToOtherEntities" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGSoldToOtherEntities" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGReturnedToSuppliers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGReturnedToSuppliers" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGReturnedToSuppliers" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGSentOffsiteForRecycling" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGSentOffsiteForRecycling" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGSentOffsiteForRecycling" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsMissingDataMethodUsedForQuantityOfGHGSentOffsiteForDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataReasonForQuantityOfGHGSentOffsiteForDestruction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForEstimatingMissingDataOfGHGSentOffsiteForDestruction" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDecreaseInSF6AndPFCRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GasStoredInContainersNotInEnergizedEquipmentBeginningOfTheYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasStoredInContainersNotInEnergizedEquipmentEndOfTheYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DecreaseInInventoryReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateAcquisitionsOfSF6AndPFCRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GasPurchasedInBulk" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasPurchasedFromEquipmentManufacturers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasReturnedToFacilityAfterOffsiteRecycling" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AcquisitionsOfGasReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDisbursementsOfSF6AndPFCRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GasContainedInEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasReturnedToSuppliers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(j)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasSentOffsiteForRecycling" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasSentOffsiteForDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(l)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DisbursementsOfGasReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateNetIncreaseInTotalNameplateCapacityRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NameplateCapacityOfNewEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NameplateCapacityNewEquipmentOtherThanHermeticallySealed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NameplateCapacityOfRetiringEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(a)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NameplateCapacityRetiredEquipmentOtherThanHermeticallySealed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(a)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NetIncreaseInTotalNameplateCapacityReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Sf6PfcEquipmentCategoriesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NewHermeticallySealedPressureSwitchgear" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(n)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NewEquipmentHermeticallySealedPressureSwitchgear" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(n)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RetiredHermeticallySealedPressureSwitchgear" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(n)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RetiredEquipmentOtherThanHermeticallySealedPressureSwitchgear" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.306(n)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculatedValueOfUserEmissionsPerGasRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DecreaseInGasInventoryCalculatedResult" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AcquisitionsOfGasCalculatedResult" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DisbursementsOfGasCalculatedResult" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NetIncreaseInTotalNameplateCapacityCalculatedResult" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.303(a)/(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="UserEmissionsCalculatedResult" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

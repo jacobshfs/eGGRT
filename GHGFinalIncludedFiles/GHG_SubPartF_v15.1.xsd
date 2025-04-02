@@ -1,0 +1,179 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartF_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_PFCDetails_v15.1.xsd"/>
+	<xsd:complexType name="AluminiumUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<!--<xsd:element name="AnnualAluminiumProductionQuantity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="SmelterUnit" type="ghg:SmelterUnitDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SmelterCemsUnit" type="ghg:SmelterCemsUnitDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SmelterTechnologyType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:SmelterTechnologyNameType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:PFCDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element name="DeterminationMethodforFrequencyofAnodeEffects" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnodeEffectMinutesPerCellDay" type="ghg:MeasurementDetailsDataType3" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectOverVoltageFactor" type="ghg:MeasurementDetailsDataType3" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeConsumption" type="ghg:MeasurementDetailsDataType3" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(e)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodePasteConsumption" type="ghg:MeasurementDetailsDataType3" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(f)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SmelterCemsUnitDataType">
+	    <xsd:complexContent>
+			<xsd:extension base="ghg:SmelterUnitDataType">
+				<xsd:sequence>
+					<xsd:choice>
+						<xsd:element name="AnnualAnodeConsumption">
+							<xsd:annotation>
+								<xsd:documentation>MRR Reference:  98.66(e)(1)</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:complexContent>
+									<xsd:extension base="ghg:MeasurementDetailsDataType6">
+										<xsd:attribute name="consumptionUOM" type="ghg:consumptionUOM"/>
+									</xsd:extension>
+								</xsd:complexContent>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="AnnualPasteConsumption">
+							<xsd:annotation>
+								<xsd:documentation>MRR Reference:  98.66(f)(1)</xsd:documentation>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:complexContent>
+									<xsd:extension base="ghg:MeasurementDetailsDataType6">
+										<xsd:attribute name="consumptionUOM" type="ghg:consumptionUOM"/>
+									</xsd:extension>
+								</xsd:complexContent>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:choice>
+				</xsd:sequence>			
+			</xsd:extension>
+	    </xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SmelterUnitDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectMinutes" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectFrequency" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectDuration" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectOvervoltageFactor" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AvgPotlineOvervoltage" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AvgCurrentEfficiency" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SmelterSlopeCoefficient" type="ghg:MeasurementDetailsDataType6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateSmelterSpecificSlopeCoefficientMeasured" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartF" type="ghg:AluminiumUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.60</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="SmelterTechnologyNameType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Center Worked Prebake"/>
+			<xsd:enumeration value="Side Worked Prebake"/>
+			<xsd:enumeration value="Horizontal Stud Soderberg"/>
+			<xsd:enumeration value="Vertical Stud Soderberg"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,83 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartEE_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.( Titanium DiOxide Production)
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_NoCemsTiO2Details_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_CemsTiO2Details_v15.1.xsd"/>
+	<xsd:complexType name="TitaniumDioxideUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="NumberChlorideProcessLines" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualCalcinedPetroleumCokeConsumption" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualTiO2Produced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualTiO2ProductionCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(a)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualCarbonContainedWasteProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(a)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:CemsTiO2Details" minOccurs="0"/>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:NoCemsTiO2Details" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartEE" type="ghg:TitaniumDioxideUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.310</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

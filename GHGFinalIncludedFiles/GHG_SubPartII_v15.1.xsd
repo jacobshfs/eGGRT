@@ -1,0 +1,1031 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartII_v15.1.xsd
+		Current Version Available At : 
+		Description      : Industrial Wastewater Treatment
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartII" type="ghg:SubPartIIDetails"/>
+	<xsd:complexType name="SubPartIIDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="WastewaterTreatmentDetails" type="ghg:WastewaterTreatmentDetailsDataType" minOccurs="0"/>
+			<xsd:element name="SubPartIIReportingFormsDetails" type="ghg:SubPartIIReportingFormsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- New schema elements for RY2013  -->
+	<xsd:complexType name="WastewaterTreatmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessDetails" type="ghg:AnaerobicProcessDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="NonOperationalAnaerobicProcessDetails" type="ghg:NonOperationalAnaerobicProcessDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Anaerobic Reactor"/>
+						<xsd:enumeration value="Anaerobic Shallow Lagoon"/>
+						<xsd:enumeration value="Anaerobic Deep Lagoon"/>
+						<xsd:enumeration value="Anaerobic Sludge Digester"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UploadedDiagramOrDocumentName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AverageLagoonDepth" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="lengthUOM" type="ghg:lengthUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberOfWeeksSystemOperational" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:maxInclusive value="52"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberOfHoursTheBiogasSystemOperational" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:maxInclusive value="8784"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DoesFacilityMeasureCodOrBodConcentration" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="COD"/>
+						<xsd:enumeration value="BOD"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EthanolProductionProcessingOperation" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Wet milling process"/>
+						<xsd:enumeration value="Dry milling process"/>
+						<xsd:enumeration value="Wet and dry milling processes"/>
+						<xsd:enumeration value="No ethanol production processing operations are performed at this facility"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasRecovered" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneConcentrationMonitoringMethod" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Daily averaging of continuous monitoring"/>
+						<xsd:enumeration value="Weekly monitoring"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasTemperatureIncorporated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasPressureIncorporated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasMoistureContentIncorporated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasFlowWetDryBasis" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Wet Basis"/>
+						<xsd:enumeration value="Dry Basis"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasMethaneWetDryBasis" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Wet Basis"/>
+						<xsd:enumeration value="Dry Basis"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneDestructionLocation" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="On-Site"/>
+						<xsd:enumeration value="Off-Site"/>
+						<xsd:enumeration value="Both On-Site and Off-Site"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneCollectionEfficiency" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:enumeration value="0.975"/>
+						<xsd:enumeration value="0.70"/>
+						<xsd:enumeration value="0.99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualMethaneGenerated" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursOfPrimaryDestructionDevice" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="MethanePrimaryDeviceDestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FractionOperatingHoursOfPrimaryDestructionDevice" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsBackUpDestructionDevicePresentAtFacility" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursOfBackUpDestructionDevice" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="MethaneBackUpDeviceDestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FractionOperatingHoursOfBackUpDestructionDevice" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMethaneRecovered" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMethaneEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnaerobicProcessMethaneGenerationDetails" type="ghg:AnaerobicProcessMethaneGenerationDetailsDataType" minOccurs="0" maxOccurs="52"/>
+			<xsd:element name="AnaerobicProcessBiogasRecoveryDetails" type="ghg:AnaerobicProcessBiogasRecoveryDetailsDataType" minOccurs="0" maxOccurs="52"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessMethaneGenerationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="WeeklyAverageCodBodConcentration" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="densityUOM" type="ghg:densityUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyCodBodConcentration" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyVolumeOfWastewater" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyVolumeOfWastewater" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneProductionPotential" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMethaneProductionPotentialUserSpecified" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneConversionFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMethaneConversionFactorUserSpecified" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyMethaneGenerated" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessBiogasRecoveryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="WeeklyVolumetricBiogasFlow" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyVolumetricBiogasFlow" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyBiogasMethaneConcentration" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyBiogasMethaneConcentration" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyBiogasTemperature" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WeeklyBiogasPressure" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WeeklyBiogasMoistureContent" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Original schema elements for RY2012 -->
+	<xsd:complexType name="SubPartIIReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartIISummaryDetails" type="ghg:SubpartIISummaryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MethaneGenerationDetails" type="ghg:MethaneGenerationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="EquationIIOneIITwoDetails" type="ghg:EquationIIOneIITwoDetailsDataType" minOccurs="0"/>
+			<xsd:element name="BiogasRecoveryMonitoringDetails" type="ghg:BiogasRecoveryMonitoringDetailsDataType" minOccurs="0"/>
+			<xsd:element name="EquationIIFourInputDetails" type="ghg:EquationIIFourInputDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateGHGEmissionsDetails" type="ghg:CalculateGHGEmissionsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartIISummaryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessesDetails" type="ghg:AnaerobicProcessesDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.356(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessesRowDetails" type="ghg:AnaerobicProcessesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.356(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MethaneGenerationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessOneDetails" type="ghg:AnaerobicProcessOneDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessTwoDetails" type="ghg:AnaerobicProcessTwoDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessThreeDetails" type="ghg:AnaerobicProcessThreeDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessFourDetails" type="ghg:AnaerobicProcessFourDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessFiveDetails" type="ghg:AnaerobicProcessFiveDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessSixDetails" type="ghg:AnaerobicProcessSixDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessSevenDetails" type="ghg:AnaerobicProcessSevenDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessEightDetails" type="ghg:AnaerobicProcessEightDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessNineDetails" type="ghg:AnaerobicProcessNineDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessTenDetails" type="ghg:AnaerobicProcessTenDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessOneDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessOneRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessTwoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessTwoRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessThreeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessThreeRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessFourDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessFourRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessFiveDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessFiveRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessSixDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessSixRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessSevenDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessSevenRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEightDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEightRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessNineDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessNineRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessTenDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessTenRowDetails" type="ghg:AnaerobicProcessRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquationIIOneIITwoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIOneIITwoDetails" type="ghg:AnaerobicProcessEquationIIOneIITwoDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIOneIITwoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIOneIITwoRowDetails" type="ghg:AnaerobicProcessEquationIIOneIITwoRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BiogasRecoveryMonitoringDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasOneDetails" type="ghg:AnaerobicProcessRecoveredBiogasOneDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasTwoDetails" type="ghg:AnaerobicProcessRecoveredBiogasTwoDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasThreeDetails" type="ghg:AnaerobicProcessRecoveredBiogasThreeDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasFourDetails" type="ghg:AnaerobicProcessRecoveredBiogasFourDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasFiveDetails" type="ghg:AnaerobicProcessRecoveredBiogasFiveDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasSixDetails" type="ghg:AnaerobicProcessRecoveredBiogasSixDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasSevenDetails" type="ghg:AnaerobicProcessRecoveredBiogasSevenDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasEightDetails" type="ghg:AnaerobicProcessRecoveredBiogasEightDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasNineDetails" type="ghg:AnaerobicProcessRecoveredBiogasNineDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasTenDetails" type="ghg:AnaerobicProcessRecoveredBiogasTenDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasOneDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasOneRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasTwoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasTwoRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasThreeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasThreeRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasFourDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasFourRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasFiveDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasFiveRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasSixDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasSixRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasSevenDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasSevenRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasEightDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasEightRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasNineDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasNineRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasTenDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessRecoveredBiogasTenRowDetails" type="ghg:AnaerobicProcessRecoveredBiogasRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquationIIFourInputDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIFourInputDetails" type="ghg:AnaerobicProcessEquationIIFourInputDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIFourInputDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIFourInputRowDetails" type="ghg:AnaerobicProcessEquationIIFourInputRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateGHGEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIThreeDetails" type="ghg:AnaerobicProcessEquationIIThreeDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessEquationIISixDetails" type="ghg:AnaerobicProcessEquationIISixDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessEquationIISevenDetails" type="ghg:AnaerobicProcessEquationIISevenDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIThreeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIIThreeRowDetails" type="ghg:AnaerobicProcessEquationIIThreeRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIISixDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIISixRowDetails" type="ghg:AnaerobicProcessEquationIISixRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIISevenDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessEquationIISevenRowDetails" type="ghg:AnaerobicProcessEquationIISevenRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonOperationalAnaerobicProcessDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcessType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Anaerobic Reactor"/>
+						<xsd:enumeration value="Anaerobic Shallow Lagoon"/>
+						<xsd:enumeration value="Anaerobic Deep Lagoon"/>
+						<xsd:enumeration value="Anaerobic Sludge Digester"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualMethaneEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Anaerobic Reactor"/>
+						<xsd:enumeration value="Anaerobic Shallow Lagoon"/>
+						<xsd:enumeration value="Anaerobic Deep Lagoon"/>
+						<xsd:enumeration value="Anaerobic Sludge Digester"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UploadedDiagramOrDocumentInfo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicLagoonDepth" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="lengthUOM" type="ghg:lengthUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsFacilityMeasureCodBodConcentration" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="COD"/>
+						<xsd:enumeration value="BOD"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasRecovered" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasTemperatureCalcuated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasPressureCalcuated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasMoistureContentCalculated" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasFlowWetDryBasis" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Wet Basis"/>
+						<xsd:enumeration value="Dry Basis"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasMethaneWetDryBasis" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Wet Basis"/>
+						<xsd:enumeration value="Dry Basis"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyMoistureContentAverage" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="IsFacilityMeasureCodBodConcentration" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WeeklyAverageCodBodConcentration" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="densityUOM" type="ghg:densityUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyCodBodConcentration" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyVolumeOfWastewater" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyVolumeOfWastewater" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneProductionPotential" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneProductionPotentialReportingValueMethod" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Use the value provided"/>
+						<xsd:enumeration value="Enter own value"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethaneProductionPotentialUserOverride" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneConversionFactor" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethandConversionFactorReportingValueMethod" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Use the value provided"/>
+						<xsd:enumeration value="Enter own value"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethandConversionFactorUserOverride" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="emissionFactorUOM" type="ghg:emissionFactorUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassGeneratedMethaneCod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassGeneratedMethaneBod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIOneIITwoRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualMassGeneratedMethaneReportedValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessRecoveredBiogasRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsWeeklyMethaneConcentrationCollected" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="WeeklyVolumetricBiogasFlowCollected" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyVolumetricBiogasFlowCollected" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyAverageMethaneConcentrationCollected" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMissingDataUsedForWeeklyAverageMethaneConcentrationCollected" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBiogasTemperatureIncorporated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WeeklyAverageBiogasTemperatureForDestruction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsBiogasPressureIncorporated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WeeklyAverageBiogasPressureForDestruction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WeeklyMoistureContentAverage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WeeklyMoistureContentAverageBiogasFlowCollected" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIFourInputRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualMethaneQuantityRecoveredReportedValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIIThreeRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualMassMethaneGenerated" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassMethaneEmissionsReportedValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIISixRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnaerobicProcessIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnaerobicProcess" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethaneDestructionLocation" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="On-Site"/>
+						<xsd:enumeration value="Off-Site"/>
+						<xsd:enumeration value="Both On-Site and Off-Site"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsBackUpDestructionDevicePresentAtFacility" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursOfPrimaryDestructionDevice" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="AnnualOperatingHoursOfBackUpDestructionDevice" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="AnnualMethaneQuantityRecovered" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneCollectionEfficiency" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:enumeration value="0.975"/>
+						<xsd:enumeration value="0.70"/>
+						<xsd:enumeration value="0.99"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethanePrimaryDeviceDestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FractionOperatingHoursOfPrimaryDestructionDevice" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneSecondaryDeviceDestructionEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FractionOperatingHoursOfSecondaryDestructionDevice" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassMethaneEmissionsReportedValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnaerobicProcessEquationIISevenRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualMassMethaneEmitted" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,124 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_LandfillGasOX_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart UU- Injection of Carbon Dioxide
+        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="HHWithoutLFGCSMethaneOxidationFractionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFractionHH5" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HHWithLFGCSMethaneOxidationFractionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFractionHH5" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH6" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH7" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH8" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TTWithoutLFGCSMethaneOxidationFractionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFractionTT6" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TTWithLFGCSMethaneOxidationFractionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFractionTT6" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH6" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH7" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractionHH8" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethaneOxidationFractionsList">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="MethaneOxidationFractionsList">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:enumeration value="0.00"/>
+			<xsd:enumeration value="0.10"/>
+			<xsd:enumeration value="0.25"/>
+			<xsd:enumeration value="0.35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

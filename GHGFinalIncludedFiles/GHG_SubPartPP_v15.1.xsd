@@ -1,0 +1,127 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartPP_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="CarbonDioxideSuppliersUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="FacilityClassification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.426</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:FacilityClassificationList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CalculationMethodology" type="ghg:PPCalculationMethodologyList" minOccurs="0" />
+			<xsd:element name="ImporterExporterType" type="ghg:ImporterExporterTypeList" minOccurs="0"/>
+			<xsd:element ref="ghg:MeterDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!--<xsd:element ref="ghg:PP2CO2Details" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!--<xsd:element ref="ghg:PP3CO2Details" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element ref="ghg:PP4CO2Details" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:CO2EndUseDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="EquipmentCalibrationDetails" type="ghg:EquipmentCalibrationDetailsDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.426(e)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ElectricityGeneratingUnitsWithCapturedCo2StreamsDetails" type="ghg:ElectricityGeneratingUnitsWithCapturedCo2StreamsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="RRFacilitiesWhereCo2TransferredToDetails" type="ghg:RRFacilitiesWhereCo2TransferredToDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="MassVolumeNumberofDaysSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.426(e)(3)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConcentrationNumberofDaysSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.426(e)(3)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DensityNumberofDaysSubstituted" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.426(e)(3)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ElectricityGeneratingUnitsWithCapturedCo2StreamsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Ghgrpid" type="xsd:string"/>
+			<xsd:element name="FacilityName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RRFacilitiesWhereCo2TransferredToDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Ghgrpid" type="xsd:string"/>
+			<xsd:element name="FacilityName" type="xsd:string"/>
+			<xsd:element name="Co2Quantity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartPP" type="ghg:CarbonDioxideSuppliersUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.420</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:simpleType name="FacilityClassificationList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="capture 98.420(a)(1)"/>
+			<xsd:enumeration value="extract 98.420(a)(2)"/>
+			<xsd:enumeration value="import/export 98.420(a)(3)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PPCalculationMethodologyList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Flow Meters 1"/>
+			<xsd:enumeration value="Flow Meters 2"/>
+			<xsd:enumeration value="Flow Meters 3"/>
+			<xsd:enumeration value="Streams"/>
+			<xsd:enumeration value="Containers"/>
+			<xsd:enumeration value="Flow Meters 1 and Streams"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ImporterExporterTypeList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Importer"/>
+			<xsd:enumeration value="Exporter"/>
+			<xsd:enumeration value="Importer and Exporter"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

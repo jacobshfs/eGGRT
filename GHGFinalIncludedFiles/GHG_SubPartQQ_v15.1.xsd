@@ -1,0 +1,2328 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartQQ_v15.1.xsd
+		Current Version Available At : 
+		Description      : Importers and Exporters of Fluorinated Greenhouse Gases Contained in Pre-Charged Equipment or Closed-Cell Foams
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartQQ" type="ghg:SubPartQQDetails"/>
+	<xsd:complexType name="SubPartQQDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartQQReportingFormsDetails" type="ghg:SubPartQQReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartQQReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PreChargedEquipmentDetails" type="ghg:PreChargedEquipmentDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FoamsNotInAppliancesDetails" type="ghg:FoamsNotInAppliancesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PreChargedEquipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PreChargedEquipmentOrAppliancesDetails" type="ghg:PreChargedEquipmentOrAppliancesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PreChargedEquipmentOrAppliancesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PreChargedEquipmentOrAppliancesRowDetails" type="ghg:PreChargedEquipmentOrAppliancesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FoamsNotInAppliancesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ClosedCellFoamsNotInAppliancesDetails" type="ghg:ClosedCellFoamsNotInAppliancesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClosedCellFoamsNotInAppliancesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ClosedCellFoamsNotInAppliancesRowDetails" type="ghg:ClosedCellFoamsNotInAppliancesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PreChargedEquipmentOrAppliancesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EquipmentOrApplianceNameOrID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EquipmentDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EquipmentOrApplianceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Chiller"/>
+						<xsd:enumeration value="Circuit Breakers (between 72 kV and 345 kV)"/>
+						<xsd:enumeration value="Dehumidifiers"/>
+						<xsd:enumeration value="Gas-Insulated Lines"/>
+						<xsd:enumeration value="Gas-Insulated Substations (Switchgears)"/>
+						<xsd:enumeration value="Ice Makers"/>
+						<xsd:enumeration value="Mobile Vehicle Air Conditioners (MVAC)"/>
+						<xsd:enumeration value="Other Appliance Type"/>
+						<xsd:enumeration value="Other Switchgear"/>
+						<xsd:enumeration value="Packaged Terminal AC/Heat Pumps"/>
+						<xsd:enumeration value="Power Transformers"/>
+						<xsd:enumeration value="Refrigerator-Freezer"/>
+						<xsd:enumeration value="Residential Unitary ACs"/>
+						<xsd:enumeration value="Retail Food Appliances"/>
+						<xsd:enumeration value="Rooftop AC"/>
+						<xsd:enumeration value="Transport Refrigeration Unit"/>
+						<xsd:enumeration value="TXV (Thermostatic Expansion Valve)"/>
+						<xsd:enumeration value="Water Heater"/>
+						<xsd:enumeration value="Window AC Units"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EquipmentOrApplianceImportedOrExported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a) and (b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Imported"/>
+						<xsd:enumeration value="Exported"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NoOfPiecesImportedOrExportedInEquipment" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2), (a)(3), (a)(6)(ii), (b)(2), (b)(3), and (b)(6)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalChargeSizeInEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EquipmentOrApplianceContainFoam" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Only pre-charged with f-GHG"/>
+						<xsd:enumeration value="Not pre-charged with f-GHG but contains f-GHG in foam"/>
+						<xsd:enumeration value="Both"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhgName1InEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234yf; HFO-1234yf"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="R-400 (blend)"/>
+						<xsd:enumeration value="R-401A (blend)"/>
+						<xsd:enumeration value="R-401B (blend)"/>
+						<xsd:enumeration value="R-401C (blend)"/>
+						<xsd:enumeration value="R-402A (blend)"/>
+						<xsd:enumeration value="R-402B (blend)"/>
+						<xsd:enumeration value="R-403A (blend)"/>
+						<xsd:enumeration value="R-403B (blend)"/>
+						<xsd:enumeration value="R-404A (blend)"/>
+						<xsd:enumeration value="R-405A (blend)"/>
+						<xsd:enumeration value="R-406A (blend)"/>
+						<xsd:enumeration value="R-407A (blend)"/>
+						<xsd:enumeration value="R-407B (blend)"/>
+						<xsd:enumeration value="R-407C (blend)"/>
+						<xsd:enumeration value="R-407D (blend)"/>
+						<xsd:enumeration value="R-407E (blend)"/>
+						<xsd:enumeration value="R-407F (blend)"/>
+						<xsd:enumeration value="R-408A (blend)"/>
+						<xsd:enumeration value="R-409A (blend)"/>
+						<xsd:enumeration value="R-409B (blend)"/>
+						<xsd:enumeration value="R-410A (blend)"/>
+						<xsd:enumeration value="R-410B (blend)"/>
+						<xsd:enumeration value="R-411A (blend)"/>
+						<xsd:enumeration value="R-411B (blend)"/>
+						<xsd:enumeration value="R-412A (blend)"/>
+						<xsd:enumeration value="R-413A (blend)"/>
+						<xsd:enumeration value="R-414A (blend)"/>
+						<xsd:enumeration value="R-414B (blend)"/>
+						<xsd:enumeration value="R-415A (blend)"/>
+						<xsd:enumeration value="R-415B (blend)"/>
+						<xsd:enumeration value="R-416A (blend)"/>
+						<xsd:enumeration value="R-417A (blend)"/>
+						<xsd:enumeration value="R-417B (blend)"/>
+						<xsd:enumeration value="R-417C (blend)"/>
+						<xsd:enumeration value="R-418A (blend)"/>
+						<xsd:enumeration value="R-419A (blend)"/>
+						<xsd:enumeration value="R-419B (blend)"/>
+						<xsd:enumeration value="R-420A (blend)"/>
+						<xsd:enumeration value="R-421A (blend)"/>
+						<xsd:enumeration value="R-421B (blend)"/>
+						<xsd:enumeration value="R-422A (blend)"/>
+						<xsd:enumeration value="R-422B (blend)"/>
+						<xsd:enumeration value="R-422C (blend)"/>
+						<xsd:enumeration value="R-422D (blend)"/>
+						<xsd:enumeration value="R-422E (blend)"/>
+						<xsd:enumeration value="R-423A (blend)"/>
+						<xsd:enumeration value="R-424A (blend)"/>
+						<xsd:enumeration value="R-425A (blend)"/>
+						<xsd:enumeration value="R-426A (blend)"/>
+						<xsd:enumeration value="R-427A (blend)"/>
+						<xsd:enumeration value="R-427B (blend)"/>
+						<xsd:enumeration value="R-427C (blend)"/>
+						<xsd:enumeration value="R-428A (blend)"/>
+						<xsd:enumeration value="R-429A (blend)"/>
+						<xsd:enumeration value="R-430A (blend)"/>
+						<xsd:enumeration value="R-431A (blend)"/>
+						<xsd:enumeration value="R-432A (blend)"/>
+						<xsd:enumeration value="R-433A (blend)"/>
+						<xsd:enumeration value="R-433B (blend)"/>
+						<xsd:enumeration value="R-433C (blend)"/>
+						<xsd:enumeration value="R-434A (blend)"/>
+						<xsd:enumeration value="R-435A (blend)"/>
+						<xsd:enumeration value="R-436A (blend)"/>
+						<xsd:enumeration value="R-436B (blend)"/>
+						<xsd:enumeration value="R-437A (blend)"/>
+						<xsd:enumeration value="R-438A (blend)"/>
+						<xsd:enumeration value="R-439A (blend)"/>
+						<xsd:enumeration value="R-440A (blend)"/>
+						<xsd:enumeration value="R-441A (blend)"/>
+						<xsd:enumeration value="R-442A (blend)"/>
+						<xsd:enumeration value="R-443A (blend)"/>
+						<xsd:enumeration value="R-444A (blend)"/>
+						<xsd:enumeration value="R-444B (blend)"/>
+						<xsd:enumeration value="R-445A (blend)"/>
+						<xsd:enumeration value="R-446A (blend)"/>
+						<xsd:enumeration value="R-447A (blend)"/>
+						<xsd:enumeration value="R-448A (blend)"/>
+						<xsd:enumeration value="R-448B (blend)"/>
+						<xsd:enumeration value="R-449A (blend)"/>
+						<xsd:enumeration value="R-450A (blend)"/>
+						<xsd:enumeration value="R-451A (blend)"/>
+						<xsd:enumeration value="R-451B (blend)"/>
+						<xsd:enumeration value="R-452A (blend)"/>
+						<xsd:enumeration value="R-457B (blend)"/>
+						<xsd:enumeration value="R-457C (blend)"/>
+						<xsd:enumeration value="R-466A (blend)"/>
+						<xsd:enumeration value="R-467A (blend)"/>
+						<xsd:enumeration value="R-468A (blend)"/>
+						<xsd:enumeration value="R-468B (blend)"/>
+						<xsd:enumeration value="R-468C (blend)"/>
+						<xsd:enumeration value="R-469A (blend)"/>
+						<xsd:enumeration value="R-470A (blend)"/>
+						<xsd:enumeration value="R-470B (blend)"/>
+						<xsd:enumeration value="R-471A (blend)"/>
+						<xsd:enumeration value="R-472A (blend)"/>
+						<xsd:enumeration value="R-472B (blend)"/>
+						<xsd:enumeration value="R-473A (blend)"/>
+						<xsd:enumeration value="R-474A (blend)"/>
+						<xsd:enumeration value="R-475A (blend)"/>
+						<xsd:enumeration value="R-476A (blend)"/>
+						<xsd:enumeration value="R-500 (blend)"/>
+						<xsd:enumeration value="R-501 (blend)"/>
+						<xsd:enumeration value="R-502 (blend)"/>
+						<xsd:enumeration value="R-503 (blend)"/>
+						<xsd:enumeration value="R-504 (blend)"/>
+						<xsd:enumeration value="R-505 (blend)"/>
+						<xsd:enumeration value="R-506 (blend)"/>
+						<xsd:enumeration value="R-507A (blend)"/>
+						<xsd:enumeration value="R-508A (blend)"/>
+						<xsd:enumeration value="R-508B (blend)"/>
+						<xsd:enumeration value="R-509A (blend)"/>
+						<xsd:enumeration value="R-510A (blend)"/>
+						<xsd:enumeration value="R-511A (blend)"/>
+						<xsd:enumeration value="R-512A (blend)"/>
+						<xsd:enumeration value="R-513A (blend)"/>
+						<xsd:enumeration value="R-515B (blend)"/>
+						<xsd:enumeration value="R-407H (blend)"/>
+						<xsd:enumeration value="R-407I (blend)"/>
+						<xsd:enumeration value="R-436C (blend)"/>
+						<xsd:enumeration value="R-460C (blend)"/>
+						<xsd:enumeration value="R-461A (blend)"/>
+						<xsd:enumeration value="R-462A (blend)"/>
+						<xsd:enumeration value="R-463A (blend)"/>
+						<xsd:enumeration value="R-464A (blend)"/>
+						<xsd:enumeration value="R-465A (blend)"/>
+						<xsd:enumeration value="R-516A (blend)"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+						<xsd:enumeration value="R-407G (blend)"/>
+						<xsd:enumeration value="R-447B (blend)"/>
+						<xsd:enumeration value="R-449B (blend)"/>
+						<xsd:enumeration value="R-449C (blend)"/>
+						<xsd:enumeration value="R-452B (blend)"/>
+						<xsd:enumeration value="R-452C (blend)"/>
+						<xsd:enumeration value="R-453A (blend)"/>
+						<xsd:enumeration value="R-454A (blend)"/>
+						<xsd:enumeration value="R-454B (blend)"/>
+						<xsd:enumeration value="R-454C (blend)"/>
+						<xsd:enumeration value="R-455A (blend)"/>
+						<xsd:enumeration value="R-456A (blend)"/>
+						<xsd:enumeration value="R-457A (blend)"/>
+						<xsd:enumeration value="R-458A (blend)"/>
+						<xsd:enumeration value="R-459A (blend)"/>
+						<xsd:enumeration value="R-459B (blend)"/>
+						<xsd:enumeration value="R-460A (blend)"/>
+						<xsd:enumeration value="R-460B (blend)"/>
+						<xsd:enumeration value="R-513B (blend)"/>
+						<xsd:enumeration value="R-514A (blend)"/>
+						<xsd:enumeration value="R-515A (blend)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherGhgName1InEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber1InEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherChemicalFormula1InEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Other1DefaultGWPInEquip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassFractionOfGhg1InEquipment" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="GhgName2InEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234yf; HFO-1234yf"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="R-400 (blend)"/>
+						<xsd:enumeration value="R-401A (blend)"/>
+						<xsd:enumeration value="R-401B (blend)"/>
+						<xsd:enumeration value="R-401C (blend)"/>
+						<xsd:enumeration value="R-402A (blend)"/>
+						<xsd:enumeration value="R-402B (blend)"/>
+						<xsd:enumeration value="R-403A (blend)"/>
+						<xsd:enumeration value="R-403B (blend)"/>
+						<xsd:enumeration value="R-404A (blend)"/>
+						<xsd:enumeration value="R-405A (blend)"/>
+						<xsd:enumeration value="R-406A (blend)"/>
+						<xsd:enumeration value="R-407A (blend)"/>
+						<xsd:enumeration value="R-407B (blend)"/>
+						<xsd:enumeration value="R-407C (blend)"/>
+						<xsd:enumeration value="R-407D (blend)"/>
+						<xsd:enumeration value="R-407E (blend)"/>
+						<xsd:enumeration value="R-407F (blend)"/>
+						<xsd:enumeration value="R-408A (blend)"/>
+						<xsd:enumeration value="R-409A (blend)"/>
+						<xsd:enumeration value="R-409B (blend)"/>
+						<xsd:enumeration value="R-410A (blend)"/>
+						<xsd:enumeration value="R-410B (blend)"/>
+						<xsd:enumeration value="R-411A (blend)"/>
+						<xsd:enumeration value="R-411B (blend)"/>
+						<xsd:enumeration value="R-412A (blend)"/>
+						<xsd:enumeration value="R-413A (blend)"/>
+						<xsd:enumeration value="R-414A (blend)"/>
+						<xsd:enumeration value="R-414B (blend)"/>
+						<xsd:enumeration value="R-415A (blend)"/>
+						<xsd:enumeration value="R-415B (blend)"/>
+						<xsd:enumeration value="R-416A (blend)"/>
+						<xsd:enumeration value="R-417A (blend)"/>
+						<xsd:enumeration value="R-417B (blend)"/>
+						<xsd:enumeration value="R-417C (blend)"/>
+						<xsd:enumeration value="R-418A (blend)"/>
+						<xsd:enumeration value="R-419A (blend)"/>
+						<xsd:enumeration value="R-419B (blend)"/>
+						<xsd:enumeration value="R-420A (blend)"/>
+						<xsd:enumeration value="R-421A (blend)"/>
+						<xsd:enumeration value="R-421B (blend)"/>
+						<xsd:enumeration value="R-422A (blend)"/>
+						<xsd:enumeration value="R-422B (blend)"/>
+						<xsd:enumeration value="R-422C (blend)"/>
+						<xsd:enumeration value="R-422D (blend)"/>
+						<xsd:enumeration value="R-422E (blend)"/>
+						<xsd:enumeration value="R-423A (blend)"/>
+						<xsd:enumeration value="R-424A (blend)"/>
+						<xsd:enumeration value="R-425A (blend)"/>
+						<xsd:enumeration value="R-426A (blend)"/>
+						<xsd:enumeration value="R-427A (blend)"/>
+						<xsd:enumeration value="R-427B (blend)"/>
+						<xsd:enumeration value="R-427C (blend)"/>
+						<xsd:enumeration value="R-428A (blend)"/>
+						<xsd:enumeration value="R-429A (blend)"/>
+						<xsd:enumeration value="R-430A (blend)"/>
+						<xsd:enumeration value="R-431A (blend)"/>
+						<xsd:enumeration value="R-432A (blend)"/>
+						<xsd:enumeration value="R-433A (blend)"/>
+						<xsd:enumeration value="R-433B (blend)"/>
+						<xsd:enumeration value="R-433C (blend)"/>
+						<xsd:enumeration value="R-434A (blend)"/>
+						<xsd:enumeration value="R-435A (blend)"/>
+						<xsd:enumeration value="R-436A (blend)"/>
+						<xsd:enumeration value="R-436B (blend)"/>
+						<xsd:enumeration value="R-437A (blend)"/>
+						<xsd:enumeration value="R-438A (blend)"/>
+						<xsd:enumeration value="R-439A (blend)"/>
+						<xsd:enumeration value="R-440A (blend)"/>
+						<xsd:enumeration value="R-441A (blend)"/>
+						<xsd:enumeration value="R-442A (blend)"/>
+						<xsd:enumeration value="R-443A (blend)"/>
+						<xsd:enumeration value="R-444A (blend)"/>
+						<xsd:enumeration value="R-444B (blend)"/>
+						<xsd:enumeration value="R-445A (blend)"/>
+						<xsd:enumeration value="R-446A (blend)"/>
+						<xsd:enumeration value="R-447A (blend)"/>
+						<xsd:enumeration value="R-448A (blend)"/>
+						<xsd:enumeration value="R-448B (blend)"/>
+						<xsd:enumeration value="R-449A (blend)"/>
+						<xsd:enumeration value="R-450A (blend)"/>
+						<xsd:enumeration value="R-451A (blend)"/>
+						<xsd:enumeration value="R-451B (blend)"/>
+						<xsd:enumeration value="R-452A (blend)"/>
+						<xsd:enumeration value="R-457B (blend)"/>
+						<xsd:enumeration value="R-457C (blend)"/>
+						<xsd:enumeration value="R-466A (blend)"/>
+						<xsd:enumeration value="R-467A (blend)"/>
+						<xsd:enumeration value="R-468A (blend)"/>
+						<xsd:enumeration value="R-468B (blend)"/>
+						<xsd:enumeration value="R-468C (blend)"/>
+						<xsd:enumeration value="R-469A (blend)"/>
+						<xsd:enumeration value="R-470A (blend)"/>
+						<xsd:enumeration value="R-470B (blend)"/>
+						<xsd:enumeration value="R-471A (blend)"/>
+						<xsd:enumeration value="R-472A (blend)"/>
+						<xsd:enumeration value="R-472B (blend)"/>
+						<xsd:enumeration value="R-473A (blend)"/>
+						<xsd:enumeration value="R-474A (blend)"/>
+						<xsd:enumeration value="R-475A (blend)"/>
+						<xsd:enumeration value="R-476A (blend)"/>
+						<xsd:enumeration value="R-500 (blend)"/>
+						<xsd:enumeration value="R-501 (blend)"/>
+						<xsd:enumeration value="R-502 (blend)"/>
+						<xsd:enumeration value="R-503 (blend)"/>
+						<xsd:enumeration value="R-504 (blend)"/>
+						<xsd:enumeration value="R-505 (blend)"/>
+						<xsd:enumeration value="R-506 (blend)"/>
+						<xsd:enumeration value="R-507A (blend)"/>
+						<xsd:enumeration value="R-508A (blend)"/>
+						<xsd:enumeration value="R-508B (blend)"/>
+						<xsd:enumeration value="R-509A (blend)"/>
+						<xsd:enumeration value="R-510A (blend)"/>
+						<xsd:enumeration value="R-511A (blend)"/>
+						<xsd:enumeration value="R-512A (blend)"/>
+						<xsd:enumeration value="R-513A (blend)"/>
+						<xsd:enumeration value="R-515B (blend)"/>
+						<xsd:enumeration value="R-407H (blend)"/>
+						<xsd:enumeration value="R-407I (blend)"/>
+						<xsd:enumeration value="R-436C (blend)"/>
+						<xsd:enumeration value="R-460C (blend)"/>
+						<xsd:enumeration value="R-461A (blend)"/>
+						<xsd:enumeration value="R-462A (blend)"/>
+						<xsd:enumeration value="R-463A (blend)"/>
+						<xsd:enumeration value="R-464A (blend)"/>
+						<xsd:enumeration value="R-465A (blend)"/>
+						<xsd:enumeration value="R-516A (blend)"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+						<xsd:enumeration value="R-407G (blend)"/>
+						<xsd:enumeration value="R-447B (blend)"/>
+						<xsd:enumeration value="R-449B (blend)"/>
+						<xsd:enumeration value="R-449C (blend)"/>
+						<xsd:enumeration value="R-452B (blend)"/>
+						<xsd:enumeration value="R-452C (blend)"/>
+						<xsd:enumeration value="R-453A (blend)"/>
+						<xsd:enumeration value="R-454A (blend)"/>
+						<xsd:enumeration value="R-454B (blend)"/>
+						<xsd:enumeration value="R-454C (blend)"/>
+						<xsd:enumeration value="R-455A (blend)"/>
+						<xsd:enumeration value="R-456A (blend)"/>
+						<xsd:enumeration value="R-457A (blend)"/>
+						<xsd:enumeration value="R-458A (blend)"/>
+						<xsd:enumeration value="R-459A (blend)"/>
+						<xsd:enumeration value="R-459B (blend)"/>
+						<xsd:enumeration value="R-460A (blend)"/>
+						<xsd:enumeration value="R-460B (blend)"/>
+						<xsd:enumeration value="R-513B (blend)"/>
+						<xsd:enumeration value="R-514A (blend)"/>
+						<xsd:enumeration value="R-515A (blend)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassFractionOfGhg2InEquipment" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="GhgName3InEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234yf; HFO-1234yf"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="R-400 (blend)"/>
+						<xsd:enumeration value="R-401A (blend)"/>
+						<xsd:enumeration value="R-401B (blend)"/>
+						<xsd:enumeration value="R-401C (blend)"/>
+						<xsd:enumeration value="R-402A (blend)"/>
+						<xsd:enumeration value="R-402B (blend)"/>
+						<xsd:enumeration value="R-403A (blend)"/>
+						<xsd:enumeration value="R-403B (blend)"/>
+						<xsd:enumeration value="R-404A (blend)"/>
+						<xsd:enumeration value="R-405A (blend)"/>
+						<xsd:enumeration value="R-406A (blend)"/>
+						<xsd:enumeration value="R-407A (blend)"/>
+						<xsd:enumeration value="R-407B (blend)"/>
+						<xsd:enumeration value="R-407C (blend)"/>
+						<xsd:enumeration value="R-407D (blend)"/>
+						<xsd:enumeration value="R-407E (blend)"/>
+						<xsd:enumeration value="R-407F (blend)"/>
+						<xsd:enumeration value="R-408A (blend)"/>
+						<xsd:enumeration value="R-409A (blend)"/>
+						<xsd:enumeration value="R-409B (blend)"/>
+						<xsd:enumeration value="R-410A (blend)"/>
+						<xsd:enumeration value="R-410B (blend)"/>
+						<xsd:enumeration value="R-411A (blend)"/>
+						<xsd:enumeration value="R-411B (blend)"/>
+						<xsd:enumeration value="R-412A (blend)"/>
+						<xsd:enumeration value="R-413A (blend)"/>
+						<xsd:enumeration value="R-414A (blend)"/>
+						<xsd:enumeration value="R-414B (blend)"/>
+						<xsd:enumeration value="R-415A (blend)"/>
+						<xsd:enumeration value="R-415B (blend)"/>
+						<xsd:enumeration value="R-416A (blend)"/>
+						<xsd:enumeration value="R-417A (blend)"/>
+						<xsd:enumeration value="R-417B (blend)"/>
+						<xsd:enumeration value="R-417C (blend)"/>
+						<xsd:enumeration value="R-418A (blend)"/>
+						<xsd:enumeration value="R-419A (blend)"/>
+						<xsd:enumeration value="R-419B (blend)"/>
+						<xsd:enumeration value="R-420A (blend)"/>
+						<xsd:enumeration value="R-421A (blend)"/>
+						<xsd:enumeration value="R-421B (blend)"/>
+						<xsd:enumeration value="R-422A (blend)"/>
+						<xsd:enumeration value="R-422B (blend)"/>
+						<xsd:enumeration value="R-422C (blend)"/>
+						<xsd:enumeration value="R-422D (blend)"/>
+						<xsd:enumeration value="R-422E (blend)"/>
+						<xsd:enumeration value="R-423A (blend)"/>
+						<xsd:enumeration value="R-424A (blend)"/>
+						<xsd:enumeration value="R-425A (blend)"/>
+						<xsd:enumeration value="R-426A (blend)"/>
+						<xsd:enumeration value="R-427A (blend)"/>
+						<xsd:enumeration value="R-427B (blend)"/>
+						<xsd:enumeration value="R-427C (blend)"/>
+						<xsd:enumeration value="R-428A (blend)"/>
+						<xsd:enumeration value="R-429A (blend)"/>
+						<xsd:enumeration value="R-430A (blend)"/>
+						<xsd:enumeration value="R-431A (blend)"/>
+						<xsd:enumeration value="R-432A (blend)"/>
+						<xsd:enumeration value="R-433A (blend)"/>
+						<xsd:enumeration value="R-433B (blend)"/>
+						<xsd:enumeration value="R-433C (blend)"/>
+						<xsd:enumeration value="R-434A (blend)"/>
+						<xsd:enumeration value="R-435A (blend)"/>
+						<xsd:enumeration value="R-436A (blend)"/>
+						<xsd:enumeration value="R-436B (blend)"/>
+						<xsd:enumeration value="R-437A (blend)"/>
+						<xsd:enumeration value="R-438A (blend)"/>
+						<xsd:enumeration value="R-439A (blend)"/>
+						<xsd:enumeration value="R-440A (blend)"/>
+						<xsd:enumeration value="R-441A (blend)"/>
+						<xsd:enumeration value="R-442A (blend)"/>
+						<xsd:enumeration value="R-443A (blend)"/>
+						<xsd:enumeration value="R-444A (blend)"/>
+						<xsd:enumeration value="R-444B (blend)"/>
+						<xsd:enumeration value="R-445A (blend)"/>
+						<xsd:enumeration value="R-446A (blend)"/>
+						<xsd:enumeration value="R-447A (blend)"/>
+						<xsd:enumeration value="R-448A (blend)"/>
+						<xsd:enumeration value="R-448B (blend)"/>
+						<xsd:enumeration value="R-449A (blend)"/>
+						<xsd:enumeration value="R-450A (blend)"/>
+						<xsd:enumeration value="R-451A (blend)"/>
+						<xsd:enumeration value="R-451B (blend)"/>
+						<xsd:enumeration value="R-452A (blend)"/>
+						<xsd:enumeration value="R-457B (blend)"/>
+						<xsd:enumeration value="R-457C (blend)"/>
+						<xsd:enumeration value="R-466A (blend)"/>
+						<xsd:enumeration value="R-467A (blend)"/>
+						<xsd:enumeration value="R-468A (blend)"/>
+						<xsd:enumeration value="R-468B (blend)"/>
+						<xsd:enumeration value="R-468C (blend)"/>
+						<xsd:enumeration value="R-469A (blend)"/>
+						<xsd:enumeration value="R-470A (blend)"/>
+						<xsd:enumeration value="R-470B (blend)"/>
+						<xsd:enumeration value="R-471A (blend)"/>
+						<xsd:enumeration value="R-472A (blend)"/>
+						<xsd:enumeration value="R-472B (blend)"/>
+						<xsd:enumeration value="R-473A (blend)"/>
+						<xsd:enumeration value="R-474A (blend)"/>
+						<xsd:enumeration value="R-475A (blend)"/>
+						<xsd:enumeration value="R-476A (blend)"/>
+						<xsd:enumeration value="R-500 (blend)"/>
+						<xsd:enumeration value="R-501 (blend)"/>
+						<xsd:enumeration value="R-502 (blend)"/>
+						<xsd:enumeration value="R-503 (blend)"/>
+						<xsd:enumeration value="R-504 (blend)"/>
+						<xsd:enumeration value="R-505 (blend)"/>
+						<xsd:enumeration value="R-506 (blend)"/>
+						<xsd:enumeration value="R-507A (blend)"/>
+						<xsd:enumeration value="R-508A (blend)"/>
+						<xsd:enumeration value="R-508B (blend)"/>
+						<xsd:enumeration value="R-509A (blend)"/>
+						<xsd:enumeration value="R-510A (blend)"/>
+						<xsd:enumeration value="R-511A (blend)"/>
+						<xsd:enumeration value="R-512A (blend)"/>
+						<xsd:enumeration value="R-513A (blend)"/>
+						<xsd:enumeration value="R-515B (blend)"/>
+						<xsd:enumeration value="R-407H (blend)"/>
+						<xsd:enumeration value="R-407I (blend)"/>
+						<xsd:enumeration value="R-436C (blend)"/>
+						<xsd:enumeration value="R-460C (blend)"/>
+						<xsd:enumeration value="R-461A (blend)"/>
+						<xsd:enumeration value="R-462A (blend)"/>
+						<xsd:enumeration value="R-463A (blend)"/>
+						<xsd:enumeration value="R-464A (blend)"/>
+						<xsd:enumeration value="R-465A (blend)"/>
+						<xsd:enumeration value="R-516A (blend)"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+						<xsd:enumeration value="R-407G (blend)"/>
+						<xsd:enumeration value="R-447B (blend)"/>
+						<xsd:enumeration value="R-449B (blend)"/>
+						<xsd:enumeration value="R-449C (blend)"/>
+						<xsd:enumeration value="R-452B (blend)"/>
+						<xsd:enumeration value="R-452C (blend)"/>
+						<xsd:enumeration value="R-453A (blend)"/>
+						<xsd:enumeration value="R-454A (blend)"/>
+						<xsd:enumeration value="R-454B (blend)"/>
+						<xsd:enumeration value="R-454C (blend)"/>
+						<xsd:enumeration value="R-455A (blend)"/>
+						<xsd:enumeration value="R-456A (blend)"/>
+						<xsd:enumeration value="R-457A (blend)"/>
+						<xsd:enumeration value="R-458A (blend)"/>
+						<xsd:enumeration value="R-459A (blend)"/>
+						<xsd:enumeration value="R-459B (blend)"/>
+						<xsd:enumeration value="R-460A (blend)"/>
+						<xsd:enumeration value="R-460B (blend)"/>
+						<xsd:enumeration value="R-513B (blend)"/>
+						<xsd:enumeration value="R-514A (blend)"/>
+						<xsd:enumeration value="R-515A (blend)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassFractionOfGhg3InEquipment" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="GhgName4InEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234yf; HFO-1234yf"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="R-400 (blend)"/>
+						<xsd:enumeration value="R-401A (blend)"/>
+						<xsd:enumeration value="R-401B (blend)"/>
+						<xsd:enumeration value="R-401C (blend)"/>
+						<xsd:enumeration value="R-402A (blend)"/>
+						<xsd:enumeration value="R-402B (blend)"/>
+						<xsd:enumeration value="R-403A (blend)"/>
+						<xsd:enumeration value="R-403B (blend)"/>
+						<xsd:enumeration value="R-404A (blend)"/>
+						<xsd:enumeration value="R-405A (blend)"/>
+						<xsd:enumeration value="R-406A (blend)"/>
+						<xsd:enumeration value="R-407A (blend)"/>
+						<xsd:enumeration value="R-407B (blend)"/>
+						<xsd:enumeration value="R-407C (blend)"/>
+						<xsd:enumeration value="R-407D (blend)"/>
+						<xsd:enumeration value="R-407E (blend)"/>
+						<xsd:enumeration value="R-407F (blend)"/>
+						<xsd:enumeration value="R-408A (blend)"/>
+						<xsd:enumeration value="R-409A (blend)"/>
+						<xsd:enumeration value="R-409B (blend)"/>
+						<xsd:enumeration value="R-410A (blend)"/>
+						<xsd:enumeration value="R-410B (blend)"/>
+						<xsd:enumeration value="R-411A (blend)"/>
+						<xsd:enumeration value="R-411B (blend)"/>
+						<xsd:enumeration value="R-412A (blend)"/>
+						<xsd:enumeration value="R-413A (blend)"/>
+						<xsd:enumeration value="R-414A (blend)"/>
+						<xsd:enumeration value="R-414B (blend)"/>
+						<xsd:enumeration value="R-415A (blend)"/>
+						<xsd:enumeration value="R-415B (blend)"/>
+						<xsd:enumeration value="R-416A (blend)"/>
+						<xsd:enumeration value="R-417A (blend)"/>
+						<xsd:enumeration value="R-417B (blend)"/>
+						<xsd:enumeration value="R-417C (blend)"/>
+						<xsd:enumeration value="R-418A (blend)"/>
+						<xsd:enumeration value="R-419A (blend)"/>
+						<xsd:enumeration value="R-419B (blend)"/>
+						<xsd:enumeration value="R-420A (blend)"/>
+						<xsd:enumeration value="R-421A (blend)"/>
+						<xsd:enumeration value="R-421B (blend)"/>
+						<xsd:enumeration value="R-422A (blend)"/>
+						<xsd:enumeration value="R-422B (blend)"/>
+						<xsd:enumeration value="R-422C (blend)"/>
+						<xsd:enumeration value="R-422D (blend)"/>
+						<xsd:enumeration value="R-422E (blend)"/>
+						<xsd:enumeration value="R-423A (blend)"/>
+						<xsd:enumeration value="R-424A (blend)"/>
+						<xsd:enumeration value="R-425A (blend)"/>
+						<xsd:enumeration value="R-426A (blend)"/>
+						<xsd:enumeration value="R-427A (blend)"/>
+						<xsd:enumeration value="R-427B (blend)"/>
+						<xsd:enumeration value="R-427C (blend)"/>
+						<xsd:enumeration value="R-428A (blend)"/>
+						<xsd:enumeration value="R-429A (blend)"/>
+						<xsd:enumeration value="R-430A (blend)"/>
+						<xsd:enumeration value="R-431A (blend)"/>
+						<xsd:enumeration value="R-432A (blend)"/>
+						<xsd:enumeration value="R-433A (blend)"/>
+						<xsd:enumeration value="R-433B (blend)"/>
+						<xsd:enumeration value="R-433C (blend)"/>
+						<xsd:enumeration value="R-434A (blend)"/>
+						<xsd:enumeration value="R-435A (blend)"/>
+						<xsd:enumeration value="R-436A (blend)"/>
+						<xsd:enumeration value="R-436B (blend)"/>
+						<xsd:enumeration value="R-437A (blend)"/>
+						<xsd:enumeration value="R-438A (blend)"/>
+						<xsd:enumeration value="R-439A (blend)"/>
+						<xsd:enumeration value="R-440A (blend)"/>
+						<xsd:enumeration value="R-441A (blend)"/>
+						<xsd:enumeration value="R-442A (blend)"/>
+						<xsd:enumeration value="R-443A (blend)"/>
+						<xsd:enumeration value="R-444A (blend)"/>
+						<xsd:enumeration value="R-444B (blend)"/>
+						<xsd:enumeration value="R-445A (blend)"/>
+						<xsd:enumeration value="R-446A (blend)"/>
+						<xsd:enumeration value="R-447A (blend)"/>
+						<xsd:enumeration value="R-448A (blend)"/>
+						<xsd:enumeration value="R-448B (blend)"/>
+						<xsd:enumeration value="R-449A (blend)"/>
+						<xsd:enumeration value="R-450A (blend)"/>
+						<xsd:enumeration value="R-451A (blend)"/>
+						<xsd:enumeration value="R-451B (blend)"/>
+						<xsd:enumeration value="R-452A (blend)"/>
+						<xsd:enumeration value="R-457B (blend)"/>
+						<xsd:enumeration value="R-457C (blend)"/>
+						<xsd:enumeration value="R-466A (blend)"/>
+						<xsd:enumeration value="R-467A (blend)"/>
+						<xsd:enumeration value="R-468A (blend)"/>
+						<xsd:enumeration value="R-468B (blend)"/>
+						<xsd:enumeration value="R-468C (blend)"/>
+						<xsd:enumeration value="R-469A (blend)"/>
+						<xsd:enumeration value="R-470A (blend)"/>
+						<xsd:enumeration value="R-470B (blend)"/>
+						<xsd:enumeration value="R-471A (blend)"/>
+						<xsd:enumeration value="R-472A (blend)"/>
+						<xsd:enumeration value="R-472B (blend)"/>
+						<xsd:enumeration value="R-473A (blend)"/>
+						<xsd:enumeration value="R-474A (blend)"/>
+						<xsd:enumeration value="R-475A (blend)"/>
+						<xsd:enumeration value="R-476A (blend)"/>
+						<xsd:enumeration value="R-500 (blend)"/>
+						<xsd:enumeration value="R-501 (blend)"/>
+						<xsd:enumeration value="R-502 (blend)"/>
+						<xsd:enumeration value="R-503 (blend)"/>
+						<xsd:enumeration value="R-504 (blend)"/>
+						<xsd:enumeration value="R-505 (blend)"/>
+						<xsd:enumeration value="R-506 (blend)"/>
+						<xsd:enumeration value="R-507A (blend)"/>
+						<xsd:enumeration value="R-508A (blend)"/>
+						<xsd:enumeration value="R-508B (blend)"/>
+						<xsd:enumeration value="R-509A (blend)"/>
+						<xsd:enumeration value="R-510A (blend)"/>
+						<xsd:enumeration value="R-511A (blend)"/>
+						<xsd:enumeration value="R-512A (blend)"/>
+						<xsd:enumeration value="R-513A (blend)"/>
+						<xsd:enumeration value="R-515B (blend)"/>
+						<xsd:enumeration value="R-407H (blend)"/>
+						<xsd:enumeration value="R-407I (blend)"/>
+						<xsd:enumeration value="R-436C (blend)"/>
+						<xsd:enumeration value="R-460C (blend)"/>
+						<xsd:enumeration value="R-461A (blend)"/>
+						<xsd:enumeration value="R-462A (blend)"/>
+						<xsd:enumeration value="R-463A (blend)"/>
+						<xsd:enumeration value="R-464A (blend)"/>
+						<xsd:enumeration value="R-465A (blend)"/>
+						<xsd:enumeration value="R-516A (blend)"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+						<xsd:enumeration value="R-407G (blend)"/>
+						<xsd:enumeration value="R-447B (blend)"/>
+						<xsd:enumeration value="R-449B (blend)"/>
+						<xsd:enumeration value="R-449C (blend)"/>
+						<xsd:enumeration value="R-452B (blend)"/>
+						<xsd:enumeration value="R-452C (blend)"/>
+						<xsd:enumeration value="R-453A (blend)"/>
+						<xsd:enumeration value="R-454A (blend)"/>
+						<xsd:enumeration value="R-454B (blend)"/>
+						<xsd:enumeration value="R-454C (blend)"/>
+						<xsd:enumeration value="R-455A (blend)"/>
+						<xsd:enumeration value="R-456A (blend)"/>
+						<xsd:enumeration value="R-457A (blend)"/>
+						<xsd:enumeration value="R-458A (blend)"/>
+						<xsd:enumeration value="R-459A (blend)"/>
+						<xsd:enumeration value="R-459B (blend)"/>
+						<xsd:enumeration value="R-460A (blend)"/>
+						<xsd:enumeration value="R-460B (blend)"/>
+						<xsd:enumeration value="R-513B (blend)"/>
+						<xsd:enumeration value="R-514A (blend)"/>
+						<xsd:enumeration value="R-515A (blend)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassFractionOfGhg4InEquipment" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="GhgName5InEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(2) and (b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234yf; HFO-1234yf"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="R-400 (blend)"/>
+						<xsd:enumeration value="R-401A (blend)"/>
+						<xsd:enumeration value="R-401B (blend)"/>
+						<xsd:enumeration value="R-401C (blend)"/>
+						<xsd:enumeration value="R-402A (blend)"/>
+						<xsd:enumeration value="R-402B (blend)"/>
+						<xsd:enumeration value="R-403A (blend)"/>
+						<xsd:enumeration value="R-403B (blend)"/>
+						<xsd:enumeration value="R-404A (blend)"/>
+						<xsd:enumeration value="R-405A (blend)"/>
+						<xsd:enumeration value="R-406A (blend)"/>
+						<xsd:enumeration value="R-407A (blend)"/>
+						<xsd:enumeration value="R-407B (blend)"/>
+						<xsd:enumeration value="R-407C (blend)"/>
+						<xsd:enumeration value="R-407D (blend)"/>
+						<xsd:enumeration value="R-407E (blend)"/>
+						<xsd:enumeration value="R-407F (blend)"/>
+						<xsd:enumeration value="R-408A (blend)"/>
+						<xsd:enumeration value="R-409A (blend)"/>
+						<xsd:enumeration value="R-409B (blend)"/>
+						<xsd:enumeration value="R-410A (blend)"/>
+						<xsd:enumeration value="R-410B (blend)"/>
+						<xsd:enumeration value="R-411A (blend)"/>
+						<xsd:enumeration value="R-411B (blend)"/>
+						<xsd:enumeration value="R-412A (blend)"/>
+						<xsd:enumeration value="R-413A (blend)"/>
+						<xsd:enumeration value="R-414A (blend)"/>
+						<xsd:enumeration value="R-414B (blend)"/>
+						<xsd:enumeration value="R-415A (blend)"/>
+						<xsd:enumeration value="R-415B (blend)"/>
+						<xsd:enumeration value="R-416A (blend)"/>
+						<xsd:enumeration value="R-417A (blend)"/>
+						<xsd:enumeration value="R-417B (blend)"/>
+						<xsd:enumeration value="R-417C (blend)"/>
+						<xsd:enumeration value="R-418A (blend)"/>
+						<xsd:enumeration value="R-419A (blend)"/>
+						<xsd:enumeration value="R-419B (blend)"/>
+						<xsd:enumeration value="R-420A (blend)"/>
+						<xsd:enumeration value="R-421A (blend)"/>
+						<xsd:enumeration value="R-421B (blend)"/>
+						<xsd:enumeration value="R-422A (blend)"/>
+						<xsd:enumeration value="R-422B (blend)"/>
+						<xsd:enumeration value="R-422C (blend)"/>
+						<xsd:enumeration value="R-422D (blend)"/>
+						<xsd:enumeration value="R-422E (blend)"/>
+						<xsd:enumeration value="R-423A (blend)"/>
+						<xsd:enumeration value="R-424A (blend)"/>
+						<xsd:enumeration value="R-425A (blend)"/>
+						<xsd:enumeration value="R-426A (blend)"/>
+						<xsd:enumeration value="R-427A (blend)"/>
+						<xsd:enumeration value="R-427B (blend)"/>
+						<xsd:enumeration value="R-427C (blend)"/>
+						<xsd:enumeration value="R-428A (blend)"/>
+						<xsd:enumeration value="R-429A (blend)"/>
+						<xsd:enumeration value="R-430A (blend)"/>
+						<xsd:enumeration value="R-431A (blend)"/>
+						<xsd:enumeration value="R-432A (blend)"/>
+						<xsd:enumeration value="R-433A (blend)"/>
+						<xsd:enumeration value="R-433B (blend)"/>
+						<xsd:enumeration value="R-433C (blend)"/>
+						<xsd:enumeration value="R-434A (blend)"/>
+						<xsd:enumeration value="R-435A (blend)"/>
+						<xsd:enumeration value="R-436A (blend)"/>
+						<xsd:enumeration value="R-436B (blend)"/>
+						<xsd:enumeration value="R-437A (blend)"/>
+						<xsd:enumeration value="R-438A (blend)"/>
+						<xsd:enumeration value="R-439A (blend)"/>
+						<xsd:enumeration value="R-440A (blend)"/>
+						<xsd:enumeration value="R-441A (blend)"/>
+						<xsd:enumeration value="R-442A (blend)"/>
+						<xsd:enumeration value="R-443A (blend)"/>
+						<xsd:enumeration value="R-444A (blend)"/>
+						<xsd:enumeration value="R-444B (blend)"/>
+						<xsd:enumeration value="R-445A (blend)"/>
+						<xsd:enumeration value="R-446A (blend)"/>
+						<xsd:enumeration value="R-447A (blend)"/>
+						<xsd:enumeration value="R-448A (blend)"/>
+						<xsd:enumeration value="R-448B (blend)"/>
+						<xsd:enumeration value="R-449A (blend)"/>
+						<xsd:enumeration value="R-450A (blend)"/>
+						<xsd:enumeration value="R-451A (blend)"/>
+						<xsd:enumeration value="R-451B (blend)"/>
+						<xsd:enumeration value="R-452A (blend)"/>
+						<xsd:enumeration value="R-457B (blend)"/>
+						<xsd:enumeration value="R-457C (blend)"/>
+						<xsd:enumeration value="R-466A (blend)"/>
+						<xsd:enumeration value="R-467A (blend)"/>
+						<xsd:enumeration value="R-468A (blend)"/>
+						<xsd:enumeration value="R-468B (blend)"/>
+						<xsd:enumeration value="R-468C (blend)"/>
+						<xsd:enumeration value="R-469A (blend)"/>
+						<xsd:enumeration value="R-470A (blend)"/>
+						<xsd:enumeration value="R-470B (blend)"/>
+						<xsd:enumeration value="R-471A (blend)"/>
+						<xsd:enumeration value="R-472A (blend)"/>
+						<xsd:enumeration value="R-472B (blend)"/>
+						<xsd:enumeration value="R-473A (blend)"/>
+						<xsd:enumeration value="R-474A (blend)"/>
+						<xsd:enumeration value="R-475A (blend)"/>
+						<xsd:enumeration value="R-476A (blend)"/>
+						<xsd:enumeration value="R-500 (blend)"/>
+						<xsd:enumeration value="R-501 (blend)"/>
+						<xsd:enumeration value="R-502 (blend)"/>
+						<xsd:enumeration value="R-503 (blend)"/>
+						<xsd:enumeration value="R-504 (blend)"/>
+						<xsd:enumeration value="R-505 (blend)"/>
+						<xsd:enumeration value="R-506 (blend)"/>
+						<xsd:enumeration value="R-507A (blend)"/>
+						<xsd:enumeration value="R-508A (blend)"/>
+						<xsd:enumeration value="R-508B (blend)"/>
+						<xsd:enumeration value="R-509A (blend)"/>
+						<xsd:enumeration value="R-510A (blend)"/>
+						<xsd:enumeration value="R-511A (blend)"/>
+						<xsd:enumeration value="R-512A (blend)"/>
+						<xsd:enumeration value="R-513A (blend)"/>
+						<xsd:enumeration value="R-515B (blend)"/>
+						<xsd:enumeration value="R-407H (blend)"/>
+						<xsd:enumeration value="R-407I (blend)"/>
+						<xsd:enumeration value="R-436C (blend)"/>
+						<xsd:enumeration value="R-460C (blend)"/>
+						<xsd:enumeration value="R-461A (blend)"/>
+						<xsd:enumeration value="R-462A (blend)"/>
+						<xsd:enumeration value="R-463A (blend)"/>
+						<xsd:enumeration value="R-464A (blend)"/>
+						<xsd:enumeration value="R-465A (blend)"/>
+						<xsd:enumeration value="R-516A (blend)"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+						<xsd:enumeration value="R-407G (blend)"/>
+						<xsd:enumeration value="R-447B (blend)"/>
+						<xsd:enumeration value="R-449B (blend)"/>
+						<xsd:enumeration value="R-449C (blend)"/>
+						<xsd:enumeration value="R-452B (blend)"/>
+						<xsd:enumeration value="R-452C (blend)"/>
+						<xsd:enumeration value="R-453A (blend)"/>
+						<xsd:enumeration value="R-454A (blend)"/>
+						<xsd:enumeration value="R-454B (blend)"/>
+						<xsd:enumeration value="R-454C (blend)"/>
+						<xsd:enumeration value="R-455A (blend)"/>
+						<xsd:enumeration value="R-456A (blend)"/>
+						<xsd:enumeration value="R-457A (blend)"/>
+						<xsd:enumeration value="R-458A (blend)"/>
+						<xsd:enumeration value="R-459A (blend)"/>
+						<xsd:enumeration value="R-459B (blend)"/>
+						<xsd:enumeration value="R-460A (blend)"/>
+						<xsd:enumeration value="R-460B (blend)"/>
+						<xsd:enumeration value="R-513B (blend)"/>
+						<xsd:enumeration value="R-514A (blend)"/>
+						<xsd:enumeration value="R-515A (blend)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassFractionOfGhg5InEquipment" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="TotalMassInKg1InEquipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg2InEquipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg3InEquipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg4InEquipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg5InEquipment" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GhgName1InFoamInAppliance" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Unknown Gas"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherGhgName1InFoamInAppliance" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber1InFoamInAppliance" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherChemicalFormula1InFoamInApp" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Other1DefaultGWPInFoamInApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassOfGhg1InFoamInAppliancePerEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FoamManufacturerNameInFoamInAppliance" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(v) and (b)(6)(v)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassOfUnknownGhgInFoamInAppliancePerEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(ii) and (b)(6)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsCertifiedInFoamInAppliance" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(vi) and (b)(6)(vi)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhgName2InFoamInAppliance" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassOfGhg2InFoamInAppliancePerEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GhgName3InFoamInAppliance" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassOfGhg3InFoamInAppliancePerEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(3) and (b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg1InFoamInAppliance" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg2InFoamInAppliance" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg3InFoamInAppliance" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClosedCellFoamsNotInAppliancesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FoamNameOrID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FoamDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FoamType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Polyurethane (PU) Foam"/>
+						<xsd:enumeration value="Extruded Polystyrene (XPS) Boardstock or Sheet Foam"/>
+						<xsd:enumeration value="Other Foam Type"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FoamImportedOrExported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a) and (b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Imported"/>
+						<xsd:enumeration value="Exported"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VolumeOfFoamImportedOrExported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4), (a)(6)(iii), (b)(4), and (b)(6)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GhgName1InFoam" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Unknown Gas"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherGhgName1InFoam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherCasNumber1InFoam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OtherChemicalFormula1InFoam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Other1DefaultGWPInFoam" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassOfGhg1InFoamPerCubicFeet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FoamManufacturerNameInFoam" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(v) and (b)(6)(v)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MassOfUnknownGhgInFoamPerCubicFeet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(iii) and (b)(6)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsCertifiedInFoam" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(6)(vi) and (b)(6)(vi)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GhgName2InFoam" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassOfGhg2InFoamPerCubicFeet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GhgName3InFoam" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="(e)-1-chloro-2-fluoroethene"/>
+						<xsd:enumeration value="(Octafluorotetramethy-lene)hydroxymethyl group"/>
+						<xsd:enumeration value="(4s,5s)-1,1,2,2,3,3,4,5-octafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3-hexafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,2,2,3,3,4-heptafluorocyclopentane"/>
+						<xsd:enumeration value="1,1,1-trifluorobutan-2-one"/>
+						<xsd:enumeration value="1,1,1-trifluoropropan-2-one"/>
+						<xsd:enumeration value="1,3,3,4,4-pentafluorocyclobutene"/>
+						<xsd:enumeration value="1,3,3,4,4,5,5-heptafluorocyclopentene"/>
+						<xsd:enumeration value="2,2,3,3,3-pentafluoropropanol"/>
+						<xsd:enumeration value="2,2,3,3,4,4,5,5-Octafluorocyclopentanol"/>
+						<xsd:enumeration value="3,3,3-trifluoro-2-(trifluoromethyl)prop-1-ene"/>
+						<xsd:enumeration value="3,3,4,4-tetrafluorocyclobutene"/>
+						<xsd:enumeration value="Bis(trifluoromethyl)-methanol"/>
+						<xsd:enumeration value="CFC-1112"/>
+						<xsd:enumeration value="CFC-1112a"/>
+						<xsd:enumeration value="Desflurane (HFE-236ea2)"/>
+						<xsd:enumeration value="E-R316c"/>
+						<xsd:enumeration value="Ethenyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="HCFO-1233zd(Z)"/>
+						<xsd:enumeration value="Heptafluoroisobutyronitrile"/>
+						<xsd:enumeration value="Hexafluorocyclobutene"/>
+						<xsd:enumeration value="HFC-1234ze(E)"/>
+						<xsd:enumeration value="HFC-125"/>
+						<xsd:enumeration value="HFC-134"/>
+						<xsd:enumeration value="HFC-134a"/>
+						<xsd:enumeration value="HFC-143"/>
+						<xsd:enumeration value="HFC-143a"/>
+						<xsd:enumeration value="HFC-152"/>
+						<xsd:enumeration value="HFC-152a"/>
+						<xsd:enumeration value="HFC-161"/>
+						<xsd:enumeration value="HFC-227ea"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-236cb"/>
+						<xsd:enumeration value="HFC-236ea"/>
+						<xsd:enumeration value="HFC-236fa"/>
+						<xsd:enumeration value="HFC-245ca"/>
+						<xsd:enumeration value="HFC-245fa"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="HFC-365mfc"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="HFC-43-10mee"/>
+						<xsd:enumeration value="HFE-125"/>
+						<xsd:enumeration value="HFE-134"/>
+						<xsd:enumeration value="HFE-143a"/>
+						<xsd:enumeration value="HFE-227ea"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10)"/>
+						<xsd:enumeration value="HFE-236fa"/>
+						<xsd:enumeration value="HFE-245cb2"/>
+						<xsd:enumeration value="HFE-245fa1"/>
+						<xsd:enumeration value="HFE-245fa2"/>
+						<xsd:enumeration value="HFE-254cb1"/>
+						<xsd:enumeration value="HFE-263fb2"/>
+						<xsd:enumeration value="HFE-329mcc2"/>
+						<xsd:enumeration value="HFE-338mcf2"/>
+						<xsd:enumeration value="HFE-338mmz1"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01)"/>
+						<xsd:enumeration value="HFE-347mcc3"/>
+						<xsd:enumeration value="HFE-347mcf2"/>
+						<xsd:enumeration value="HFE-347mmy1"/>
+						<xsd:enumeration value="HFE-347pcf2"/>
+						<xsd:enumeration value="HFE-356mec3"/>
+						<xsd:enumeration value="HFE-356mmz1"/>
+						<xsd:enumeration value="HFE-356pcc3"/>
+						<xsd:enumeration value="HFE-356pcf2"/>
+						<xsd:enumeration value="HFE-356pcf3"/>
+						<xsd:enumeration value="HFE-365mcf3"/>
+						<xsd:enumeration value="HFE-374pc2"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x)"/>
+						<xsd:enumeration value="HFE-449sl, (HFE-7100) Isomer blend"/>
+						<xsd:enumeration value="HFE-569sf2, (HFE-7200) Isomer blend"/>
+						<xsd:enumeration value="HFO-1123"/>
+						<xsd:enumeration value="HFO-1336mzz(E)"/>
+						<xsd:enumeration value="HFO-1438ezy(E)"/>
+						<xsd:enumeration value="HFO-1447fz"/>
+						<xsd:enumeration value="Isoflurane (HCFE-235da2)"/>
+						<xsd:enumeration value="Methyl-perfluoroheptene-ethers"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="Perfluorotributylamine"/>
+						<xsd:enumeration value="Perfluorotriethylamine"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+						<xsd:enumeration value="PFPMIE (HT-70)"/>
+						<xsd:enumeration value="Prop-2-enyl 2,2,2-trifluoroacetate"/>
+						<xsd:enumeration value="Sevoflurane"/>
+						<xsd:enumeration value="HCFC-1233zd(E)"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="Trifluoromethyl sulphur pentafluoride"/>
+						<xsd:enumeration value="Z-R316c"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MassOfGhg3InFoamPerCubicFeet" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.436(a)(4) and (b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg1InFoam" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg2InFoam" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassInKg3InFoam" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

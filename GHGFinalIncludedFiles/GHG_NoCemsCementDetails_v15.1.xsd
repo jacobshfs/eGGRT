@@ -1,0 +1,85 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NoCemsCementDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NoCemsCementDetailsDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="KilnID" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.86(b)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.86</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.86</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="KilnSpecificClinkerFactorsUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.86(b)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--	<xsd:element name="AnnualCAOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualNonCAOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualMGOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualNonMGOInCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualQuantityCKDNotRecycled" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualCKDEmissionFactor" type="ghg:EmissionFactor" minOccurs="0"/>
+			<xsd:element name="AnnualCAOContent" type="ghg:CAOContent" minOccurs="0"/>
+			<xsd:element name="AnnualNonCAOContent" type="ghg:NonCAOContent" minOccurs="0"/>
+			<xsd:element name="AnnualMGOContent" type="ghg:MGOContent" minOccurs="0"/>
+			<xsd:element name="AnnualNonMGOContent" type="ghg:NonMGOContent" minOccurs="0"/>
+			<xsd:element name="AnnualClinkerProductionQuantity" type="ghg:ProductionQuantity" minOccurs="0"/>
+			<xsd:element name="AnnualClinkerEmissionFactor" type="ghg:EmissionFactor" minOccurs="0"/>
+			<xsd:element name="CO2ClinkerCombustionEmission" type="xsd:string" minOccurs="0"/>
+			-->
+			<!--<xsd:element name="CementProduction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.86(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:MonthlyCementDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:QuarterlyCementDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:RawMaterialDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsCementDetails" type="ghg:NoCemsCementDetailsDataType"/>
+</xsd:schema>

@@ -1,0 +1,20 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ccdsupport.com/schema/ghg"  elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_AnodeConsumption_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="AnodeConsumptionDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualTotalAnodeConsumption" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualTotalCO2EmissionsAnodeConsumption" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualTotalPasteConsumption" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualTotalCO2EmissionsPasteConsumption" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalCO2EmissionsSoderbergCells" nillable="0" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AnodeConsumption" type="ghg:AnodeConsumptionDataType"/>
+</xsd:schema>

@@ -1,0 +1,17 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_RawMaterialCement_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="RawMaterialCementDataType">
+		<xsd:sequence>
+			<xsd:element name="RawMaterialType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RawMaterialConsumption" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OrganicCarbonContent" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RawMaterialCement" type="RawMaterialCementDataType"/>
+</xsd:schema>

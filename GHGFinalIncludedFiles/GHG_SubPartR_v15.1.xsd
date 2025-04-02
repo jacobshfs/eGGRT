@@ -1,0 +1,231 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartR_v15.1.xsd
+		Current Version Available At : 
+		Description      : Subpart R - Lead Production
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartR" type="ghg:SubPartRDetails"/>
+	<xsd:complexType name="SubPartRDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartRReportingFormsDetails" type="ghg:SubPartRReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartRReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartRFacilityInformationDetails" type="ghg:SubpartRFacilityInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FurnaceInformationDetails" type="ghg:FurnaceInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartRFacilityInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="IsCEMSUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a), 98.186(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfSmeltingFurnacesCEMS" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualLeadProductionCapacityCems" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfSmeltingFurnacesNoCEMS" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualLeadProductionCapacityNoCems" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LeadProductInformationDetails" type="ghg:LeadProductInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LeadProductInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LeadProductInformationRowDetails" type="ghg:LeadProductInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FurnaceInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SmeltingFurnaceInformationDetails" type="ghg:SmeltingFurnaceInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FeedstockInformationDetails" type="ghg:FeedstockInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SmeltingFurnaceInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SmeltingFurnaceInformationRowDetails" type="ghg:SmeltingFurnaceInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FeedstockInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FeedstockInformationRowDetails" type="ghg:FeedstockInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LeadProductInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LeadProductName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(3), 98.186(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Lead"/>
+						<xsd:enumeration value="Antimony lead alloy"/>
+						<xsd:enumeration value="Selenium lead alloy"/>
+						<xsd:enumeration value="Calcium lead alloy"/>
+						<xsd:enumeration value="Copper lead alloy"/>
+						<xsd:enumeration value="Tin lead alloy"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LeadProductDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualLeadProduction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(3), 98.186(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SmeltingFurnaceInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FurnaceId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(1), 98.186(b)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FurnaceDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(a)(1), 98.186(b)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualLeadProductionCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualUnroundedCO2Emissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FeedstockInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FeedstockName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FurnaceAssociatedWithFeedstock" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FeedstockType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Lead ore"/>
+						<xsd:enumeration value="Lead scrap"/>
+						<xsd:enumeration value="Flux materials"/>
+						<xsd:enumeration value="Carbonaceous materials"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherFeedstockDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SubstituteDataProcedure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Purchase records"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherSubstituteDataProcedure" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumberOfMonthsForMonthlyMassOfMaterial" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedToDetermineCarbonContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Provided by Supplier"/>
+						<xsd:enumeration value="ASTM E1941-04"/>
+						<xsd:enumeration value="ASTM D5373-08"/>
+						<xsd:enumeration value="ASTM C25-06"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberOfMonthsForCarbonContainingMaterial" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.186(b)(9)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

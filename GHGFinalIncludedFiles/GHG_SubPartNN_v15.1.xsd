@@ -1,0 +1,919 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartNN_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.(Suppliers of Natural Gas and Natural Gas Liquids)
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NaturalGasDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<!-- NGLDetails added by mjs 20101115 -->
+			<xsd:choice>
+				<xsd:element ref="ghg:NGLDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(a)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="ghg:LDCDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(b)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- NGLDetailsDataType added by mjs 20101115 -->
+	<xsd:complexType name="NGLDetailsDataType">
+		<xsd:sequence>
+			<!-- NGLSupplied moved to NGLFuelDetails by mjs 20101117 -->
+			<!--<xsd:element name="NGLSupplied" type="ghg:NGLProductDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!-- NGLReceived moved to NGLFuelDetails by mjs 20101117 -->
+			<!--<xsd:element name="NGLReceived" type="ghg:NGLProductDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element name="NGLFuelDetails" type="ghg:NGLFuelDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AnnualVolumeGasReceived" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantityBulkNGLReceived" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantityBulkNGLSupplied" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantityPropaneOdorized" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- EstimatedCO2 removed by mjs 20101115 -->
+			<!-- changed from EstimatedCO2Emissions to EstimatedCO2 by michael smith 20101014 -->
+			<!--<xsd:element name="EstimatedCO2" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- removed AdjustedCO2MassforNGLSupplied by mjs 20101115 -->
+			<!-- changed from AdjustedCO2MassEmissionsforNGLSupplied to AdjustedCO2MassforNGLSupplied by michael smith 20101014 -->
+			<!--<xsd:element name="AdjustedCO2MassforNGLSupplied" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- NN1CO2MassTotal moved to NGLFuelDetails by mjs 20101117 -->
+			<!-- NN1FuelVolumeTotal changed to NN1CO2MassTotal mjs 20101116 -->
+			<!-- added NN1 mjs 20101115 -->
+			<!--<xsd:element name="NN1CO2MassTotal" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- NN2CO2MassTotal moved to NGLFuelDetails by mjs 20101117 -->
+			<!-- NN2FuelVolumeTotal changed to NN2CO2MassTotal mjs 20101116 -->
+			<!-- added NN2 mjs 20101115 -->
+			<!--<xsd:element name="NN2CO2MassTotal" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- NN7CO2MassTotal moved to NGLFuelDetails by mjs 20101117 -->
+			<!-- NN7FuelVolumeTotal changed to NN7CO2MassTotal mjs 20101116 -->
+			<!-- added NN7 mjs 20101115 -->
+			<!--<xsd:element name="NN7CO2MassTotal" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- NN1EquationDetails moved to NGLFuelDetails by mjs 20101117 -->
+			<!-- NN1FractionatorDetails changed to NN1EquationDetails mjs 20101116-->
+			<!-- added NN1FractionatorDetails mjs 20101115-->
+			<!--<xsd:element ref="ghg:NN1EquationDetails" minOccurs="0"/>-->
+			<!-- NN2EquationDetails moved to NGLFuelDetails by mjs 20101117 -->
+			<!-- NN2FractionatorDetails changed to NN2EquationDetails mjs 20101116-->
+			<!-- added NN2 FractionatorDetails mjs 20101115-->
+			<!--<xsd:element ref="ghg:NN2EquationDetails" minOccurs="0"/>-->
+			<!-- removed FractionatorDetails mjs 20101115-->
+			<!-- <xsd:element ref="ghg:FractionatorDetails" minOccurs="0"/> -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartNN" type="ghg:NaturalGasDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.400</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- NGLFuelDetailsDataType added by mjs 20101117 -->
+	<xsd:complexType name="NGLFuelDetailsDataType">
+		<xsd:sequence>
+			<!-- changed from NGLProductDetailsDataType to NGLSuppliedProductDetailsDataType by mjs 20101207 -->
+			<xsd:element name="NGLSupplied" type="ghg:NGLSuppliedProductDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(1) and (a)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- changed from NGLProductDetailsDataType to NGLReceivedProductDetailsDataType by mjs 20101207 -->
+			<xsd:element name="NGLReceived" type="ghg:NGLReceivedProductDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="NN1CO2MassTotal" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(a)(6)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:CalculatedDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NN2CO2MassTotal" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(a)(6)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:CalculatedDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="NN7CO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element ref="ghg:NN1EquationDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(a)(9)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element ref="ghg:NN2EquationDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(a)(9)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- changed from NGLProductDetailsDataType to NGLSuppliedProductDetailsDataType by mjs 20101207 -->
+	<xsd:complexType name="NGLSuppliedProductDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductCategoryName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:NGLFuelList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Quantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101119 -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MeasureMethodName" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardMeasureList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherMeasureMethodName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- NGLReceivedProductDetailsDataType added by mjs 20101207 -->
+	<xsd:complexType name="NGLReceivedProductDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductCategoryName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:NGLFuelList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Quantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101119 -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DevelopedEF7" type="ghg:DevelopedEF7DetailsDataType" minOccurs="0"/>
+			<!--<xsd:element name="DevelopedEF7" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF7" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevelopedEF7DetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:EFDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevelopedEF3DetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:EFDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevelopedEF4DetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:EFDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevelopedEF5aDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:EFDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DevelopedEF5bDetailsDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:EFDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="EFDetails" type="ghg:EFDetailsDataType"/>
+	<xsd:complexType name="EFDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DevelopedEF" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherIndustryStandardforEF" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- NGLProductDetails removed by mjs 20101207 -->
+	<!--<xsd:element name="NGLProductDetails" type="ghg:NGLProductDetailsDataType"/>-->
+	<!-- NN1FractionatorDetailsDataType changed to NN1EquationDetailsDataType by mjs 20101116 -->
+	<xsd:complexType name="NN1EquationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DevelopedHHV" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(c)(2) and 98.406(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<!-- heatUOM added by mjs 20101119-->
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heatUOM" type="ghg:heatUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DevelopedEF" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(c)(2) and 98.406(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<!-- efUOM added by mjs 20101119-->
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforHHV" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(9)(i) or 98.406(b)(11)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+				<!-- removed by mjs 20101129 -->
+				<!--<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>-->
+			</xsd:element>
+			<xsd:element name="OtherIndustryStandardforHHV" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(9)(i) or 98.406(b)(11)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+				<!-- removed by mjs 20101129 -->
+				<!--<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>-->
+			</xsd:element>
+			<xsd:element name="OtherIndustryStandardforEF" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- NN2EquationDetailsDataType added by mjs 20101116-->
+	<xsd:complexType name="NN2EquationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DevelopedEF" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(9)(iii) or 98.406(b)(11)(iii); and 98.406(c)(3) for additional information regarding this topic.</xsd:documentation>
+				</xsd:annotation>
+				<!-- efUOM added by mjs 20101119-->
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(a)(9)(i) or 98.406(b)(11)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+				<!-- removed by mjs 20101129 -->
+				<!--<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>-->
+			</xsd:element>
+			<xsd:element name="OtherIndustryStandardforEF" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- FractionatorDetails changed to NN1FractionatorDetails and NN2FractionatorDetails mjs 20101116 -->
+	<xsd:element name="NN1EquationDetails" type="ghg:NN1EquationDetailsDataType"/>
+	<xsd:element name="NN2EquationDetails" type="ghg:NN2EquationDetailsDataType"/>
+	<xsd:complexType name="LDCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="StateTerritoryCovered" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(14)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StateTerritoryList"/>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasReceived" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="IndustryStandardforVolume" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(10)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>-->
+			<xsd:element name="IndustryStandardforVolume" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndustryStandardforVolumeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherIndustryStandardforVolume" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasStored" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeLNGforDelivery" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasfromStorageforDelivery" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasDeliveredtoPipeline" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasBypassedCityGate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:choice>
+				<!-- NN1FuelVolumeTotal changed to NN1CO2MassTotal by mjs 20101116-->
+				<xsd:element name="NN1CO2MassTotal" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:CalculatedDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<!-- NN2FuelVolumeTotal changed to NN2CO2MassTotal by mjs 20101116-->
+				<xsd:element name="NN2CO2MassTotal" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:CalculatedDetailsDataType">
+								<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>
+			<!-- NN3FuelVolumeTotal changed to NN3CO2MassTotal by mjs 20101116-->
+			<xsd:element name="NN3CO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- NN4FuelVolumeTotal changed to NN4CO2MassTotal by mjs 20101116-->
+			<xsd:element name="NN4CO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NN5aCO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NN5bCO2MassTotal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DevelopedEF3" type="ghg:DevelopedEF3DetailsDataType" minOccurs="0"/>
+			<xsd:element name="DevelopedEF4" type="ghg:DevelopedEF4DetailsDataType" minOccurs="0"/>
+			<xsd:element name="DevelopedEF5a" type="ghg:DevelopedEF5aDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DevelopedEF5b" type="ghg:DevelopedEF5bDetailsDataType" minOccurs="0"/>
+			<!--<xsd:element name="DevelopedEF3" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF3" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DevelopedEF4" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF4" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DevelopedEF5" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="efUOM" type="ghg:efUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IndustryStandardforEF5" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:StandardDevelopmentList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!-- TotalCO2MassEmissions removed by mjs 20101115 -->
+			<!--
+			<xsd:element name="TotalCO2MassEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			-->
+			<!-- AnnualCO2EmissionsfromSupplytoSmallUsers removed by mjs 20101115 -->
+			<!--
+			<xsd:element name="AnnualCO2EmissionsfromSupplytoSmallUsers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			-->
+			<!-- removed by mjs 20101115 -->
+			<!--<xsd:element ref="ghg:FractionatorDetails" minOccurs="0"/>-->
+			<xsd:choice>
+				<!-- NN1FractionatorDetails changed to NN1EquationDetails by mjs 20101116-->
+				<xsd:element ref="ghg:NN1EquationDetails" minOccurs="0"/>
+				<!-- NN2FractionatorDetails changed to NN2EquationDetails by mjs 20101116-->
+				<xsd:element ref="ghg:NN2EquationDetails" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element ref="ghg:CustomerDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:NGDeliveryDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(13)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NGLDetails" type="ghg:NGLDetailsDataType"/>
+	<xsd:element name="LDCDetails" type="ghg:LDCDetailsDataType"/>
+	<xsd:complexType name="CustomerDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Name" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Address" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MeterNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EIANumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualVolumeGasDeliveredtoMeter" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalQuantityDeliveredTo" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Large end-user's facility"/>
+						<xsd:enumeration value="Specific meter located at the facility"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CustomerDetails" type="ghg:CustomerDetailsDataType"/>
+	<xsd:complexType name="NGDeliveryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EndUserCategory" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Residential consumers"/>
+						<xsd:enumeration value="Commercial consumers"/>
+						<xsd:enumeration value="Industrial consumers"/>
+						<xsd:enumeration value="Electricity generating facilities"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VolumeofNaturalGas" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.406(b)(13)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- massUOM switched to volUOM by mjs 20101129-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NGDeliveryDetails" type="ghg:NGDeliveryDetailsDataType"/>
+	<xsd:simpleType name="StandardMeasureList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ASTM standard"/>
+			<xsd:enumeration value="ANSI standard"/>
+			<xsd:enumeration value="AGA standard"/>
+			<xsd:enumeration value="ASME standard"/>
+			<xsd:enumeration value="API standard"/>
+			<xsd:enumeration value="NAESB standard"/>
+			<xsd:enumeration value="Industry standard practices"/>
+			<xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StandardDevelopmentList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AGA standard"/>
+			<xsd:enumeration value="GPA standard"/>
+			<xsd:enumeration value="Industry standard practices"/>
+			<xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,21 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_QuarterlyCO2Suppliers_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="QuarterlyCO2SuppliersDataType">
+		<xsd:sequence>
+			<xsd:element name="QuarterName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyMassFlowRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyVolumetricFlowRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyCO2Concentration" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuarterlyCO2Density" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DensityMeasuringMethod" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		
+	</xsd:complexType>
+	<xsd:element name="QuarterlyCO2Suppliers" type="QuarterlyCO2SuppliersDataType"/>
+</xsd:schema>

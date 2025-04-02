@@ -1,0 +1,58 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_CarbonateUnit_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="CarbonateUnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualMassCarbonateType" type="xsd:string" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="Cems" type="ghg:CemsCarbonateUnitDataType"/>
+				<xsd:element name="NoCems" type="ghg:NoCemsCarbonateUnitDataType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CarbonateUnit" type="ghg:CarbonateUnitDataType"/>
+		
+	<xsd:complexType name="CemsCarbonateUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:Carbonate" minOccurs="0"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CemsCarbonateUnit" type="ghg:CemsCarbonateUnitDataType"/>
+	
+	<xsd:complexType name="NoCemsCarbonateUnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualHFC23Generated" type="xsd:string" minOccurs="0"/>		
+			<xsd:element ref="ghg:Carbonate" minOccurs="0"/>	
+			<xsd:element ref="ghg:MiscCarbonate" minOccurs="0"/>				
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsCarbonateUnit" type="ghg:NoCemsCarbonateUnitDataType"/>	
+	
+	<xsd:complexType name="CarbonateDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualMassCarbonateType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CalcinationFraction" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="CarbonateName" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="Carbonate" type="ghg:CarbonateDataType"/>	
+	
+	<xsd:complexType name="MiscCarbonateDataType">
+		<xsd:sequence>
+			<xsd:element name="MassCarbonateMeasuringMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EmissionsCalculationMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CalcinationFractionMeasuringMethod" type="xsd:string" minOccurs="0"/>			
+			<xsd:element name="CarbonateConsumptionMissedMonths" type="ghg:Count" minOccurs="0"/>
+			<xsd:element name="CarbonateInputMissedMonths" type="ghg:Count" minOccurs="0"/>
+			<xsd:element name="CarbonateOutputMissedMonths" type="ghg:Count" minOccurs="0"/>			
+		</xsd:sequence>
+		<xsd:attribute name="CarbonateName" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="MiscCarbonate" type="ghg:MiscCarbonateDataType"/>	
+</xsd:schema>

@@ -1,0 +1,3192 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartSS_v15.1.xsd
+		Current Version Available At : 
+		Description      : Electrical Equipment Manufacture or Refurbishment
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartSS" type="ghg:SubPartSSDetails"/>
+	<xsd:complexType name="SubPartSSDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartSSReportingFormsDetails" type="ghg:SubPartSSReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartSSReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartSSSummaryDetails" type="ghg:SubpartSSSummaryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="GHGSSSpecificEmissionsInformationDetails" type="ghg:GHGSSSpecificEmissionsInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="EquationSS5ParameterCalculationDetails" type="ghg:EquationSS5ParameterCalculationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="GHGMassDeliveredNewEquipmentDetails" type="ghg:GHGMassDeliveredNewEquipmentDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnnualSSEmissionsDetails" type="ghg:AnnualSSEmissionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="TotalSSEmissionsDetails" type="ghg:TotalSSEmissionsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartSSSummaryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EstimatedSSGasInformationDetails" type="ghg:EstimatedSSGasInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EstimatedSSGasInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EstimatedGasInformationRowDetails" type="ghg:EstimatedGasInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GHGSSSpecificEmissionsInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataEmissionsInformationDetails" type="ghg:MissingDataEmissionsInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateDecreaseSF6AndPFCInventoryDetails" type="ghg:CalculateDecreaseSF6AndPFCInventoryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateAcquisitionSF6AndPFCInventoryDetails" type="ghg:CalculateAcquisitionSF6AndPFCInventoryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculateDisbursementsSF6AndPFCInventoryDetails" type="ghg:CalculateDisbursementsSF6AndPFCInventoryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalculatePoundsOfUserEmissionsDetails" type="ghg:CalculatePoundsOfUserEmissionsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataEmissionsInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataEmissionsInformationRowDetails" type="ghg:MissingDataEmissionsInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDecreaseSF6AndPFCInventoryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateDecreaseSF6AndPFCInventoryRowDetails" type="ghg:CalculateDecreaseSF6AndPFCInventoryRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateAcquisitionSF6AndPFCInventoryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateAcquisitionSF6AndPFCInventoryRowDetails" type="ghg:CalculateAcquisitionSF6AndPFCInventoryRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDisbursementsSF6AndPFCInventoryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculateDisbursementsSF6AndPFCInventoryRowDetails" type="ghg:CalculateDisbursementsSF6AndPFCInventoryRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculatePoundsOfUserEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculatePoundsOfUserEmissionsRowDetails" type="ghg:CalculatePoundsOfUserEmissionsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EquationSS5ParameterCalculationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalMassOfSF6EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC14EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC116EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC218EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfCC3F6EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC3110EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfCC4F8EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC4112EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC5114EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassOfPFC9118EmittedReportingYrDownStreamContainers" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CalculationHoseAndValveCombinationDetails" type="ghg:CalculationHoseAndValveCombinationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="SumHoseValveEmissionsDetails" type="ghg:SumHoseValveEmissionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MissingDataHoseValveCombinationDetails" type="ghg:MissingDataHoseValveCombinationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculationHoseAndValveCombinationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalculationHoseAndValveCombinationRowDetails" type="ghg:CalculationHoseAndValveCombinationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SumHoseValveEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SumHoseValveEmissionsRowDetails" type="ghg:SumHoseValveEmissionsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataHoseValveCombinationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataHoseValveCombinationRowDetails" type="ghg:MissingDataHoseValveCombinationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GHGMassDeliveredNewEquipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MassOfGHGDeliveredNewEquipmentDetails" type="ghg:MassOfGHGDeliveredNewEquipmentDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MissingDataMakeModelConditionDetails" type="ghg:MissingDataMakeModelConditionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MassOfGHGDeliveredNewEquipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MassOfGHGDeliveredNewEquipmentRowDetails" type="ghg:MassOfGHGDeliveredNewEquipmentRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataMakeModelConditionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataMakeModelConditionRowDetails" type="ghg:MissingDataMakeModelConditionRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualSSEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalAnnualGasEmissionsEquipmentInstallationDetails" type="ghg:TotalAnnualGasEmissionsEquipmentInstallationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MissingDataInputEquationDetails" type="ghg:MissingDataInputEquationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalAnnualGasEmissionsEquipmentInstallationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalAnnualGasEmissionsEquipmentInstallationRowDetails" type="ghg:TotalAnnualGasEmissionsEquipmentInstallationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataInputEquationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MissingDataInputEquationRowDetails" type="ghg:MissingDataInputEquationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalSSEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartSSTotalGasEmissionsDetails" type="ghg:SubpartSSTotalGasEmissionsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartSSTotalGasEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartSSTotalGasEmissionsRowDetails" type="ghg:SubpartSSTotalGasEmissionsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EstimatedGasInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsEstimatedGHG" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsEquationSS5Used" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsGhgMassDisbursed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o) and (p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataEmissionsInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataBeginYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(a)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataBeginYear" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(a)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedBeginYrToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(a)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEndYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(b)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataEndYear" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(b)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEndYrToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(b)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataBulkPurchase" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(c)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataBulkPurchase" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(c)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedBulkPurchaseToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(c)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReturnedEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(d)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataReturnedEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(d)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedReturnedEqptToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(d)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataRecycle" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(e)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataRecycle" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(e)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedRecycleToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(e)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNewEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(f)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataNewEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(f)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNewEqptToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(f)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEquipmentUser" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(g)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataEquipmentUser" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(g)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEqptUserToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(g)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataReturnedSuppliers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(h)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataReturnedSuppliers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(h)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedReturnedSuppliersToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(h)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataOffsiteDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(i)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataOffsiteDestruction" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(i)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedOffsiteDestructionToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(i)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataOffsiteRecycle" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(j)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataOffsiteRecycle" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(j)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedOffsiteRecycleToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(j)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEquipmentNameplateCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(k)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ReasonForMissingDataEquipmentNameplateCapacity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(k)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEqptNameplateCapacityToEstimateData" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(k)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuantityReported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ValueOfQuantityReported" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDecreaseSF6AndPFCInventoryRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsStoredBeginYr" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsStoredEndYr" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DecreaseInventoryUnroundedReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateAcquisitionSF6AndPFCInventoryRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsPurchasedInBulk" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456©</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsReturnedEquipmentUsers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsReturnedOffsiteRecycling" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AcquisitionUnroundedReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculateDisbursementsSF6AndPFCInventoryRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsContainedNewEquipmentDelivered" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsDeliveredEquipmentInContainers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsReturnedToSuppliers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsOffsiteRecycling" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(j)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsSentOffsiteDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DisbursementsUnroundedReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculatePoundsOfUserEmissionsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsDecreaseInventory" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii) or 98.453(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsAcquisition" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii) or 98.453(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsDisbursements" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii) or 98.453(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsUserEmission" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii) or 98.453(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalculationHoseAndValveCombinationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HoseValveCombinationID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescOfEngineeringMethodsSulfurhexaFluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterSulfurhexaFluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasureSulfurhexaFluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasureSulfurhexaFluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorSulfurhexaFluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationSulfurhexaFluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedSulfurhexaFluoride" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluoromethane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluoroethane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluoropropane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluorocyclopropane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluorobutane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluorocyclobutane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluoropentane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluorohexane" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DescOfEngineeringMethodsPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValveFitSizeHoseDiameterPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UnitOfMeasurePerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="pounds per fill operation"/>
+						<xsd:enumeration value="mg per fill operation"/>
+						<xsd:enumeration value="other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherUnitOfMeasurePerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EmissionFactorPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfFillOperationPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MassEmittedPerfluorodecalin" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SumHoseValveEmissionsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsEmittedReportedValueRounded" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataHoseValveCombinationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HoseValveCombinationID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MissingDataEfcValueSulfurhexaFluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValueSulfurhexaFluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValueSulfurhexaFluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationSulfurhexaFluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationSulfurhexaFluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationSulfurhexaFluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataEfcValuePerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedEfcValuePerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(m)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataTotalNumfillOperationPerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MehtodUsedTotalNumfillOperationPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(n)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MassOfGHGDeliveredNewEquipmentRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MakeModelGroupConditionID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o) and (p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodSpecified" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MeanValueMassSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MeanValueMassPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescMakeModelPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumOfSamplesPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="UpperBoundPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LowerBoundPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.453(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataMakeModelConditionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MakeModelGroupConditionID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o) and (p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodSpecified" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MissingDataMeanValueSulfurhexafluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValueSulfurhexafluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValueSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesSulfurhexafluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesSulfurhexafluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundSulfurhexafluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundSulfurhexafluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundSulfurhexafluoride" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundSulfurhexafluorideReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundSulfurhexafluoride" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoromethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoromethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluoromethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoroethane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoroethaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluoroethane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoropropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoropropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluoropropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorocyclopropane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorocyclopropaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluorocyclopropane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluorobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorocyclobutane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorocyclobutaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluorocyclobutane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoropentane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluoropentaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluoropentane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorohexane" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorohexaneReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluorohexane" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMeanValuePerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedMeanValuePerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(o)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataNumofSamplesPerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNumofSamplesPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataUpperBoundPerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedUpperBoundPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorodecalin" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataLowerBoundPerfluorodecalinReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedLowerBoundPerfluorodecalin" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(p)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalAnnualGasEmissionsEquipmentInstallationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalMassFillEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(q)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMassChargeEquipment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(r)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNameplateCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalEmissionsUserReportedValueRounded" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MissingDataInputEquationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataFillEquipmentOffsite" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(q)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataFillEquipmenttOffsiteReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(q)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedFillEquipmentOffsite" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(q)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataChargeEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(r)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataChargeEquipmentReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(r)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedDataChargeEquipment" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(r)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNameplateCapacity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(s)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataNameplateCapacityReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(s)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedNameplateCapacity" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.456(s)/(t)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartSSTotalGasEmissionsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasSF6OrPFCName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclopropane"/>
+						<xsd:enumeration value="PFC-3-1-10 (Perfluorobutane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="PFC-4-1-12 (Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (Perfluorohexane)"/>
+						<xsd:enumeration value="PFC-9-1-18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LbsUserEmissionsUnrounded" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsTotalEmissionsUnrounded" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LbsSubpartTotalEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

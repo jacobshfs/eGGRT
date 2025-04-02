@@ -1,0 +1,291 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartMM_v15.1.xsd
+		Current Version Available At : 
+		Description      : Identification information regarding the submission file. Suppliers of Petroleum Products
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartMM" type="ghg:SubPartMMDetails"/>
+	<xsd:complexType name="SubPartMMDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartMMReportingFormsDetails" type="ghg:SubPartMMReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartMMReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartMMFacilityDataDetails" type="ghg:SubpartMMFacilityDataDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AggregateProductsDetails" type="ghg:AggregateProductsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="TotalCarbonDioxideQuantityDetails" type="ghg:TotalCarbonDioxideQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="BlendedProductsDetails" type="ghg:BlendedProductsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartMMFacilityDataDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Refinery"/>
+						<xsd:enumeration value="Importer / Exporter"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AggregateProductsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ReportingOptionalProceduresForBlendedProducts" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AggregateProductsTableDetails" type="ghg:AggregateProductsTableDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AggregateProductsTableDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AggregateProductsRowDetails" type="ghg:AggregateProductsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalCarbonDioxideQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalCarbonDioxideQuantityTableDetails" type="ghg:TotalCarbonDioxideQuantityTableDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalCarbonDioxideQuantityTableDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalCarbonDioxideQuantityRowDetails" type="ghg:TotalCarbonDioxideQuantityRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BlendedProductsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="BlendedProductsTableDetails" type="ghg:BlendedProductsTableDetailsDataType" minOccurs="0"/>
+			<xsd:element name="BlendedProductComponentsTableDetails" type="ghg:BlendedProductComponentsTableDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BlendedProductsTableDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="BlendedProductsRowDetails" type="ghg:BlendedProductsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BlendedProductComponentsTableDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="BlendedProductComponentsRowDetails" type="ghg:BlendedProductComponentsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AggregateProductsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="IsProductEnteringOrLeavingFacility" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="In"/>
+						<xsd:enumeration value="Out"/>
+						<xsd:enumeration value="Import"/>
+						<xsd:enumeration value="Export"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProductNameCode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="CGSR"/>
+						<xsd:enumeration value="CGSM"/>
+						<xsd:enumeration value="CGSP"/>
+						<xsd:enumeration value="GSWR"/>
+						<xsd:enumeration value="GSWM"/>
+						<xsd:enumeration value="GSWP"/>
+						<xsd:enumeration value="RFGSR"/>
+						<xsd:enumeration value="RFGSM"/>
+						<xsd:enumeration value="RFGSP"/>
+						<xsd:enumeration value="RFGWR"/>
+						<xsd:enumeration value="RFGWM"/>
+						<xsd:enumeration value="RFGWP"/>
+						<xsd:enumeration value="OTHERGAS"/>
+						<xsd:enumeration value="CBOBSR"/>
+						<xsd:enumeration value="CBOBSM"/>
+						<xsd:enumeration value="CBOBSP"/>
+						<xsd:enumeration value="CBOBWR"/>
+						<xsd:enumeration value="CBOBWM"/>
+						<xsd:enumeration value="CBOBWP"/>
+						<xsd:enumeration value="RBOBSR"/>
+						<xsd:enumeration value="RBOBSM"/>
+						<xsd:enumeration value="RBOBSP"/>
+						<xsd:enumeration value="RBOBWR"/>
+						<xsd:enumeration value="RBOBWM"/>
+						<xsd:enumeration value="RBOBWP"/>
+						<xsd:enumeration value="OTHERBOB"/>
+						<xsd:enumeration value="MTOH"/>
+						<xsd:enumeration value="GTBA"/>
+						<xsd:enumeration value="MTBE"/>
+						<xsd:enumeration value="ETBE"/>
+						<xsd:enumeration value="TAME"/>
+						<xsd:enumeration value="DIPE"/>
+						<xsd:enumeration value="DFO1UL"/>
+						<xsd:enumeration value="DFO1LS"/>
+						<xsd:enumeration value="DFO1HS"/>
+						<xsd:enumeration value="DFO2UL"/>
+						<xsd:enumeration value="DFO2LS"/>
+						<xsd:enumeration value="DFO2HS"/>
+						<xsd:enumeration value="DFO4"/>
+						<xsd:enumeration value="DFO5"/>
+						<xsd:enumeration value="DFO6"/>
+						<xsd:enumeration value="KEROJET"/>
+						<xsd:enumeration value="KEROSENE"/>
+						<xsd:enumeration value="OTHERDFO"/>
+						<xsd:enumeration value="PCFNAP"/>
+						<xsd:enumeration value="PCFOO"/>
+						<xsd:enumeration value="PCFHGO"/>
+						<xsd:enumeration value="PCFR"/>
+						<xsd:enumeration value="AVGAS"/>
+						<xsd:enumeration value="SPNAPS"/>
+						<xsd:enumeration value="LUBES"/>
+						<xsd:enumeration value="WAXES"/>
+						<xsd:enumeration value="PTROCOKE"/>
+						<xsd:enumeration value="ARO"/>
+						<xsd:enumeration value="STILGAS"/>
+						<xsd:enumeration value="C2H6"/>
+						<xsd:enumeration value="C2H4"/>
+						<xsd:enumeration value="C3H8"/>
+						<xsd:enumeration value="C3H6"/>
+						<xsd:enumeration value="C4H10"/>
+						<xsd:enumeration value="C4H8"/>
+						<xsd:enumeration value="IC4H10"/>
+						<xsd:enumeration value="IC4H8"/>
+						<xsd:enumeration value="C5PLUS"/>
+						<xsd:enumeration value="MISCPROD"/>
+						<xsd:enumeration value="ETOH"/>
+						<xsd:enumeration value="BIODSL"/>
+						<xsd:enumeration value="RAFAT"/>
+						<xsd:enumeration value="VEGOIL"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MeasuredQuantityUnits" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="BBL"/>
+						<xsd:enumeration value="MT"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProductAnnualQuantity" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="PercentPetroleumBased" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="AnnualCarbonDioxideQuantity" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="IsCalculationMethod2Used" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberOfSamples" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="SamplingStandardMethodUsed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarbonShare" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="CarbonShareTestMethodUsed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CalculatedCarbonDioxideQuantityEmissionFactor" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="CalculatedCarbonDioxideQuantityEmissionFactorUnits" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="MT CO2/BBL"/>
+						<xsd:enumeration value="MT CO2/MT"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DensityTestResults" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="DensityTestMethodUsed" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalCarbonDioxideQuantityRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ReporterType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Refinery"/>
+						<xsd:enumeration value="Importer"/>
+						<xsd:enumeration value="Exporter"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CarbonDioxideQuantitySum" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CrudeOilEnteringRefinery" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BulkNaturalGasLiquidsQuantity" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="BulkNaturalGasLiquidsQuantityUnits" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="BBL"/>
+						<xsd:enumeration value="MT"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CrudeOilInjected" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BlendedProductsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="IsProductEnteringOrLeavingFacility" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="In"/>
+						<xsd:enumeration value="Out"/>
+						<xsd:enumeration value="Import"/>
+						<xsd:enumeration value="Export"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BlendedProductName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BlendedProductIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualCarbonDioxideQuantity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberOfBlendedComponents" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BlendedProductComponentsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="UniqueIdentifier" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="BlendedProductIdentifier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BlendingComponentNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BlendingComponentNameCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BlendingComponentQuantityUnits" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BlendingComponentQuantity" type="xsd:decimal" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

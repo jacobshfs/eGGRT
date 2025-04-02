@@ -1,0 +1,28 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_MonthlyHydrogen_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="MonthlyHydrogenDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MonthName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Mass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassUnits" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FuelState" nillable="0" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:list itemType="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MonthlyConsumptionFuelFeedStock" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarbonContentFuelFeedStock" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MolecularWeightOfGaseousFuel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QantityOfCO2CollectedTransfered" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="QantityOfCarbonCollectedTransfered" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MonthlyHydrogen" type="MonthlyHydrogenDataType"/>
+</xsd:schema>

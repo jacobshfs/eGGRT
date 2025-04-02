@@ -1,0 +1,95 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartQ_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart Q- Iron and Steel
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="IronSteelUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:Tier4CEMSDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:UnitDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:CemsIronSteelDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AnnualMassOfFuelConsumed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageCarbonOfFuels" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AannualMassOfNonFuels" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageCarbonOfNonFuels" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(v)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualMassOfByproducts" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageCarbonOfByproducts" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.176(e)(6)(vi)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartQ" type="ghg:IronSteelUnitDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.170</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

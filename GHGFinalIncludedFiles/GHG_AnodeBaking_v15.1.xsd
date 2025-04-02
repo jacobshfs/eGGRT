@@ -1,0 +1,17 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.ccdsupport.com/schema/ghg"  elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_AnodeBaking_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="AnodeBakingDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalCO2EmissionsPitchVolatiles" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalCO2EmissionsBakeFurnaceMaterial" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AnodeBaking" type="ghg:AnodeBakingDataType"/>
+</xsd:schema>

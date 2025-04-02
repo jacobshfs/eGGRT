@@ -1,0 +1,73 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_PFCDetailsDataType_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="PFCDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnodeEffectMinutesPerCellDay" type="ghg:MeasurementDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnodeEffectFrequency" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnodeEffectDuration" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnodeEffectOverVoltageFactor" type="ghg:MeasurementDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PotlineOverVoltage" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CurrentEfficiency" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="PerFluoroMethaneEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PerFluoroEthaneEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SmelterSpecificSlopeCoefficients" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DateSmelterSpecificSlopeCoefficientMeasured" type="ghg:MeasurementDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.66(c)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element ref="ghg:AnodeEffectsMinuteDetails" minOccurs="0"/>
+				<xsd:element ref="ghg:AnodeEffectsOverVoltageDetails" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PFCDetails" type="ghg:PFCDetailsDataType"/>
+	<xsd:complexType name="AnodeEffectsMinuteDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnodeEffectMinutesPerCellDay" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnodeEffectFrequency" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnodeEffectDuration" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AnodeEffectsMinuteDetails" type="ghg:AnodeEffectsMinuteDetailsDataType"/>
+	<xsd:complexType name="AnodeEffectsOverVoltageDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnodeEffectOverVoltageFactor" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="PotlineOverVoltage" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CurrentEfficiency" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AnodeEffectsOverVoltageDetails" type="ghg:AnodeEffectsOverVoltageDetailsDataType"/>
+</xsd:schema>

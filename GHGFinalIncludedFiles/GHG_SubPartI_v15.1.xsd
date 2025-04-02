@@ -1,0 +1,2031 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartI_v15.1.xsd
+		Current Version Available At : 
+		Description      : Identification information regarding the submission file. Electronics Manufacturing
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartI" type="ghg:SubPartIDetails"/>
+	<xsd:complexType name="SubPartIDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartIReportingFormsDetails" type="ghg:SubPartIReportingFormsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartIReportingDetails" type="ghg:SubPartIReportingDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartIReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartISummaryDetails" type="ghg:SubpartISummaryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="PvMemsLcdDetails" type="ghg:PvMemsLcdDetailsDataType" minOccurs="0"/>
+			<xsd:element name="SemiconductorsDetails" type="ghg:SemiconductorsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FGHGRecipeDetails" type="ghg:FGHGRecipeDetailsDataType" minOccurs="0"/>
+			<xsd:element name="NitrousOxideDetails" type="ghg:NitrousOxideDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FluorinatedHeatTransferFluidsDetails" type="ghg:FluorinatedHeatTransferFluidsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AbatementSystemsDetails" type="ghg:AbatementSystemsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartIReportingDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabDetails" type="ghg:FabDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="TriennialReportDetails" type="ghg:TriennialReportDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartISummaryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FacilityManufactureSemiconductors" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureMemsPvsLcds" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityAnnualManufacturingCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualProductionSubstrateArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureOneHundredFiftyMillimetersWafers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureTwoHundredMillimetersWafers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureThreeHundredMillimetersWafers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureGreaterThanThreeHundredMillimetersWafers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FacilityManufactureLessThanOneHundredFiftyMillimetersWafers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuantifiableApportionGasConsumption" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CertificationOfGasesSelected" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CalculationOfActualToModelGasConsumption" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="percentUOM" type="ghg:percentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TriennialReportDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FileName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DateUploaded" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PvMemsLcdDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="EmissionsInformationPvMemsLcdDetails" type="ghg:EmissionsInformationPvMemsLcdDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmissionsInformationPvMemsLcdDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PvMemsLcdFGHGsRowDetails" type="ghg:PvMemsLcdFGHGsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SemiconductorsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SemiconductorFluorinatedGreenHouseGasesDetails" type="ghg:SemiconductorFluorinatedGreenHouseGasesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SemiconductorFluorinatedGreenHouseGasesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SemiconductorsFGHGRowDetails" type="ghg:SemiconductorsFGHGRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FGHGRecipeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="RecipeCertification" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(3)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipesMeasurementsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RecipeInformationFacilityRecipeSpecificFactorsDetails" type="ghg:RecipeInformationFacilityRecipeSpecificFactorsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecipeInformationFacilityRecipeSpecificFactorsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="RecipeInformationFacilityRecipeSpecificFactorsRowDetails" type="ghg:RecipeInformationFacilityRecipeSpecificFactorsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NitrousOxideDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ChemicalVaporDepositionDetails" type="ghg:ChemicalVaporDepositionDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OtherNitrousOxideProcessesChamberCleaningDetails" type="ghg:OtherNitrousOxideProcessesChamberCleaningDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChemicalVaporDepositionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ChemicalVaporDepositionRowDetails" type="ghg:ChemicalVaporDepositionRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherNitrousOxideProcessesChamberCleaningDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OtherNitrousOxideProcessesChamberCleaningRowDetails" type="ghg:OtherNitrousOxideProcessesChamberCleaningRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FluorinatedHeatTransferFluidsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HeatTransferFluidInformationDetails" type="ghg:HeatTransferFluidInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HeatTransferFluidInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HeatTransferFluidInformationRowDetails" type="ghg:HeatTransferFluidInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbatementSystemsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HasFluorinatedGHGNitrousOxideFlow" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AbatementSystemsTableDetails" type="ghg:AbatementSystemsTableDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbatementSystemsTableDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AbatementSystemsTableRowDetails" type="ghg:AbatementSystemsTableRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PvMemsLcdFGHGsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FGHGEmittedName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="1,3-Hexafluorobutadiene (C4F6)"/>
+						<xsd:enumeration value="HFC-23 (CHF3, Trifluoromethane (R23))"/>
+						<xsd:enumeration value="HFC-32 (CH2F2, Difluoromethane (R32))"/>
+						<xsd:enumeration value="HFC-41 (CH3F)"/>
+						<xsd:enumeration value="Nitrogen Trifluoride (NF3)"/>
+						<xsd:enumeration value="Octafluorocyclopentene (C5F8)"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran (c-C4F8O)"/>
+						<xsd:enumeration value="Perfluorocyclobutane (c-C4F8)"/>
+						<xsd:enumeration value="PFC-116 (C2F6, Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (CF4, Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (C3F8, Perfluoropropane)"/>
+						<xsd:enumeration value="Sulfur hexafluoride (SF6)"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CasLookup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FGHGOtherName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="plasma etching"/>
+						<xsd:enumeration value="chamber cleaning"/>
+						<xsd:enumeration value="NF3 remote chamber cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodOfEmissionsCalculation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="used default factors"/>
+						<xsd:enumeration value="assumed utilization/by-product formation rates = 0 [98.93(a)(6)(i)]"/>
+						<xsd:enumeration value="assumed that emissions are equal to consumption if annual usage is less than 50 kg [98.93(a)]"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SemiconductorsFGHGRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FGHGEmittedName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="1,3-Hexafluorobutadiene (C4F6)"/>
+						<xsd:enumeration value="HFC-23 (CHF3, Trifluoromethane (R23))"/>
+						<xsd:enumeration value="HFC-32 (CH2F2, Difluoromethane (R32))"/>
+						<xsd:enumeration value="HFC-41 (CH3F)"/>
+						<xsd:enumeration value="Nitrogen Trifluoride (NF3)"/>
+						<xsd:enumeration value="Octafluorocyclopentene (C5F8)"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran (c-C4F8O)"/>
+						<xsd:enumeration value="Perfluorocyclobutane (c-C4F8)"/>
+						<xsd:enumeration value="PFC-116 (C2F6, Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (CF4, Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (C3F8, Perfluoropropane)"/>
+						<xsd:enumeration value="Sulfur hexafluoride (SF6)"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CasLookup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FGHGOtherName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="plasma etching"/>
+						<xsd:enumeration value="chamber cleaning - in situ plasma"/>
+						<xsd:enumeration value="chamber cleaning - in situ thermal"/>
+						<xsd:enumeration value="chamber cleaning - remote plasma"/>
+						<xsd:enumeration value="wafer cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodOfEmissionsCalculation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="used default factors"/>
+						<xsd:enumeration value="assumed utilization/by-product formation rates = 0 [98.93(a)(6)(i)]"/>
+						<xsd:enumeration value="assumed that emissions are equal to consumption if annual usage is less than 50 kg [98.93(a)]"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecipeInformationFacilityRecipeSpecificFactorsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="RecipeNameIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipeDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RecipeType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="individual"/>
+						<xsd:enumeration value="set of similar"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="MEMS, PVs, or LCDs: plasma etching"/>
+						<xsd:enumeration value="MEMS, PVs, or LCDs: chamber cleaning"/>
+						<xsd:enumeration value="MEMS, PVs, or LCDs: NF3 remote chamber cleaning"/>
+						<xsd:enumeration value="Semiconductors: plasma etching"/>
+						<xsd:enumeration value="Semiconductors: chamber cleaning - in situ plasma"/>
+						<xsd:enumeration value="Semiconductors: chamber cleaning - in situ thermal"/>
+						<xsd:enumeration value="Semiconductors: chamber cleaning - remote plasma"/>
+						<xsd:enumeration value="Semiconductors: wafer cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FilmSubstrateEtched" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Oxide"/>
+						<xsd:enumeration value="Low k (specify type)"/>
+						<xsd:enumeration value="Nitride"/>
+						<xsd:enumeration value="Oxynitride"/>
+						<xsd:enumeration value="Phosphorus Silicate Glass"/>
+						<xsd:enumeration value="Boron Phosphorus Silicate Glass"/>
+						<xsd:enumeration value="Fluorinated Silicate Glass"/>
+						<xsd:enumeration value="Carbide"/>
+						<xsd:enumeration value="Silicide"/>
+						<xsd:enumeration value="Tungsten"/>
+						<xsd:enumeration value="Titanium"/>
+						<xsd:enumeration value="Titanium nitride"/>
+						<xsd:enumeration value="Aluminum"/>
+						<xsd:enumeration value="Silicon"/>
+						<xsd:enumeration value="Polysilicon"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FilmSubstrateEtchedOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FeatureTypesEtched" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecipeRatesSource" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Facility measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Facility measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Third party measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Third party measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="RecipeRatesSourceOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGEmittedName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="1,3-Hexafluorobutadiene (C4F6)"/>
+						<xsd:enumeration value="HFC-23 (CHF3, Trifluoromethane (R23))"/>
+						<xsd:enumeration value="HFC-32 (CH2F2, Difluoromethane (R32))"/>
+						<xsd:enumeration value="HFC-41 (CH3F)"/>
+						<xsd:enumeration value="Nitrogen Trifluoride (NF3)"/>
+						<xsd:enumeration value="Octafluorocyclopentene (C5F8)"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran (c-C4F8O)"/>
+						<xsd:enumeration value="Perfluorocyclobutane (c-C4F8)"/>
+						<xsd:enumeration value="PFC-116 (C2F6, Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-14 (CF4, Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-218 (C3F8, Perfluoropropane)"/>
+						<xsd:enumeration value="Sulfur hexafluoride (SF6)"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CasLookup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FGHGOtherName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChemicalVaporDepositionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodOfReportingEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Used default utilization factor from Table I-8"/>
+						<xsd:enumeration value="Developed facility-specific utilization factor"/>
+						<xsd:enumeration value="Do not use N2O in CVD processes"/>
+						<xsd:enumeration value="assumed that emissions are equal to consumption if annual usage is less than 50 kg [98.93(b)]"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorSource" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Facility measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Facility measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Third party measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Third party measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherFacilityUtilizationFactorSource" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualNitrousOxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorsMeasurementsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+						<xsd:enumeration value="N/A - did not use facility-specific factors"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorsConditionsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+						<xsd:enumeration value="N/A - did not use facility-specific factors"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherNitrousOxideProcessesChamberCleaningRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodOfReportingEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Used default utilization factor from Table I-8"/>
+						<xsd:enumeration value="Developed facility-specific utilization factor"/>
+						<xsd:enumeration value="Do not have other processes using N2O"/>
+						<xsd:enumeration value="assumed that emissions are equal to consumption if annual usage is less than 50 kg [98.93(b)]"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorSource" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Facility measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Facility measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Third party measured: International SEMATECH #06124825A-ENG"/>
+						<xsd:enumeration value="Third party measured (prior to Jan. 1 2007): International SEMATECH #01104197A-XFR"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherFacilityUtilizationFactorSource" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(5)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualNitrousOxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorsMeasurementsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+						<xsd:enumeration value="N/A - did not use facility-specific factors"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FacilityUtilizationFactorsConditionsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(f)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+						<xsd:enumeration value="N/A - did not use facility-specific factors"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HeatTransferFluidInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FluorinatedHeatTransferFluidName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="D02-TS (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="D03 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="FC-3255, FC-104 (Perfluorooctane)"/>
+						<xsd:enumeration value="FC-3283/FC-8270 ((C3F7)3N, Perfluorotripropylamine)"/>
+						<xsd:enumeration value="FC-3284 (C5F11NO, Perfluoromethylmorpholine)"/>
+						<xsd:enumeration value="FC-40 ((C4F9)3N, Perfluorotributylamine (PTBA))"/>
+						<xsd:enumeration value="FC-43 (N(CF2CF2CF2CF3)3, Perfluorotributylamine (PTBA))"/>
+						<xsd:enumeration value="FC-5311 (C14F24, Perfluoroperhydrophenanthrene)"/>
+						<xsd:enumeration value="FC-70 ((C5F11)3N, Perfluorotripentylamine)/FC-5312 (Perfluoro compounds)"/>
+						<xsd:enumeration value="FC-77 (Blend - Perfluoro-2-butyltetrahydrofuran + C8F18)"/>
+						<xsd:enumeration value="FC-770 (C5F15NO, Perfluoroisopropylmorpholine)"/>
+						<xsd:enumeration value="FC-84 (C7F16, Perfluoroheptane)"/>
+						<xsd:enumeration value="Galden ZT-130 (HCF2OCF2OCF2CF2OCF2H)"/>
+						<xsd:enumeration value="Galden ZT-150 (HCF2OCF2OCF2CF2OCF2H)"/>
+						<xsd:enumeration value="Galden ZT-85"/>
+						<xsd:enumeration value="HFC-245fa (CHF2CH2CF3)"/>
+						<xsd:enumeration value="HFC-365mfc (CH3CF2CH2CF3)"/>
+						<xsd:enumeration value="HFC-43-10mee (CF3CFHCFHCF2CF3)"/>
+						<xsd:enumeration value="HFE-134 (HG-0) (CHF2OCHF2)"/>
+						<xsd:enumeration value="HFE-236ca12 (HG-10) (CHF2OCF2OCHF2)"/>
+						<xsd:enumeration value="HFE-338pcc13 (HG-01) (CHF2OCF2CF2OCHF2)"/>
+						<xsd:enumeration value="HFE-347mcc3 (HFE-7000) (CH3OCF2CF2CF3)"/>
+						<xsd:enumeration value="HFE-43-10pccc (H-Galden 1040x) (CHF2OCF2OC2F4OCHF2)"/>
+						<xsd:enumeration value="HFE-449s1 (HFE-7100) (C4F9OCH3 + (CF3)2CHCH2OCH3)"/>
+						<xsd:enumeration value="HFE-569sf2 (HFE-7200) (C4F9OC2H5 + (CF3)2CHCH2OC2H5)"/>
+						<xsd:enumeration value="HFE-72DA (1,2-Trans-dichloroethylene + Ethyl nonafluorobutyl ether + Ethyl nonafluoroisobutyl ether + Methyl nonafluorobutyl ether + Methyl nonafluoroisobutyl ether + Isopropyl alcohol)"/>
+						<xsd:enumeration value="HFE-7300 (CF3CF2CF(OCH3)CF(CF3)2, 1,1,1,2,2,3,4,5,5,5-decafluoro-3-methoxy-4-trifluoromethyl-pentane)"/>
+						<xsd:enumeration value="HFE-7500 (CF3CF2CF2CF(OC2H5)CF(CF3)2, 3-ethoxy-1,1,1,2,3,4,4,5,5,6,6,6-dodecafluoro-2-trifluoromethyl-hexane)"/>
+						<xsd:enumeration value="HS-240 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HS-260 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-110 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-135 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-170 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-200 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-230 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-270 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-55 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="HT-70 (CF3OCF(CF3)CF2OCF2OCF3, PFPMIE)"/>
+						<xsd:enumeration value="HT-90 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="LS-200 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="LS-215 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="LS-230 (CF3(OCFCF3CF2)n-(OCF2)m-OCF3)"/>
+						<xsd:enumeration value="Novec 649"/>
+						<xsd:enumeration value="PFC-4-1-12 (FC-87) (C5F12, Perfluoropentane)"/>
+						<xsd:enumeration value="PFC-5-1-14 (FC-72) (C6F14, Perfluorohexane)"/>
+						<xsd:enumeration value="Other f-HTF (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CasLookup" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FluorinatedHeatTransferFluidOtherName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FluorinatedHeatTransferFluidOtherCasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FlourinatedHeatTransferFluidOtherChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodOfEmissionsCalculation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Equation I-16 (mass balance)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AbatementSystemsTableRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AbatementSystemClassNameIdentifier" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)and(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AbatementSystemClassManufacturer" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)and(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AbatementSystemClassModelNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)and(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AbatementFGHGNitrousOxideCertificationFileName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalDestructionRemovalEfficiency" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(iii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ClassAverageCalculationDescription" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Simple average of values tested according to EPA protocol"/>
+						<xsd:enumeration value="Simple average of values tested with method other than EPA protocol"/>
+						<xsd:enumeration value="BAMM"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherCalculationDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(iv)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RandomTestingClassMembersMethodDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(v)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Semiconductors"/>
+						<xsd:enumeration value="PV"/>
+						<xsd:enumeration value="MEMS"/>
+						<xsd:enumeration value="LCD"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ToolType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="etch"/>
+						<xsd:enumeration value="chemical vapor deposition"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ToolModelNumbers" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)and(q)(5)(ii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessSubTypeOneOfThree" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="plasma etching"/>
+						<xsd:enumeration value="chamber cleaning"/>
+						<xsd:enumeration value="chamber clean - in situ plasma"/>
+						<xsd:enumeration value="chamber clean - in situ thermal"/>
+						<xsd:enumeration value="chamber clean - remote plasma"/>
+						<xsd:enumeration value="wafer cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProcessSubTypeTwoOfThree" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="plasma etching"/>
+						<xsd:enumeration value="chamber cleaning"/>
+						<xsd:enumeration value="chamber clean - in situ plasma"/>
+						<xsd:enumeration value="chamber clean - in situ thermal"/>
+						<xsd:enumeration value="chamber clean - remote plasma"/>
+						<xsd:enumeration value="wafer cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProcessSubTypeThreeOfThree" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="plasma etching"/>
+						<xsd:enumeration value="chamber cleaning"/>
+						<xsd:enumeration value="chamber clean - in situ plasma"/>
+						<xsd:enumeration value="chamber clean - in situ thermal"/>
+						<xsd:enumeration value="chamber clean - remote plasma"/>
+						<xsd:enumeration value="wafer cleaning"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AbatementSystemSpecificationsCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="BAMM used"/>
+						<xsd:enumeration value="N/A not claiming abatement"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameOneOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyOneOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameOneOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberOneOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaOneOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameTwoOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyTwoOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameTwoOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberTwoOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaTwoOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameThreeOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyThreeOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameThreeOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberThreeOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaThreeOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameFourOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyFourOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameFourOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberFourOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaFourOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameFiveOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyFiveOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameFiveOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberFiveOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaFiveOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameSixOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencySixOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameSixOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberSixOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaSixOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameSevenOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencySevenOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameSevenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberSevenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaSevenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameEightOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyEightOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameEightOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberEightOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaEightOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameNineOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyNineOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameNineOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberNineOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaNineOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGNitrousOxideEffluentStreamNameTenOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Nitrous oxide"/>
+						<xsd:enumeration value="PFC-14 (Perfluoromethane)"/>
+						<xsd:enumeration value="PFC-116 (Perfluoroethane)"/>
+						<xsd:enumeration value="PFC-218 (Perfluoropropane)"/>
+						<xsd:enumeration value="Perfluorocyclobutane"/>
+						<xsd:enumeration value="Octafluorotetrahydrofuran"/>
+						<xsd:enumeration value="1,3-Hexafluorobutadiene"/>
+						<xsd:enumeration value="Octafluorocyclopentene"/>
+						<xsd:enumeration value="HFC-23"/>
+						<xsd:enumeration value="HFC-32"/>
+						<xsd:enumeration value="Nitrogen trifluoride"/>
+						<xsd:enumeration value="Sulfur hexafluoride"/>
+						<xsd:enumeration value="HFC-41"/>
+						<xsd:enumeration value="Other f-GHG (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ManufacturerDestructionRemovalEfficiencyTenOfTen" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="effUOM" type="ghg:effUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FGHGOtherNameTenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherCasNumberTenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FGHGOtherChemicalFormulaTenOfTen" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(5)(i)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabName" type="xsd:string" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabProductsManufactured" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Semiconductor"/>
+						<xsd:enumeration value="LCDsMEMsPVs"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabFluorinatedGreenHouseGasEmissionsMethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="DefaultEmissionFactors"/>
+						<xsd:enumeration value="StackTestingMethod"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabHaveAbatementSystems" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.98</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDestructionRemovalClaimed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDiameterOfWafersManufacturedGreaterThanThreeHundredMillimeters" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDiameterOfWafersManufacturedThreeHundredMillimeters" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDiameterOfWafersManufacturedTwoHundredMillimeters" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDiameterOfWafersManufacturedOneHundredFiftyMillimeters" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabDiameterOfWafersManufacturedLessThanOneHundredFiftyMillimeters" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabWaferSizeLessThanOneHundredFiftyMillimeters" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabAnnualManufacturingCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FabAnnualProductionOfSubstrateSurfaceArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FabEmissionsFromResearchAndDevelopment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabPercentageOfEmissionsAttributableToResarchAndDevelopment" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(x)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="less than 5 percent"/>
+						<xsd:enumeration value="5 percent to less than 10 percent"/>
+						<xsd:enumeration value="10 percent to less than 25 percent"/>
+						<xsd:enumeration value="25 percent to less than 50 percent"/>
+						<xsd:enumeration value="50 percent and higher"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabWideDestruction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(r)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FabDevelopApportioningFactorsMethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(m)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Quantifiable metric"/>
+						<xsd:enumeration value="Direct measurements"/>
+						<xsd:enumeration value="Both"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabSystemUsedInApportioningModelDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FabQuantifiableMetricUsedDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(m)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabEndDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(m)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabSelectedCertificationOfGases" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(m)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="CertifiedAggregate"/>
+						<xsd:enumeration value="NotCertified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabSelectedCertificationOfGasesNotCertifiedDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FabResultOfCalculation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(m)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="percentUOM" type="ghg:percentUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FabSelectedCertificationOfGasesToLargestQuantityConsumed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(m)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="CertifiedAggregate"/>
+						<xsd:enumeration value="NotCertified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabSelectedCertificationOfGasesToLargestQuantityConsumedDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FabNitrousOxideEmissionsDetails" type="ghg:FabNitrousOxideEmissionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FabFluorinatedGreenHouseGasDetails" type="ghg:FabFluorinatedGreenHouseGasDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FabFluorinatedHeatTransferFluidDetails" type="ghg:FabFluorinatedHeatTransferFluidDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FabAbatementSystemDetails" type="ghg:FabAbatementSystemDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FabStackSystemDetails" type="ghg:FabStackSystemDetailsDataType" minOccurs="0"/>
+			<xsd:element name="FabSubstrateTypesDetails" type="ghg:FabSubstrateTypesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabNitrousOxideEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="NitrousOxideChemicalVaporDepositionReportingMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Did not use N2O in CVD processes"/>
+						<xsd:enumeration value="Used default utilization factor from Table I-8"/>
+						<xsd:enumeration value="Assumed that emissions are equal to consumption if annual usage is less than 50 kg"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualNitrousOxideChemicalVaporDepositionEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NitrousOxideElectronicsManufacturingProcessesReportingMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Did not use N2O in other electronics manufacturing processes"/>
+						<xsd:enumeration value="Used default utilization factor from Table I-8"/>
+						<xsd:enumeration value="Assumed that emissions are equal to consumption if annual usage is less than 50 kg"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalAnnualNitrousOxideElectronicManufacturingProcessesEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabFluorinatedGreenHouseGasDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabFluorinatedGreenHouseGasRowDetails" type="ghg:FabFluorinatedGreenHouseGasRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabFluorinatedGreenHouseGasRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabFluorinatedGreenHouseGasName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualFluorinatedGreenHouseGasEmissionsByProcessTypeDetails" type="ghg:AnnualFluorinatedGreenHouseGasEmissionsByProcessTypeDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ProcessTypeDetails" type="ghg:ProcessTypeDetailsDataType" minOccurs="0" maxOccurs="4"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualFluorinatedGreenHouseGasEmissionsByProcessTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="GasDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProcessType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CalculationMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualFluorinatedGreenHouseGasEmissionsByProcessType">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProcessTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Plasma etching / Wafer cleaning"/>
+						<xsd:enumeration value="Chamber cleaning - in situ plasma"/>
+						<xsd:enumeration value="Chamber cleaning - in situ thermal"/>
+						<xsd:enumeration value="Chamber cleaning - remote plasma"/>
+						<xsd:enumeration value="Plasma etching"/>
+						<xsd:enumeration value="Chamber cleaning"/>
+						<xsd:enumeration value="NF3 remote chamber cleaning"/>
+						<xsd:enumeration value="StackTestingMethod1"/>
+						<xsd:enumeration value="StackTestingMethod2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EmissionsCalculationMethodDetails" type="ghg:EmissionsCalculationMethodDetailsDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmissionsCalculationMethodDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference: 98.96(d)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="UsedDefaultFactors" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="AssumedUtilizationByProductFormationRatesZero" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="AssumedEmissionsEqualConsumptionLessFiftyKilograms" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="UsedStackSystemTestMethod" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="UsedMethodForIntermittentLowUseGases" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabFluorinatedHeatTransferFluidDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabFluorinatedHeatTransferFluidRowDetails" type="ghg:FabFluorinatedHeatTransferFluidRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabFluorinatedHeatTransferFluidRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FluorinatedHeatTransferFluidName" type="xsd:string" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CasNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupOfFluorinatedHeatTransferFluid" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalAnnualFluorinatedHeatTransferFluidEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MissingDataProceduresUsedToEstimateInputs" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberOfTimesMissingDataProceduresUsed" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MissingDataProceduresEstimateMethodsUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Arithmetic Average"/>
+						<xsd:enumeration value="Supplier Records"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabAbatementSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabAbatementSystemRowDetails" type="ghg:FabAbatementSystemRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabAbatementSystemRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabAbatementSystemName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="PlanContainsRecommendationsCertification" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DesignedForFluorinatedGreenHouseGasAndNitrousOxide" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CertificationInAccordanceWithPlan" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DREClaimedGasInformationDetails" type="ghg:DREClaimedGasInformationDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="NitrousOxideDREClaimedGasInformationRowDetails" type="ghg:DREClaimedGasInformationDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DREClaimedGasInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DREClaimedGasName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DREClaimedGasCasNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DREClaimedGasInformationRowDetails" type="ghg:DREClaimedGasInformationRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DREClaimedGasInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsDREClaimed" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="BasisOfDRE" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(q)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Default DRE"/>
+						<xsd:enumeration value="Site-Specific Measured DRE"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UploadedDiagramOrDocumentName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumberOfAbatementSystemControllingEmissions" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabStackSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabAllAbatementSystemsIncludedCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(q)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="Not Certified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabNoMoreThanTenPercentageToolsConnectedCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.94(j)(1)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="Not Certified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabNoProcessToolsInOperationWereMovedCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.94(j)(1)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="Not Certified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabNoPointOfUseAbatementSystemsRemovedCertification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.94(j)(1)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Certified"/>
+						<xsd:enumeration value="Not Certified"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FabStackSystemRowDetails" type="ghg:FabStackSystemRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabStackSystemRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="StackName" type="xsd:string" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StackSystemIdentifier" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="StackTestingState" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Performed"/>
+						<xsd:enumeration value="Not Performed"/>
+						<xsd:enumeration value="Not Required"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="StackTestingNotPerformingReasonDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConductedTestingDates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.96(w)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabSubstrateTypesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabSubstrateTypesRowDetails" type="ghg:FabSubstrateTypesRowDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FabSubstrateTypesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FabSubstrateType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabSubstrateTypeOther" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabAnnualProductionOfSubstrateSurfaceArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

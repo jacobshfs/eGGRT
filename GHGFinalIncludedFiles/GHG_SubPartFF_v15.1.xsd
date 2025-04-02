@@ -1,0 +1,1391 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartFF_v15.1.xsd
+		Current Version Available At : 
+		Description      : Underground Coal Mines
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartFF" type="ghg:SubPartFFDetails"/>
+	<xsd:complexType name="SubPartFFDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="SubPartFFReportingFormsDetails" type="ghg:SubPartFFReportingFormsDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubPartFFReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="SubpartFFSummaryDetails" type="ghg:SubpartFFSummaryDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DegasCollectionDetails" type="ghg:DegasCollectionDetailsDataType" minOccurs="0"/>
+			<xsd:element name="WellAndShaftDetails" type="ghg:WellAndShaftDetailsDataType" minOccurs="0"/>
+			<xsd:element name="VentilationQuarterlyDetails" type="ghg:VentilationQuarterlyDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DegasQuarterlyDetails" type="ghg:DegasQuarterlyDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DegasWeeklyDetails" type="ghg:DegasWeeklyDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DestructionOrOffsiteDetails" type="ghg:DestructionOrOffsiteDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DestructionOrOffsiteQuarterlyDetails" type="ghg:DestructionOrOffsiteQuarterlyDetailsDataType" minOccurs="0"/>
+			<xsd:element name="DestructionOrOffsiteWeeklyDetails" type="ghg:DestructionOrOffsiteWeeklyDetailsDataType" minOccurs="0"/>
+			<xsd:element name="EmissionsSummaryFFDetails" type="ghg:EmissionsSummaryFFDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartFFSummaryDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MshaIDNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FirstQuarterMethaneEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FirstQuarterCarbonDioxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SecondQuarterMethaneEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SecondQuarterCarbonDioxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ThirdQuarterMethaneEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ThirdQuarterCarbonDioxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FourthQuarterMethaneEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FourthQuarterCarbonDioxideEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasCollectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DeGasCollectionSystemDetails" type="ghg:DeGasCollectionSystemDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DeGasCollectionSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DeGasCollectionSystemRowDetails" type="ghg:DeGasCollectionSystemRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WellAndShaftDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WellAndShaftCollectionDetails" type="ghg:WellAndShaftCollectionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WellAndShaftCollectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WellAndShaftCollectionRowDetails" type="ghg:WellAndShaftCollectionRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VentilationQuarterlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="VentilationMonitoringQuarterlyDetails" type="ghg:VentilationMonitoringQuarterlyDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VentilationMonitoringQuarterlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="VentilationMonitoringQuarterlyRowDetails" type="ghg:VentilationMonitoringQuarterlyRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasQuarterlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DegasQuarterlyGasCollectionDetails" type="ghg:DegasQuarterlyGasCollectionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasQuarterlyGasCollectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DegasQuarterlyGasCollectionRowDetails" type="ghg:DegasQuarterlyGasCollectionRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasWeeklyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DegasWeeklyGasCollectionDetails" type="ghg:DegasWeeklyGasCollectionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasWeeklyGasCollectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DegasWeeklyGasCollectionRowDetails" type="ghg:DegasWeeklyGasCollectionRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteBackupDevicesDetails" type="ghg:DestructionOrOffsiteBackupDevicesDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteBackupDevicesDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteBackupDevicesRowDetails" type="ghg:DestructionOrOffsiteBackupDevicesRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteQuarterlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteQuarterlyBasisDetails" type="ghg:DestructionOrOffsiteQuarterlyBasisDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteQuarterlyBasisDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteQuarterlyBasisRowDetails" type="ghg:DestructionOrOffsiteQuarterlyBasisRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteWeeklyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteWeeklyBasisDetails" type="ghg:DestructionOrOffsiteWeeklyBasisDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteWeeklyBasisDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionOrOffsiteWeeklyBasisRowDetails" type="ghg:DestructionOrOffsiteWeeklyBasisRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmissionsSummaryFFDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalResultForMethaneLiberatedFromVentilationSystemsDetails" type="ghg:TotalResultForMethaneLiberatedFromVentilationSystemsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="TotalResultForMethaneLiberatedFromMonitoringPointsDetails" type="ghg:TotalResultForMethaneLiberatedFromMonitoringPointsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteDetails" type="ghg:TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteDetailsDataType" minOccurs="0"/>
+			<xsd:element name="TotalQuarterlyNetMethaneEmissionsDetails" type="ghg:TotalQuarterlyNetMethaneEmissionsDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalResultForMethaneLiberatedFromVentilationSystemsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalResultForMethaneLiberatedFromVentilationSystemsRowDetails" type="ghg:TotalResultForMethaneLiberatedFromVentilationSystemsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalResultForMethaneLiberatedFromMonitoringPointsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalResultForMethaneLiberatedFromMonitoringPointsRowDetails" type="ghg:TotalResultForMethaneLiberatedFromMonitoringPointsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteRowDetails" type="ghg:TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalQuarterlyNetMethaneEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalQuarterlyNetMethaneEmissionsRowDetails" type="ghg:TotalQuarterlyNetMethaneEmissionsRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DeGasCollectionSystemRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DegasCollectionSystemUnitID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Manufacturer" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Capacity" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CapacityUOM" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="acfm"/>
+						<xsd:enumeration value="scfm"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumberOfWells" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SurfaceArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WellAndShaftCollectionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WellShaftID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsThisWellorShaft" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Well"/>
+						<xsd:enumeration value="Shaft"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GasSystemUnitID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(q)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Description" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="surface gob drainage well"/>
+						<xsd:enumeration value="surface pre-mine drainage wells"/>
+						<xsd:enumeration value="in-mine gob drainage well or system"/>
+						<xsd:enumeration value="in-mine pre-mine drainage well or system"/>
+						<xsd:enumeration value="in-mine cross-measure borehole well or system"/>
+						<xsd:enumeration value="exhaust vent shaft"/>
+						<xsd:enumeration value="intake air shaft"/>
+						<xsd:enumeration value="Bleeder shaft"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AdditionalDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WellShaftStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WellShaftEndDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WellShaftDaysInOperation" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WellShaftMonitoredStatus" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="monitored individually"/>
+						<xsd:enumeration value="monitored as part of a centralized monitoring point"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CentralizedMonitoringPointID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(s)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VentilationMonitoringQuarterlyRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="VentilationMonitoringPointIndividualShaftId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ActiveVentilationOfMiningOperationsStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActiveVentilationOfMiningOperationsStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(l)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForFlowRate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f), (r), (s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Monitored using 98.324(b)(1)"/>
+						<xsd:enumeration value="Monitored using 98.324(b)(2)"/>
+						<xsd:enumeration value="Monitored using 98.324(b)(3)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuarterlyVolumetricFlowRateUsedInEquation" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuarterlyVolumetricFlowRateUnits" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="acfm"/>
+						<xsd:enumeration value="scfm"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForQuarterlyVolumetricFlowRate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LocationOfEachMeasurementOfFlowRate" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateOfEachMeasurementOfFlowRate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentForFlowRateNotProperlyFunctioningStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentForFlowRateNotProperlyFunctioningStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsedForConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(g), (r), (s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Monitored using 98.324(b)(1)"/>
+						<xsd:enumeration value="Monitored using 98.324(b)(2)"/>
+						<xsd:enumeration value="Monitored using 98.324(b)(3)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuarterlyMethaneConcentrationUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsEquationRequiredToCalculateMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GaseousOrganicConcentrationCorrectionFactor" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForQuarterlyMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LocationOfEachMeasurementOfConcentration" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DateOfEachMeasurementOfConcentration" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentForConcentrationNotProperlyFunctioningStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentForConcentrationNotProperlyFunctioningStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TemperatureUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForTemperature" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PressureUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForPressure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WereQuarterlyVentilationFlowRateQuarterlyCH4ConcentrationMeasured" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)-(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasFlowMeterUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)-(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MoistureContentUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForMoistureContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MoistureCorrectionFactor" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TimeSubstituteDataUsedforMoistureCorrectionFactor" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuarterlyMethaneLiberatedFromVentilationMonitoringPoint" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FilenameMSHAReportUsedtoReportQuarterlyCH4ConcentrationVolumetricFlowRate" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasQuarterlyGasCollectionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DeGasCollectionSystemMonitoringPointId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DeGasMiningOperationsStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DeGasMiningOperationsStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(r), (s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Monitored using 98.324(c)(1)"/>
+						<xsd:enumeration value="Monitored using 98.324(c)(2)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuarterlyCEMSMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForQuarterlyCEMSMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EquipmentNotProperlyFunctioningStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentNotProperlyFunctioningStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="QuarterlyMethaneConcentrationWeekly" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForQuarterlyMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(i)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsEquationRequiredToCalculateMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GaseousOrganicConcentrationCorrectionFactor" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TemperatureUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForTemperature" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PressureUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForPressure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WereWeeklyVentilationFlowRateQuarterlyCH4Concentration" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)-(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasFlowMeterUsed" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(f)-(g)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MoistureContentUsedInEquation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForMoistureContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MoistureCorrectionFactor" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(o)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TimeSubstituteDataUsedforMoistureCorrectionFactor" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(o)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DegasWeeklyGasCollectionRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DeGasCollectionSystemMonitoringPointId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(m)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="MethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(h), (r), (s)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Monitored using 98.324(c)(1)"/>
+						<xsd:enumeration value="Monitored using 98.324(c)(2)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WeeklyVolumetricFlowRate" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(h)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklyVolumetricFlowRateUnit" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="acfm"/>
+						<xsd:enumeration value="scfm"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForWeeklyVolumetricFlowRate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentNotProperlyFunctioningStartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContinuousMonitoringEquipmentNotProperlyFunctioningStopDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(n)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklyMethaneLiberatedAtMonitoringPoint" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteBackupDevicesRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionDeviceOrPointOfOffsiteTransportID" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsGasDestroyedAtMineOrTransportedOffsite" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Destruction occurs at the coal mine"/>
+						<xsd:enumeration value="Gas is transported off-site"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DeviceDescription" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Thermal oxidizer"/>
+						<xsd:enumeration value="Catalytic oxidizer"/>
+						<xsd:enumeration value="Flare"/>
+						<xsd:enumeration value="Engine"/>
+						<xsd:enumeration value="Boiler"/>
+						<xsd:enumeration value="Heater"/>
+						<xsd:enumeration value="Dryer"/>
+						<xsd:enumeration value="Turbine"/>
+						<xsd:enumeration value="Other (specify)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AdditionalDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsBackupDestructionDevicePresent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursDestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyAssumedForPrimaryDestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursBackup1DestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyAssumedForBackUp1DestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursBackup2DestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyAssumedForBackUp2DestructionDevice" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsGasDestroyedOffsite" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes, gas is destroyed offsite"/>
+						<xsd:enumeration value="No, gas is not destroyed offsite"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport1" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport2" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport3" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport4" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport5" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport6" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport7" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport8" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport9" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndividualWellShaftAssociatedWithOffsiteTransport10" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteQuarterlyBasisRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="VentilationAndDegasificationUnitId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuarterlyMethaneDestroyedOnsite" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuarterlyMethaneTransportedOffsite" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DestructionOrOffsiteWeeklyBasisRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="VentilationAndDegasificationUnitId" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(p)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:enumeration value="1"/>
+						<xsd:enumeration value="2"/>
+						<xsd:enumeration value="3"/>
+						<xsd:enumeration value="4"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Week" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="WeeklyVolumetricFlowRateUsedToCalculateMethaneDestruction" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(j)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WeeklyVolumetricFlowRateUnit" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(j)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="acfm"/>
+						<xsd:enumeration value="scfm"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForWeeklyVolumetricFlowRate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(j)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WeeklyMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.326(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LengthOfTimeSubstituteDataUsedForWeeklyMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(8), 98.326(k)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalResultForMethaneLiberatedFromVentilationSystemsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Quarter 1 (Jan-Mar)"/>
+						<xsd:enumeration value="Quarter 2 (Apr-Jun)"/>
+						<xsd:enumeration value="Quarter 3 (Jul-Sep)"/>
+						<xsd:enumeration value="Quarter 4 (Oct-Dec)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalQuarterlyMethaneLiberatedFromVentilationSystemsReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalResultForMethaneLiberatedFromMonitoringPointsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Quarter 1 (Jan-Mar)"/>
+						<xsd:enumeration value="Quarter 2 (Apr-Jun)"/>
+						<xsd:enumeration value="Quarter 3 (Jul-Sep)"/>
+						<xsd:enumeration value="Quarter 4 (Oct-Dec)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalQuarterlyMethaneLiberatedFromDegasMonitoringPointsReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalQuarterlyMethaneDestroyedAtMineTransportedOffsiteRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Quarter 1 (Jan-Mar)"/>
+						<xsd:enumeration value="Quarter 2 (Apr-Jun)"/>
+						<xsd:enumeration value="Quarter 3 (Jul-Sep)"/>
+						<xsd:enumeration value="Quarter 4 (Oct-Dec)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalQuarterlyMethaneDestroyedAtMineAndTransportedOffsiteReportedValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TotalQuarterlyNetMethaneEmissionsRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quarter" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Quarter 1 (Jan-Mar)"/>
+						<xsd:enumeration value="Quarter 2 (Apr-Jun)"/>
+						<xsd:enumeration value="Quarter 3 (Jul-Sep)"/>
+						<xsd:enumeration value="Quarter 4 (Oct-Dec)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="TotalMethaneLiberatedFromVentilationSystemsPerQuarter" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMethaneLiberatedFromDegasMonitoringPointsPerQuarter" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalMethaneDestroyedAtMineAndTransportedOffsitePerQuarter" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityTotalQuarterlyNetCH4Emissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.3(c)(4)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

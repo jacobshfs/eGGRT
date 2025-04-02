@@ -1,0 +1,727 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+			Schema Name  : GHG_SubPartL_v15.1.xsd
+	        Current Version Available At : 
+	        Description   : Identification information regarding the submission file.
+	    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="FluorinatedGasProductionDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:FacilityFEmissionsDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:MassEmissionsDeterminationApproachDetails" minOccurs="0"/>
+			<xsd:element ref="ghg:EquipmentLeakEmissionsEstimationMethodDetails" minOccurs="0"/>
+			<xsd:element name="FacilityDetails" type="ghg:SubpartLFacilityDetailsDataType" minOccurs="0" />
+			<xsd:element name="ProductionFghgDetails" type="ghg:SubpartLFghgDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="DestructionFghgDetails" type="ghg:SubpartLFghgDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="VentingFghgDetails" type="ghg:SubpartLFghgDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="FghgGroupDetails" type="ghg:SubpartLFghgGroupDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ProcessDetails" type="ghg:SubpartLProcessDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalDestructionDeviceDetails" type="ghg:SubpartLDestructionDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalContainerDetails" type="ghg:SubpartLContainerVentingInfoDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartL" type="ghg:FluorinatedGasProductionDataType"/>
+	<xsd:element name="FacilityFEmissionsDetails" type="ghg:FacilityFEmissionsDetailsDataType"/>
+	<xsd:complexType name="FacilityFEmissionsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalFacilityFEmissions">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.126(j)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityFEmissionsUsingGWT2000" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.126(j)(3)(ii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityFEmissionsUsingGWT10000" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.126(j)(3)(iii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="FacilityFEmissionsUsingGWTBestEstimate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.126(j)(3)(iv)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MassEmissionsDeterminationApproachDetails" type="ghg:MassEmissionsDeterminationApproachDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.126(a)(5)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="MassEmissionsDeterminationApproachDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MassBalance" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ProcessVentSpecificEmissionFactor" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ProcessVentSpecificEmissionCalculationFactor" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="EquipmentLeakEmissionsEstimationMethodDetails" type="ghg:EquipmentLeakEmissionsEstimationMethodDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.126(a)(5)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="EquipmentLeakEmissionsEstimationMethodDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AverageEmissionFactorApproach" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ScreeningRangesApproachEPAMethod21" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="EPACorrelationApproachEPAMethod21" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="UnitSpecificCorrelationApproachEPAMethod21" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ScreeningRangesApproachLeakMonitoringMethods" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="EPACorrelationApproachLeakMonitoringMethods" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="UnitSpecificCorrelationApproachLeakMonitoringMethods" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="OtherLeakMonitoringMethods" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLFacilityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="OnlyOneProductProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MajorFghgConstituents" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Emissions1000Plus" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherDestructionProcesses" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="VentFromContainers" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GroupEmissionsBasedOnMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GroupMissingDataReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupMissingDataHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.236(c)(4)(i)(F)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GroupMissingDataMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="GroupMissingDataEstimates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLFghgGroupDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FghgGroupName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProductionCO2Equivalent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OptionalComments" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLFghgDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FghgName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ChemicalFormula" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CASNumber" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IsOtherFghg" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FghgGroupName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FghgEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OptionalComments" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLDestructionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DestructionDeviceName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceBasedOnMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceMissingDataReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceMissingDataHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceMissingDataMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DestructionDeviceMissingDataEstimates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLContainerVentingInfoDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ContainerTypeOrSize" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerDescription" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerBasedOnMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ContainerMissingDataReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerMissingDataHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ContainerMissingDataMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ContainerMissingDataEstimates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLProcessDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessType" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Distillation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Reaction" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyRange" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Packaging" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EmissionsMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Mass Balance"/>
+						<xsd:enumeration value="Emission Factor and/or Emission Calculation Factor"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CO2EquivalentEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ProcessVentEmissionsBasedOnMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProcessVentMissingDataReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessVentMissingDataHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.236(c)(4)(i)(F)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ProcessVentMissingDataMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessVentMissingDataEstimates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakEmissionsBasedOnMissingData" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakMissingDataReason" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakMissingDataHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.236(c)(4)(i)(F)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakMissingDataMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakMissingDataEstimates" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessFghgGroupDetails" type="ghg:SubpartLProcessFghgGroupDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OptionalComments" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartLProcessFghgGroupDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FghgGroupName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ProcessVentCO2Equivalent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EquipmentLeakCO2Equivalent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AbsoluteError" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RelativeError" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EstimationMethod" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ECFMethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EFMethodUsed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DestructionEfficiencyRange" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AverageEFApproach" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ScreeningRangesWithM21" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EPACorrelationWithM21" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UnitSpecificCorrelationWithM21" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ScreeningRangesWithSSLMonitoring" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="EPACorrelationWithSSLMonitoring" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UnitSpecificCorrelationWithSSLMonitoring" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="OtherSiteSpecificLeakMonitoring" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,339 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartUU_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart UU- Injection of Carbon Dioxide
+        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:element name="SubPartUU" type="ghg:SubPartUUDetails">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.476</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SubPartUUDetails">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="InjectionOfCo2FacilityDetails" type="ghg:InjectionOfCo2FacilityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="InjectionOfCo2UnitDetails" type="ghg:InjectionOfCo2UnitDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InjectionOfCo2FacilityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CO2Sources" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.476(d)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CO2SourceList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherAnthropogenicSource" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PurposeOfCo2Injection" type="ghg:PurposeOfCo2InjectionDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PurposeOfCo2InjectionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PurposeOfInjection" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:PurposeOfInjectionList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RandDExemptionStartDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="RandDExemptionEndDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="PurposeOfInjectionOther" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InjectionOfCo2UnitDetailsDataType">
+		<xsd:sequence>	
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0"/>
+			<xsd:element name="CalculatedCO2Emissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>			
+			<xsd:choice>
+				<xsd:element name="MassFlowMeterUnitDetails" type="ghg:MassFlowMeterUnitDetailsDataType" minOccurs="0"/>
+				<xsd:element name="VolumetricFlowMeterUnitDetails" type="ghg:VolumetricFlowMeterUnitDetailsDataType" minOccurs="0"/>
+				<xsd:element name="MassContainerUnitDetails" type="ghg:MassContainerUnitDetailsDataType" minOccurs="0"/>
+				<xsd:element name="VolumetricContainerUnitDetails" type="ghg:VolumetricContainerUnitDetailsDataType" minOccurs="0"/>
+			</xsd:choice>
+		</xsd:sequence>		
+	</xsd:complexType>
+	<xsd:complexType name="MassFlowMeterUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Q1Data" type="ghg:QuarterlyMassFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q2Data" type="ghg:QuarterlyMassFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q3Data" type="ghg:QuarterlyMassFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q4Data" type="ghg:QuarterlyMassFlowMeterDetailsDataType" minOccurs="0"/>									
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VolumetricFlowMeterUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Q1Data" type="ghg:QuarterlyVolumetricFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q2Data" type="ghg:QuarterlyVolumetricFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q3Data" type="ghg:QuarterlyVolumetricFlowMeterDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q4Data" type="ghg:QuarterlyVolumetricFlowMeterDetailsDataType" minOccurs="0"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MassContainerUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Q1Data" type="ghg:QuarterlyMassContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q2Data" type="ghg:QuarterlyMassContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q3Data" type="ghg:QuarterlyMassContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q4Data" type="ghg:QuarterlyMassContainerDetailsDataType" minOccurs="0"/>									
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VolumetricContainerUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Q1Data" type="ghg:QuarterlyVolumetricContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q2Data" type="ghg:QuarterlyVolumetricContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q3Data" type="ghg:QuarterlyVolumetricContainerDetailsDataType" minOccurs="0"/>
+			<xsd:element name="Q4Data" type="ghg:QuarterlyVolumetricContainerDetailsDataType" minOccurs="0"/>									
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QuarterlyMassFlowMeterDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quantity" type="ghg:MassFlowMeterQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MassFlowMeterQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantityRedelivered" type="ghg:MassFlowMeterQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MassFlowMeterQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityRedeliveredMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2Concentration" type="ghg:Co2ConcentrationDetailsDataType" minOccurs="0"/>			
+			<xsd:element name="Co2ConcentrationMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CO2ConcentrationMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Co2ConcentrationMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2SubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QuarterlyVolumetricFlowMeterDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quantity" type="ghg:MeasurementDetailsDataType5" minOccurs="0"/>
+			<xsd:element name="QuantityMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:VolumetricFlowMeterQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantityRedelivered" type="ghg:VolumeFlowMeterQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:VolumetricFlowMeterQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityRedeliveredMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2Concentration" type="ghg:Co2ConcentrationDetailsDataType" minOccurs="0"/>						
+			<xsd:element name="Co2ConcentrationMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CO2ConcentrationMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Co2ConcentrationMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2SubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>					
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QuarterlyMassContainerDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quantity" type="ghg:MassContainerQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MassContainerQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantitySubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>			
+			<xsd:element name="QuantityRedelivered" type="ghg:MassContainerQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MassContainerQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityRedeliveredMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredSubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="Co2Concentration" type="ghg:Co2ConcentrationDetailsDataType" minOccurs="0"/>						
+			<xsd:element name="Co2ConcentrationMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CO2ConcentrationMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Co2ConcentrationMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2SubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="QuarterlyVolumetricContainerDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="Quantity" type="ghg:VolumeContainerQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:VolumetricContainerQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantitySubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>			
+			<xsd:element name="QuantityRedelivered" type="ghg:VolumeContainerQuantityDetailsDataType" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:VolumetricFlowMeterQuantityMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="QuantityRedeliveredMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="QuantityRedeliveredSubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="Co2Concentration" type="ghg:Co2ConcentrationDetailsDataType" minOccurs="0"/>						
+			<xsd:element name="Co2ConcentrationMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CO2ConcentrationMethodList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Co2ConcentrationMethodOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Co2SubstituteProceduresUsed" type="ghg:IndicatorDataType" minOccurs="0"/>							
+		</xsd:sequence>
+	</xsd:complexType>			
+	<xsd:complexType name="MassFlowMeterQuantityDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:MeasurementDetailsDataType5">
+				<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="VolumeFlowMeterQuantityDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:MeasurementDetailsDataType5">
+				<xsd:attribute name="volUOM" type="ghg:volUOM" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="MassContainerQuantityDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:MeasurementDetailsDataType6">
+				<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="VolumeContainerQuantityDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:MeasurementDetailsDataType6">
+				<xsd:attribute name="volUOM" type="ghg:volUOM" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Co2ConcentrationDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:MeasurementDetailsDataType6">
+				<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="PurposeOfInjectionList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="The facility received a Research and Development project exemption from reporting under 40 CFR part 98, subpart RR, for this reporting year."/>
+			<xsd:enumeration value="The facility includes a well or group of wells where a CO2 stream was injected into subsurface geologic formations to enhance the recovery of oil during this reporting year."/>
+			<xsd:enumeration value="The facility includes a well or group of wells where a CO2 stream was injected into subsurface geologic formations to enhance the recovery of natural gas during this reporting year."/>
+			<xsd:enumeration value="The facility includes a well or group of wells where a CO2 stream was injected into subsurface geologic formations for acid gas disposal during this reporting year."/>
+			<xsd:enumeration value="The facility includes a well or group of wells where a CO2 stream was injected for a purpose other than those listed."/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CO2SourceList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CO2 production wells"/>
+			<xsd:enumeration value="Electric generating unit"/>
+			<xsd:enumeration value="Ethanol plant"/>
+			<xsd:enumeration value="Pulp and paper mill"/>
+			<xsd:enumeration value="Natural gas processing"/>
+			<xsd:enumeration value="Gasification operations"/>
+			<xsd:enumeration value="Other anthropogenic source"/>
+			<xsd:enumeration value="Discontinued enhanced oil and gas recovery project"/>
+			<xsd:enumeration value="Unknown"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MassFlowMeterQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ASME MFC 11M-2006"/>
+			<xsd:enumeration value="ISO 14511.2001"/>
+			<xsd:enumeration value="Sales contract, invoices, or manifests"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumetricFlowMeterQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AGA Report #3"/>
+			<xsd:enumeration value="AGA Report #8"/>
+			<xsd:enumeration value="API 21.1"/>
+			<xsd:enumeration value="API 14.3"/>
+			<xsd:enumeration value="ASME MFC 12M-2006"/>
+			<xsd:enumeration value="ASME MFC 3M-2004"/>
+			<xsd:enumeration value="ASME MFC 4M-1986"/>
+			<xsd:enumeration value="ASME MFC 6M-1998"/>
+			<xsd:enumeration value="Sales contract, invoices, or manifests"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MassContainerQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NIST 44 Section 2 (2012)"/>
+			<xsd:enumeration value="Weigh bills, scales, or load cells"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VolumetricContainerQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Sales contract, invoices, or manifests"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CO2ConcentrationMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ASTM E1747-95 (2005)"/>
+			<xsd:enumeration value="ASTM D1945-03 (2010)"/>
+			<xsd:enumeration value="ASTM D1946-90"/>
+			<xsd:enumeration value="GPA 2261"/>
+			<xsd:enumeration value="GPA 2177-03"/>
+			<xsd:enumeration value="Sales contract"/>
+			<xsd:enumeration value="Other (specify)"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+</xsd:schema>

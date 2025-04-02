@@ -1,0 +1,17 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_PetroleumRefineriesUnit_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.Subpart Y Petroleum Refineries (CO2, CH4 and N2O according to source)
+	        </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:include schemaLocation="GHG_PetroleumRefineriesDetails_v15.1.xsd"/>
+	<xsd:complexType name="PetroleumRefineriesUnitDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:PetroleumRefineriesDetails" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PetroleumRefineriesUnit" type="ghg:PetroleumRefineriesUnitDataType"/>
+</xsd:schema>

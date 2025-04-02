@@ -1,0 +1,1266 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_SubPartHH_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.(Municipal Solid Waste Landfills)
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_LandfillGasOX_v15.1.xsd"/>
+	<xsd:include schemaLocation="GHG_LandfillGasMeasurementLocations_v15.1.xsd"/>
+	<xsd:complexType name="MSWDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="IsLandFillOpenIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EstimatedYearLandFillClosure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="StartingYearforAcceptingWaste" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FirstYearOfEmissionsReporting" type="xsd:gYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndingYearforAcceptingWaste" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LeachateRecirculationFrequency" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:LeachateRecirculationFrequencyList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsLeachateRecirculationIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsScalesIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsLandfillGasCollectionSystemIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsPassiveVentFlareIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(h) and 346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="WasteDisposalQuantity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="WasteDisposalQuantityEstimationMethod" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="WasteDisposalQuantityEstimationMethodReason" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element ref="ghg:WasteCompositionDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<!--<xsd:element name="BasisforEstimatingWasteComposition" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isCBI" type="xsd:string" use="optional" fixed="Y"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="MethaneFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="BasisforMethaneFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="LandfillSurfaceAreaContainingWaste" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:CoverTypeDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(f)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="AverageOxidationFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="AnnualMethaneGenerationRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="isActiveAerationofWasteIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="ActiveAerationDetails" type="ghg:ActiveAerationDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WasteQuantityFromFirstYearToCurrentYearDetails" type="ghg:WasteQuantityFromFirstYearToCurrentYearDetailsDataType"/>
+			<xsd:element name="PriorWasteQuantityDetails" type="ghg:PriorWasteQuantityDetailsDataType"/>
+			<xsd:choice>
+				<xsd:element name="NoGasCollectionSystemDetails" type="ghg:NoGasCollectionSystemDetailsDataType" minOccurs="0"/>
+				<xsd:element name="GasCollectionSystemDetails" type="ghg:GasCollectionSystemDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.346(i)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="MethaneFractionDeterminationMethod" type="ghg:MethaneFractionDeterminationMethodList" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(e)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MethaneFractionDeterminationAnnualValue" default="0.5" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(e)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IsMCFValueDefaultIndicator" type="ghg:IndicatorDataType" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualMCFValue" default="1.0" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0.5"/>
+						<xsd:maxInclusive value="1.0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualModeledCH4Generation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(g)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HistoricalWasteQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="HistoricalWasteQuantityMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:HistoricalWasteQuantityMethodList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="HistoricalMethodStartYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="HistoricalMethodEndYear" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="HistoricalEstimationPopulationServedDetails" type="ghg:HistoricalEstimationPopulationServedDetailsDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HistoricalLandfillCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="HistoricalMethodReason" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HistoricalEstimationPopulationServedDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ReportingYear" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="EstimatedPopulationServedByLandfill" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteQuantityFromFirstYearToCurrentYearDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualWasteQuantityMethodFromFirstYearToCurrentYear" type="ghg:AnnualWasteQuantityMethodFromFirstYearToCurrentYearDataType" maxOccurs="unbounded"/>
+			<xsd:element name="YearWasteDetails" type="ghg:YearWasteDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualWasteQuantityMethodFromFirstYearToCurrentYearDataType">
+		<xsd:sequence>
+			<xsd:element name="ReportingYear" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="TotalAnnualWasteDisposalQuantity" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualWasteDisposalQuantityAndMethodDetails" type="ghg:AnnualWasteDisposalQuantityDetailsDataType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualWasteDisposalQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodUsedToDetermineQuantity" type="ghg:AnnualWasteQuantityMethodList"/>
+			<xsd:element name="AnnualWasteDisposalQuantity" type="xsd:decimal" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PriorWasteQuantityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="PriorYearAnnualWasteQuantityMethod" type="ghg:PriorYearAnnualWasteQuantityMethodDataType" maxOccurs="unbounded"/>
+			<xsd:element name="PriorScalesWasteQuantityMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:PriorAnnualWasteQuantityMethodList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="PriorScalesPeriodStart" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="PriorScalesPeriodEnd" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="PriorYearWasteDetails" type="ghg:PriorYearWasteDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="WorkingCapacityDetails" type="ghg:WorkingCapacityDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TippingReceiptsDetails" type="ghg:TippingReceiptsDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HistoricalWasteQuantityDetails" type="ghg:HistoricalWasteQuantityDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PriorYearAnnualWasteQuantityMethodDataType">
+		<xsd:sequence>
+			<xsd:element name="ReportingYear" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="TotalAnnualWasteDisposalQuantity" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(a)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PriorYearAnnualWasteDisposalQuantityAndMethodDetails" type="ghg:PriorYearAnnualWasteDisposalQuantityAndMethodDetailsDataType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PriorYearAnnualWasteDisposalQuantityAndMethodDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethodUsedToDetermineQuantity" type="ghg:AnnualWasteQuantityMethodList"/>
+			<xsd:element name="AnnualWasteDisposalQuantity" type="xsd:decimal" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TippingReceiptsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="IsTippingReceiptsUsedToDetermineQuantitiesIndicator" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TippingReceiptsPeriodStart" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TippingReceiptsPeriodEnd" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WorkingCapacityDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="IsWorkingCapacityUsedToDetermineQuantitiesIndicator" type="ghg:IndicatorDataType" minOccurs="0"/>
+			<xsd:element name="WorkingCapacityPeriodStart" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="WorkingCapacityPeriodEnd" type="xsd:gYear" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PriorYearWasteDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="YearWasteDetail" type="ghg:YearWasteDetailDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="YearWasteDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="YearWasteDetail" type="ghg:YearWasteDetailDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="YearWasteDetailDataType">
+		<xsd:sequence>
+			<xsd:element name="YearWasteDisposed" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:gYear"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualWasteQuantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(b)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType4"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteTypeDetails" type="ghg:WasteTypeDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="BulkWasteType" minOccurs="0">
+					<xsd:complexType>
+						<xsd:simpleContent>
+							<xsd:extension base="ghg:BulkeWasteTypeList"/>
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:simpleContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="ModifiedBulkWasteType" minOccurs="0">
+					<xsd:complexType>
+						<xsd:simpleContent>
+							<xsd:extension base="ghg:ModifiedBulkWasteTypeList"/>
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:simpleContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="WasteCompositionType" minOccurs="0">
+					<xsd:complexType>
+						<xsd:simpleContent>
+							<xsd:extension base="ghg:WasteCompositionTypeList"/>
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:simpleContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>
+			<!--<xsd:element name="WasteType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:WasteTypeList">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element name="PercentByWeight" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(c)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DegradableOrganicCarbonValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:minInclusive value="0"/>
+						<xsd:maxInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FractionOfDOCDissimilated" type="xsd:decimal" fixed="0.5" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DecayRate" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(2)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="IsActiveAerationofWasteIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="ActiveAerationDetails" type="ghg:ActiveAerationDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ActiveAerationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AerationBlowerCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="flowUOM" type="ghg:flowUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="LandfillFractionAffectedbyAeration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AerationBlowerOperationsHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="timeUOM" type="ghg:timeUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherMCFFactors" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AdditionalDescription" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(d)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartHH" type="ghg:MSWDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.340</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="WasteCompositionDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WasteTypeName" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Municipal"/>
+						<xsd:enumeration value="Biosolids or biological sludges"/>
+						<xsd:enumeration value="Other"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WasteTypePercentage" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DegradableOrganicCarbon" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="carboncontentUOM" type="ghg:carboncontentUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="DecayRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WasteCompositionDetails" type="ghg:WasteCompositionDetailsDataType"/>
+	<xsd:complexType name="CoverTypeDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CoverTypeName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CoverTypeNameList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- GHG-2269 <xsd:element name="SurfaceArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(f)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType8">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element> -->
+			<!--<xsd:element name="OxidationFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CoverTypeDetails" type="ghg:CoverTypeDetailsDataType"/>
+	<xsd:complexType name="NoGasCollectionSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MethaneOxidationFraction" type="ghg:HHWithoutLFGCSMethaneOxidationFractionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnnualMethaneEmissionsEquationHH5" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+						<!--<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>-->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoGasCollectionSystemDetails" type="ghg:NoGasCollectionSystemDetailsDataType"/>
+	<xsd:complexType name="GasCollectionSystemDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualVolumeFGCollectedGasVolumetricFlow" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:choice>
+				<xsd:element name="AnnualAverageDailyMethaneConcentration" type="ghg:MeasurementDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.346(i)(2)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="AnnualAverageWeeklyMethaneConcentration" type="ghg:MeasurementDetailsDataType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>MRR Reference:  98.346(i)(2)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>-->
+			<xsd:element name="AnnualAverageMethodDetails" type="ghg:AnnualAverageMethaneDetailsDataType" minOccurs="0"/>
+			<xsd:element name="IsTemperatureIncorporatedIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsPressureIncorporatedIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsLFGFlowWetBasisIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsMethaneConcentrationWetBasisIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:GasCollectionMonthlyDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SiteDestructionLocation" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:OnSiteDestructionIndicatorList"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantityOfRecoveredMethaneHH4" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteDepthDetails" type="ghg:WasteDepthDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:EquipmentDetails" minOccurs="0"/>-->
+			<xsd:element name="SystemManufacturer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SystemCapacity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="flowUOM" type="ghg:flowUOM"/>
+						</xsd:extension>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofWells" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EstimatedGasCollectionEfficiency" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneOxidationFractions" type="ghg:HHWithLFGCSMethaneOxidationFractionsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MeasurementLocations" type="ghg:MeasurementLocationsDetailsDataType" minOccurs="0"/>
+			<xsd:element name="MethaneGenerationEquationHH5" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(h)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneGenerationEquationHH7" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(10)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BasisforInputMethaneGenerationValue" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisforInputMethaneGenerationValueList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneEmissionsEquationHH6" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(11)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneEmissionfromEquationHH8" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnnualAverageMethaneDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualAverageMethaneConcentration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="percentUOM" type="ghg:percentUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofDaysSubstituted" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:choice>
+			<xsd:element name="NumberofWeeksSubstituted" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NumberofMonthsSubstituted" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			</xsd:choice>			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteDepthDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="WasteDepthDetail" type="ghg:WasteDepthDetailDataType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WasteDepthDetailDataType">
+		<xsd:sequence>
+			<xsd:element name="AreaType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:AreaTypeList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="WasteDepth" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heightUOM" type="ghg:heightUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SurfaceArea" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(7)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType6">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GasCollectionSystemDetails" type="ghg:GasCollectionSystemDetailsDataType"/>
+	<xsd:complexType name="GasCollectionMonthlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MonthNameList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageTemperature" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="tempUOM" type="ghg:tempUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AveragePressure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="pressureUOM" type="ghg:pressureUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageMoistureContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.346(i)(4)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:choice>
+				<xsd:element name="AverageTemperature" type="ghg:MeasurementDetailsDataType" minOccurs="0"/>
+				<xsd:element name="TemperatureCommentsText" minOccurs="0">
+					<xsd:complexType>
+						<xsd:simpleContent>
+							<xsd:extension base="xsd:string">
+								<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							</xsd:extension>
+						</xsd:simpleContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>-->
+			<!--<xsd:choice>
+				<xsd:element name="AveragePressure" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="ghg:MeasurementDetailsDataType">
+								<xsd:attribute name="pressureUOM" type="ghg:pressureUOM"/>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PressureCommentsText" minOccurs="0">
+					<xsd:complexType>
+						<xsd:simpleContent>
+							<xsd:extension base="xsd:string">
+								<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+							</xsd:extension>
+						</xsd:simpleContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:choice>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GasCollectionMonthlyDetails" type="ghg:GasCollectionMonthlyDetailsDataType"/>
+	<xsd:complexType name="EquipmentDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="DescriptionofGasCollectionSystem" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SurfaceAreaofSystem" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="areaUOM" type="ghg:areaUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EstimatedWasteDepth" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="heightUOM" type="ghg:heightUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasCollectionSystemEfficiency" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualOperatingHoursofGasCollectionSystem" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="PriorAnnualWasteQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LeachateRecirculationFrequencyList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Used several times a year for the past 10 years"/>
+			<xsd:enumeration value="Used at least once a year for the past 10 years"/>
+			<xsd:enumeration value="Used occasionally (but not every year) over the past 10 years"/>
+			<xsd:enumeration value="Not used for the past 10 years"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BulkeWasteTypeList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bulk waste"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ModifiedBulkWasteTypeList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="bulk MSW waste (excluding inerts and C&amp;D waste)"/>
+			<xsd:enumeration value="bulk C&amp;D waste"/>
+			<xsd:enumeration value="inerts"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WasteCompositionTypeList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="food waste"/>
+			<xsd:enumeration value="garden"/>
+			<xsd:enumeration value="paper"/>
+			<xsd:enumeration value="wood and straw"/>
+			<xsd:enumeration value="textiles"/>
+			<xsd:enumeration value="diapers"/>
+			<xsd:enumeration value="inerts"/>
+			<xsd:enumeration value="sewage sludge"/>
+			<xsd:enumeration value="bulk waste"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AnnualWasteQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Used scales to weigh loads before off-loading and either used scales to weigh individual loads after off-loading or used representative tare vehicle/container weights"/>
+			<xsd:enumeration value="Used working capacity for each vehicle/container"/>
+			<xsd:enumeration value="other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="HistoricalWasteQuantityMethodList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Method #1:  Assume all prior year’s waste disposal quantities are the same as the waste quantity in the first year for which waste quantities are available."/>
+			<xsd:enumeration value="Method #2:  Use the estimated population served by the landfill in each year, the values for national average per capita waste generation, and fraction of generated waste disposed of in solid waste disposal sites (Equation HH-2)."/>
+			<xsd:enumeration value="Method #3:  Use the landfill capacity or, for operating landfills, the amount of waste-in-place to estimate a constant average waste disposal quantity (Equation HH-3)."/>
+			<xsd:enumeration value="None"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BasisforInputMethaneGenerationValueList">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Equation HH-1"/>
+			<xsd:enumeration value="Equation HH-4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="EquipmentDetails" type="ghg:EquipmentDetailsDataType"/>
+</xsd:schema>

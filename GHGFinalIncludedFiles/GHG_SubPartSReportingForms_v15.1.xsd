@@ -1,0 +1,183 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name      : GHG_SubPartSReportingForms_v15.1.xsd
+		Current Version Available At : 
+		Description      : subpart s reporting
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="SubPartSReportingFormsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CemsOnlyDetails" type="ghg:CemsOnlyDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CemsOnlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LimeProductInformationDetails" type="ghg:LimeProductInformationDetailsDataType" minOccurs="0"/>
+			<xsd:element name="CalcinedLimeByproductOrWasteInformationDetails" type="ghg:CalcinedLimeByproductOrWasteInformationDetailsDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LimeProductInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="LimeProductInformationRowDetails" type="ghg:LimeProductInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalcinedLimeByproductOrWasteInformationDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CalcinedLimeByproductOrWasteInformationRowDetails" type="ghg:CalcinedLimeByproductOrWasteInformationRowDetailsDataType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LimeProductInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProducedType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="High calcium lime"/>
+						<xsd:enumeration value="Dolomitic lime"/>
+						<xsd:enumeration value="High-Calcium, Hydrated"/>
+						<xsd:enumeration value="Dolomitic, Hydrated"/>
+						<xsd:enumeration value="Dead-Burned Dolomite/Refractory Lime"/>
+						<xsd:enumeration value="Magnesian lime"/>
+						<xsd:enumeration value="Hydraulic lime"/>
+						<xsd:enumeration value="Other"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProducedTypeOtherDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BeginningOfYearInventory" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EndOfYearInventory" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantitySold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethodUsed" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Weigh feeders"/>
+						<xsd:enumeration value="Rail scales"/>
+						<xsd:enumeration value="Truck scales"/>
+						<xsd:enumeration value="Barge measurements"/>
+						<xsd:enumeration value="Other"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedOtherDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsAnnualSoldBasedOnOneOrMoreSubstitutes" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualNotSold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsNotSoldBasedOnOneOrMoreSubstitutes" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CalcinedLimeByproductOrWasteInformationRowDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GeneratedType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BeginningOfYearInventory" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EndOfYearInventory" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualQuantitySold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethodUsed" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Weigh feeders"/>
+						<xsd:enumeration value="Rail scales"/>
+						<xsd:enumeration value="Truck scales"/>
+						<xsd:enumeration value="Barge measurements"/>
+						<xsd:enumeration value="Other"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MethodUsedOtherDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IsAnnualSoldBasedOnOneOrMoreSubstitutes" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AnnualNotSold" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:decimal">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="IsNotSoldBasedOnOneOrMoreSubstitutes" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

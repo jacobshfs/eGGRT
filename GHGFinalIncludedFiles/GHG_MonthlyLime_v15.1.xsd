@@ -1,0 +1,23 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  
+             elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_MonthlyLime_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+<xsd:complexType name="MonthlyLimeDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MonthName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReportedEmissionFactor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Mass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassUnits" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MonthlyCAOChemicalComposition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MonthlyMGOChemicalComposition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MonthlyChemicalCompositionMethod" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MonthlyLime" type="MonthlyLimeDataType"/>
+</xsd:schema>

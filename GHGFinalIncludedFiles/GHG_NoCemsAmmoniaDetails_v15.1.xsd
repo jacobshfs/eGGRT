@@ -1,0 +1,330 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_NoCemsAmmoniaDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="NoCemsAmmoniaDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:NoCemsAmmoniaUnitDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsAmmoniaDetails" type="ghg:NoCemsAmmoniaDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.76(b)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="NoCemsAmmoniaUnitDetailsDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentificationNumber" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<xsd:element ref="ghg:UnitIdentification" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnnualCO2Emission" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(1)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:MonthlyNoCEMSFeedStockDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<!--
+			<xsd:element name="AnnualCO2EmissionfromWasteRecycle" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			-->
+			<xsd:element name="CarbonContentofFeedStock" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(6)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="carboncontentUOM" type="ghg:carboncontentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NoCemsAnnualMethanolProduced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualAverageGIvtDetails" type="ghg:AnnualAverageGIvtDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCemsAmmoniaUnitDetails" type="ghg:NoCemsAmmoniaUnitDetailsDataType"/>
+	<xsd:complexType name="NoCEMSFeedStockDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FeedStockType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(2)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Gas"/>
+						<xsd:enumeration value="Liquid"/>
+						<xsd:enumeration value="Solid"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Quantity" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(2) and 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+						<!-- cbi-stay quantity changed to MeasurementDetailsDataType2 by michael smith 20101103 -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- changed to MethodQuantityType from xsd:string mjs 20101208-->
+			<xsd:element name="QuantityDeterminationMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MethodQuantityType"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- OtherQuantityDeterminationMethod added mjs 20101208-->
+			<xsd:element name="OtherQuantityDeterminationMethod" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(3)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CarbonContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(7)/(b)(10)/(b)(11) and 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+						<!-- cbi-stay carboncontent changed to MeasurementDetailsDataType2 by michael smith 20101103 -->
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- changed to BasisCarbonContentType from xsd:string mjs 20101208-->
+			<xsd:element name="BasisforCarbonContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(4) and (b)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisCarbonContentType"/>
+						<!--<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>-->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- removed by michael smith 20101001 -->
+			<!--<xsd:element name="TestMethodforCarbonContent" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(5)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--  GaseousFeedStockDetails coming back by michael smith 20101213 -->
+			<!-- cbi-stay GaseousFeedStockDetails removed by michael smith 20101103 -->
+			<xsd:element ref="ghg:GaseousFeedStockDetails" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NoCEMSFeedStockDetails" type="ghg:NoCEMSFeedStockDetailsDataType"/>
+	<xsd:complexType name="MonthlyNoCEMSFeedStockDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthName" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MonthNameList"/>
+						<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:NoCEMSFeedStockDetails" minOccurs="0"/>
+			<!--
+			<xsd:element name="VolumeofWasteRecycleStream" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CarbonContentofWasteRecycleStream" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="carboncontentUOM" type="ghg:carboncontentUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BasisforCarbonContentofWasteRecycleStream" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MonthlyNoCEMSFeedStockDetails" type="ghg:MonthlyNoCEMSFeedStockDetailsDataType"/>
+	<xsd:complexType name="GaseousFeedStockDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MolecularWeight" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- GaseousFeedStockDetailsDataType back but MolarVolumeConversionfactor not mjs 20101213 -->
+			<!--<xsd:element name="MolarVolumeConversionfactor" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.76(b)(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="factorUOM" type="ghg:factorUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- MethodQuantityType added mjs 20101208-->
+	<xsd:simpleType name="MethodQuantityType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Flow meter"/>
+			<xsd:enumeration value="Company records"/>
+			<xsd:enumeration value="Other"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- BasisCarbonContentType added mjs 20101208-->
+	<xsd:simpleType name="BasisCarbonContentType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Supplier records"/>
+			<xsd:enumeration value="ASTM D1945-03"/>
+			<xsd:enumeration value="ASTM D1946-90 (Reapproved 2006)"/>
+			<xsd:enumeration value="ASTM D2502-04 (Reapproved 2002)"/>
+			<xsd:enumeration value="ASTM D2503-92 (Reapproved 2007)"/>
+			<xsd:enumeration value="ASTM D3238-95 (Reapproved 2005)"/>
+			<xsd:enumeration value="ASTM D5291-02 (Reapproved 2007)"/>
+			<xsd:enumeration value="ASTM D3176-89 (Reapproved 2002)"/>
+			<xsd:enumeration value="ASTM D5373-08"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="GaseousFeedStockDetails" type="ghg:GaseousFeedStockDetailsDataType"/>
+	<xsd:complexType name="AnnualAverageGIvtDataType">
+		<xsd:sequence>
+			<xsd:element name="FeedStockType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Gas"/>
+						<xsd:enumeration value="Liquid"/>
+						<xsd:enumeration value="Solid"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="AverageVolumeOrMassValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SumVolumeOrMassValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="volUOM" type="ghg:volUOM" use="optional"/>
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AverageCarbonContentValue" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="carboncontentUOM" type="ghg:carboncontentUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

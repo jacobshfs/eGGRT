@@ -1,0 +1,107 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_HFC23_v15.1.xsd
+        Current Version Available At : SVN
+        Description   : Gives the HFC-23 Information.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:complexType name="HydroFluoroCarbonsUnitDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalCO2Emissions" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalCH4Emissions" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalN2OEmissions" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalHFC23Emissions" type="xsd:string" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="NoTOHFC23" type="ghg:NoTOHFC23UnitDataType"/>
+				<xsd:element name="NoTOHCFC22" type="ghg:NoTOHCFC22UnitDataType"/>
+				<xsd:element name="TOHCFC22" type="ghg:TOHCFC22UnitDataType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HydroFluoroCarbonsUnit" type="ghg:HydroFluoroCarbonsUnitDataType"/>
+	<xsd:complexType name="NoTOHFC23UnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualHFC23Generated" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="ghg:HFC23Produced" minOccurs="0"/>
+			<xsd:element ref="ghg:HFC23Unit" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ProcessStreamId" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="NoTOHFC23Unit" type="ghg:NoTOHFC23UnitDataType"/>
+	<xsd:complexType name="NoTOHCFC22UnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualHFC23Generated" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="ghg:HFC23Produced" minOccurs="0"/>
+			<xsd:element ref="ghg:HFC23Unit" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ProcessStreamId" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="NoTOHCFC22Unit" type="ghg:NoTOHCFC22UnitDataType"/>
+	<xsd:complexType name="TOHCFC22UnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualHFC23Generated" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="ghg:TOHFCProduced" minOccurs="0"/>
+			<xsd:element ref="ghg:DestructionDevice" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ProcessStreamId" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="TOHCFC22Unit" type="ghg:TOHCFC22UnitDataType"/>
+	<xsd:complexType name="HFC23UnitDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualHFC23Generated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnualHFC23SentOffsiteSale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23SentOffsiteDestruction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23SentOnsiteDestruction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23StorageYearEnd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23StorageYearBeginning" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HFC23Unit" type="ghg:HFC23UnitDataType"/>
+	<xsd:complexType name="HFC23ProducedDataType">
+		<xsd:sequence>
+			<xsd:element name="Period" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassFlowHFC23Measured" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FractionHFC23ByProductStream" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23SentOnsiteDestruction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumberMeasuringPeriods" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConversionFactor" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="ghg:HCFC22Produced" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HFC23Produced" type="ghg:HFC23ProducedDataType"/>
+	<xsd:complexType name="HCFC22ProducedDataType">
+		<xsd:sequence>
+			<xsd:element name="Period" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassHCFC22Measured" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MassHCFC22AddedUpStream" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LossFactor" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HCFC22Produced" type="ghg:HCFC22ProducedDataType"/>
+	<xsd:complexType name="TOHFCProducedDataType">
+		<xsd:sequence>
+			<xsd:element name="Period" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PeriodLength" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HFC23EmissionRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HCFC22ProductionRate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="HCFC22ProductionRateRecent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumberMeasuringPeriods" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConversionFactor" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TOHFCProduced" type="ghg:TOHFCProducedDataType"/>
+	<xsd:complexType name="DestructionDeviceDataType">
+		<xsd:sequence>
+			<xsd:element name="MassHFC23Fed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlowRateHFC23Fed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConcentrationHFC23Outlet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlowRateHFC23Outlet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DestructionEfficiency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedDestructionEfficiency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MethodUsedForMassHFC23Destroyed" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="DestructionDeviceId" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="DestructionDevice" type="ghg:DestructionDeviceDataType"/>
+</xsd:schema>

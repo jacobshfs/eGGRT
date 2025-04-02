@@ -1,0 +1,178 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+			Schema Name  : GHG_SubPartT_v15.1.xsd
+	        Current Version Available At : 
+	        Description   : Identification information regarding the submission file.
+	    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="MagnesiumProductionDataType">
+		<xsd:sequence>
+			<xsd:element ref="ghg:GHGasInfoDetails" maxOccurs="unbounded"/>
+			<xsd:element name="ProductionProcessDetails" type="ghg:ProductionProcessDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CoverGasDetails" type="ghg:CoverGasDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubPartT" type="ghg:MagnesiumProductionDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.206</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ProductionUnitDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GroupUnitName" type="xsd:string"/>
+			<xsd:element name="GroupUnitNameDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GroupUnitType" type="xsd:string"/>
+			<xsd:element name="OtherUnit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlowRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="flowUOM" type="ghg:flowUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GasMixtureDetails" type="ghg:GasMixtureDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ProductionUnitDetails" type="ghg:ProductionUnitDetailsDataType"/>
+	<xsd:complexType name="ProductionProcessDetailsDataType">
+		<xsd:annotation>
+			<xsd:documentation>MRR Reference:  98.206(b)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ProductProcessType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Primary Production"/>
+						<xsd:enumeration value="Secondary Production (Recycling)"/>
+						<xsd:enumeration value="Die Casting"/>
+						<xsd:enumeration value="Sand Casting"/>
+						<xsd:enumeration value="Anode Casting"/>
+						<xsd:enumeration value="Permanent Mold Casting"/>
+						<xsd:enumeration value="Wrought Products"/>
+						<xsd:enumeration value="Other Process"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ProductProcessTypeOther" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MagnesiumAmount" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ProductionUnitDetails" type="ghg:ProductionUnitDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GasMixtureDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="GasType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Cover Gas"/>
+						<xsd:enumeration value="Carrier Gas"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CoverGasName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OtherCoverGasDetails" type="ghg:OtherCoverGasDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OtherNonGHGCover" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CoverVolumePercent" type="ghg:PercentageDataType" minOccurs="0"/>
+			<xsd:element name="CarrierGasName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OtherGHGCarrierDetails" type="ghg:OtherGHGCarrierDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OtherNonGHGCarrier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarrierVolumePercent" type="ghg:PercentageDataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GasMixtureDetails" type="ghg:GasMixtureDetailsDataType"/>
+	<xsd:complexType name="CoverGasDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CoverGasName" type="xsd:string"/>
+			<xsd:element name="OtherCoverGasDetails" type="ghg:OtherCoverGasDetailsDataType" minOccurs="0"/>
+			<xsd:element name="OtherGHGCarrierDetails" type="ghg:OtherGHGCarrierDetailsDataType" minOccurs="0"/>
+			<xsd:element name="AnnualCoverGas" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="coverGasUOM" type="ghg:coverGasUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="UsageRateDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProtectionTechDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotalAnnualEmission" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CalculationMethodUsed" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="WereMissingDataUsed" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Yes"/>
+						<xsd:enumeration value="No"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MissingDataMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimePeriodUsed" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="TimePeriodUsedScale" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="hours"/>
+						<xsd:enumeration value="days"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="QuantityEmission" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherCoverGasDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CoverGasName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CoverCASNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CoverGasFormula" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherGHGCarrierDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="CarrierGasName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarrierCASNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CarrierGasFormula" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GroupOfFluorinatedGreenHouseGas" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.96(c)(1)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="coverGasUOM">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="kg/mton"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
