@@ -1,0 +1,78 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_TiO2MonthlyDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="TiO2MonthlyDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="MonthName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(8),(9)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:MonthNameList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MonthlyTiO2Produced" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(8)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MonthlyCalcinedPetroleumCokeConsumption" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(6), (b)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BasisforCarbonContentofPetroleumCokeMonthly" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(10), (b)(12)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:BasisforCarbonContentofPetroleumCokeMonthlyType">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CarbonContentofPetCoke" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference: 98.316(b)(15)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType2"/>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="BasisforCarbonContentofPetroleumCokeMonthlyType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Supplier records"/>
+			<xsd:enumeration value="ASTM D3176-89 (Reapproved 2002)"/>
+			<xsd:enumeration value="ASTM D5373-08"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="TiO2MonthlyDetails" type="ghg:TiO2MonthlyDetailsDataType"/>
+</xsd:schema>

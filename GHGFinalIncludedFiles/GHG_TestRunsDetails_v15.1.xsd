@@ -1,0 +1,42 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_TestRunsDetails_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="TestRunsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProductionRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NitrousOxideConcentration" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="VolumetricFlowRate" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="rateUOM" type="ghg:rateUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TestRunsDetails" type="ghg:TestRunsDataType"/>
+</xsd:schema>

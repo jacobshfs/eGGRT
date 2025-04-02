@@ -1,0 +1,378 @@
+<xsd:schema xmlns:ghg="http://www.ccdsupport.com/schema/ghg" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ccdsupport.com/schema/ghg" elementFormDefault="qualified" attributeFormDefault="unqualified" version="15.1">
+	<xsd:annotation>
+		<xsd:documentation>
+		Schema Name  : GHG_Tier4Details_v15.1.xsd
+        Current Version Available At : 
+        Description   : Identification information regarding the submission file.
+	        </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="GHG_SimpleContent_v15.1.xsd"/>
+	<xsd:complexType name="Tier4CEMSDetailsDataType">
+		<xsd:sequence>
+			<!--<xsd:element name="UnitIdentification" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:UnitIdentificationDetailsDataType">
+							<xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+			<!--<xsd:element ref="ghg:UnitIdentification" minOccurs="0"/>-->
+			<!--<xsd:element ref="ghg:CommonStackCEMSDetails" minOccurs="0"/>-->
+			<xsd:element ref="ghg:CEMSMonitoringLocation" minOccurs="0"/>
+			<xsd:element name="CO2EmissionsAllBiomassFuelsCombined" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(8)(ii), 98.36(b)(9)(ii), 98.36(c)(1)(vi), 98.36(c)(2)(viii), 98.36(c)(3)(vi), 98.36(d)(2)(ii)(I), and 98.36(d)(2)(iii)(I) </xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CO2EmissionsNonBiogenic" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(ii) and 98.36(c)(2)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualCO2EmissionsMeasuredByCEMS" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(i), 98.36(b)(9)(ii), 98.36(c)(2)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalCH4CombustionEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(iii), 98.36(c)(2)(ix)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalN2OCombustionEmissions" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(9)(iii), 98.36(c)(2)(ix)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:CalculatedDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element ref="ghg:TierFuelCEMSDetails" minOccurs="0" maxOccurs="unbounded"/>-->
+			<xsd:element ref="ghg:Tier4QuarterDetails" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(B)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TotalSourceOperatingHours" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OperatingHoursDetails" type="ghg:OperatingHoursDetailsDataType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(e)(2)(vi)(C) and 98.3(c)(8)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CarbonDioxideCombustionEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:TierMethodologyStartDate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(6), 98.36(c)(2)(vi)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="ghg:TierMethodologyEndDate" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(7), 98.36(c)(2)(vii)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--<xsd:element name="Tier4Details" type="ghg:UnitTier4DetailsDataType" minOccurs="0"/>-->
+			<xsd:element name="SlipStreamIndicator" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.33(a)(4)(viii)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:IndicatorDataType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CEMSFuel" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR reference: 98.36(c)(1)(v)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UnitNamesDataType">
+		<xsd:sequence>
+			<xsd:element name="UnitName" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartTier4CEMSDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:Tier4CEMSDetailsDataType">
+				<xsd:sequence>
+					<xsd:element name="ProcessUnitNames" type="ghg:UnitNamesDataType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartXTier4CEMSDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:Tier4CEMSDetailsDataType">
+				<xsd:sequence>
+					<xsd:element name="XProcessUnits" type="ghg:XProcessUnitsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="SubpartYTier4CEMSDetailsDataType">
+		<xsd:complexContent>
+			<xsd:extension base="ghg:Tier4CEMSDetailsDataType">
+				<xsd:sequence>
+					<xsd:element name="YProcessUnits" type="ghg:YProcessUnitsDetailsDataType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="YProcessUnitsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessUnitName" type="ghg:UnitNamesDataType" minOccurs="0"/>
+			<xsd:element name="CarbonDioxideProcessEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!--<xsd:element name="CarbonDioxideCombustionEmissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>-->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="XProcessUnitsDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="ProcessUnitName" type="ghg:UnitNamesDataType" minOccurs="0"/>
+			<xsd:element name="CarbonDioxideFractionProcessAndCombustion" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="MethaneFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NitrousOxideFraction" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="fractionUOM" type="ghg:fractionUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tier4CEMSDetails" type="ghg:SubpartTier4CEMSDetailsDataType"/>
+	<xsd:element name="XTier4CEMSDetails" type="ghg:SubpartXTier4CEMSDetailsDataType"/>
+	<xsd:element name="YTier4CEMSDetails" type="ghg:SubpartYTier4CEMSDetailsDataType"/>
+	<xsd:element name="CEMSMonitoringLocation">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ghg:CEMSMonitoringLocationDataType">
+					<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CEMSMonitoringLocationDataType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Type" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:CEMSMonitoringUnitType"/>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CommonStackCEMSDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="TotalNumberProcessUnits" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TotalNumberStationaryCombustionUnits" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:Count">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ProcessUnitType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:UnitType">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CommonStackCEMSDetails" type="ghg:CommonStackCEMSDetailsDataType"/>
+	<xsd:complexType name="TierFuelCEMSDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FuelType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(4), 98.36(c)(1) (v), 98.36(c)(2)(iv), 98.36(c)(3)(iv), 98.36(d)(2)(ii)(A), and 98.36(d)(2)(iii)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ghg:SPCFuelList">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="xsd:string" use="optional" fixed="Y"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="OtherFuelName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(4), 98.36(c)(1) (v), 98.36(c)(2)(iv), 98.36(c)(3)(iv), 98.36(d)(2)(ii)(A), and 98.36(d)(2)(iii)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="BlendFuelName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MRR Reference:  98.36(b)(4), 98.36(c)(1) (v), 98.36(c)(2)(iv), 98.36(c)(3)(iv), 98.36(d)(2)(ii)(A), and 98.36(d)(2)(iii)(A)</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:Tier4FuelDetails" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TierFuelCEMSDetails" type="ghg:TierFuelCEMSDetailsDataType"/>
+	<xsd:complexType name="Tier4DetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="AnnualCO2Emissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="optional"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="AnnualBiogenicCO2Emissions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:extension base="ghg:MeasurementDetailsDataType">
+							<xsd:attribute name="massUOM" type="ghg:massUOM" use="required"/>
+						</xsd:extension>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:Tier4FTDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tier4Details" type="ghg:Tier4DetailsDataType"/>
+	<xsd:complexType name="Tier4FTDetailsDataType">
+		<xsd:sequence>
+			<xsd:element name="FuelType" minOccurs="0">
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="xsd:string">
+							<!-- <xsd:attribute name="isConfidentialBusinessInformationIndicator" type="ghg:IndicatorDataType" use="optional"/> -->
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element ref="ghg:Tier4FuelDetails" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ghg:GHGasDetails" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tier4FTDetails" type="ghg:Tier4FTDetailsDataType"/>
+</xsd:schema>
